@@ -229,8 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slime: {fileID: 1475888424}
-  looksensivity: 0.125
-  offset: {x: 0, y: 0, z: 0}
+  looksensivity: 0
+  cameraPositionZ: -10
 --- !u!4 &1475888424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4364970053845605068, guid: d875288aa705ab1498931973df984cb7, type: 3}
@@ -247,6 +247,10 @@ PrefabInstance:
     - target: {fileID: 1328674747895592732, guid: d875288aa705ab1498931973df984cb7, type: 3}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692614544706600791, guid: d875288aa705ab1498931973df984cb7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4364970053845605068, guid: d875288aa705ab1498931973df984cb7, type: 3}
       propertyPath: m_LocalPosition.x

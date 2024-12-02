@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform slime;  
-    public float looksensivity = 0.125f;
+    public Transform slime;
+    public float cameraPositionZ = -10f;
 
     void LateUpdate()
     {
-        Vector2 position = slime.position;
-        Vector3 cameraPosition = Vector3.Lerp(transform.position, position, looksensivity);
+        Vector3 position = slime.position;
+        Vector3 cameraPosition = new Vector3(position.x, position.y, cameraPositionZ);
         transform.position = cameraPosition;
     }
 }
