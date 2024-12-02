@@ -1,11 +1,5 @@
 public interface IManager
 {
-    public void init()
-    {
-
-    }
-    public void release()
-    {
-
-    }
+    public void init();
+    public void release();
 }

@@ -2,22 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolManager : MonoBehaviour
+public class PoolManager : MonoBehaviour, IManager
 {
     public GameObject[] prefabs;
 
     List<GameObject>[] pools;
-
-    private void Awake()
-    {
-        pools = new List<GameObject>[prefabs.Length]; // 풀과 프리팹의 길이 동일하게
-
-        for (int index = 0; index < pools.Length; index++) // 배열 안에 있는 각각의 리스트들 초기화
-        {
-            pools[index] = new List<GameObject>();
-        }
-    }
-
     public GameObject Get(int index)
     {
         GameObject select = null;
@@ -41,5 +30,23 @@ public class PoolManager : MonoBehaviour
         }
 
         return select;
+    }
+
+    private void Awake()
+    {
+        pools = new List<GameObject>[prefabs.Length]; // 풀과 프리팹의 길이 동일하게
+
+        for (int index = 0; index < pools.Length; index++) // 배열 안에 있는 각각의 리스트들 초기화
+        {
+            pools[index] = new List<GameObject>();
+        }
+    }
+    public void init()
+    {
+
+    }
+    public void release()
+    {
+
     }
 }
