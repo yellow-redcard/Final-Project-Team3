@@ -37,4 +37,9 @@ public class Enemy : MonoBehaviour
         spriter.flipX = target.position.x < rigid.position.x;
         // 현재위치를 비교해서 x축을 뒤집어준다.
     }
+
+    private void OnEnable()
+    {
+        target = GameManager.Instance.playerMovement.GetComponent<Rigidbody2D>();
+    }
 }   
