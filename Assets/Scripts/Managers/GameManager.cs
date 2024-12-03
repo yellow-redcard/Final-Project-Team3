@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class GameManager : MonoSingleton<GameManager>
 {
     public TopDownMovement playerMovement;
@@ -9,6 +11,9 @@ public class GameManager : MonoSingleton<GameManager>
     //public ItemManager itemManager;
     public PoolManager poolManager;
 
+    public float gameTime;
+    public float maxGameTime = 2 * 10f;
+
     private void Start()
     {
         uiManager.init();
@@ -17,5 +22,15 @@ public class GameManager : MonoSingleton<GameManager>
         //spawnManager.init();
         //itemManager.init();
         poolManager.init();
+    }
+
+    void Update()
+    {
+        gameTime += Time.deltaTime;
+
+        if (gameTime > maxGameTime)
+        {
+            gameTime = maxGameTime;
+        }
     }
 }
