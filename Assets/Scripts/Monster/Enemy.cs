@@ -57,4 +57,34 @@ public class Enemy : MonoBehaviour
         maxHealth = data.health;
         health = data.health;
     }
-}   
+    public void TakeDamage(int damage) // 체력 감소
+    {
+        if (!isLive) return;
+
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die() //사망 처리
+    {
+        isLive = false;
+        gameObject.SetActive(false); // 적 비활성화
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Skill")) // 스킬과 충돌 처리
+        {
+            Skill skill = collision.GetComponent<Skill>();
+            if (skill != null)
+            {
+                TakeDamage((int)skill.damage);
+            }
+        }
+    }
+}
+ 
