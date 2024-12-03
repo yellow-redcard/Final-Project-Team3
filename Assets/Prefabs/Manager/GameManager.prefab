@@ -46,7 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 1035425149486575370, guid: 6e15fbe758568154591ea1739ee41d54, type: 3}
-  - {fileID: 1035425149486575370, guid: 6e15fbe758568154591ea1739ee41d54, type: 3}
+  - {fileID: 7700342816964558265, guid: a5aca47f5f3e800498f574fa8373178c, type: 3}
+  - {fileID: 3254948211926915299, guid: 7482857cd303f814c9ce904392d9761a, type: 3}
+  - {fileID: 3885445925491934176, guid: c5eaa1304268cc245afa297f79eb869f, type: 3}
+  - {fileID: 8703930959451480822, guid: 02c0bc15642e08541b7e51d7ea2e2e5a, type: 3}
+  - {fileID: 3112036469774669672, guid: 802a4ef75e2ebf3448398eeabb39f395, type: 3}
+  - {fileID: 4982001328870229786, guid: 97be77ea8a2db484280383d9ed1e1de8, type: 3}
+  - {fileID: 6111857200252539363, guid: 032dcfcaf2c9f934085c3e195dc5dd69, type: 3}
 --- !u!1 &9105980131700377440
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,3 +100,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   poolManager: {fileID: 4113155625145028632}
+  gameTime: 0
+  maxGameTime: 20

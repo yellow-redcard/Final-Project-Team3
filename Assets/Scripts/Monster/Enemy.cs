@@ -5,16 +5,21 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed; //속도
+    public int health;
+    public int maxHealth;
+    public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target; //따라갈 타겟
 
-    bool isLive = true; //살아있는지
+    bool isLive; //살아있는지
 
     Rigidbody2D rigid;
+    Animator anim;
     SpriteRenderer spriter;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         spriter = GetComponent<SpriteRenderer>();
     }
 
@@ -41,5 +46,15 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         target = GameManager.Instance.playerMovement.GetComponent<Rigidbody2D>();
+        isLive = true;
+        health = maxHealth;
+    }
+
+    public void Init(SpawnData data)
+    {
+        anim.runtimeAnimatorController = animCon[data.spriteType];
+        speed = data.speed;
+        maxHealth = data.health;
+        health = data.health;
     }
 }   
