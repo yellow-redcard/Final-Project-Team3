@@ -31,6 +31,6 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(instance.transform.root.gameObject);
     }
 }

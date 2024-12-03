@@ -2,7 +2,7 @@ public class GameManager : MonoSingleton<GameManager>
 {
     public TopDownMovement playerMovement;
 
-    //public UIManager uiManager;
+    public UIManager uiManager;
     //public SlimeManager slimeManager;
     //public MonsterManager monsterManager;
     //public SpawnManager spawnManager;
@@ -11,7 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
-        //uiManager.init();
+        uiManager.init();
         //slimeManager.init();
         //monsterManager.init();
         //spawnManager.init();
