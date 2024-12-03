@@ -3,34 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Skill : MonoBehaviour
-{
+{    
     public float damage;
-    public int per; // 관통
+    public int projectileCount; // 발사체 수
 
     Rigidbody2D rigid;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
     }
-    public void Init(float damage, int per, Vector3 dir)
+    public void Init(SkillType skillType, Attribute attribute, float damage, int projectileCount, Vector3 direction)
     {
         this.damage = damage;
-        this.per = per;
-        
-        if(per > -1)
+        this.projectileCount = projectileCount;
+
+        if (projectileCount > 0)
         {
-            rigid.velocity = dir * 15f;
+            rigid.velocity = direction * 15f;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy") || per == -1)
+        if(collision.CompareTag("Enemy"))
             return;
-        per--;
-        if(per == -1)
+        projectileCount--;
+        if (projectileCount < 0)
         {
             rigid.velocity = Vector2.zero;
             gameObject.SetActive(false);
         }
+    }
+    private void DisableSkill() // 비활성화 스킬 
+    {
+        rigid.velocity = Vector2.zero;
+        gameObject.SetActive(false);
     }
 }
