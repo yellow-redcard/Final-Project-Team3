@@ -25,7 +25,7 @@ namespace Goldmetal.UndeadSurvivor
         void Update()
         {
            // if (!GameManager.instance.isLive)
-                return;
+               // return;
 
             switch (id)
             {
