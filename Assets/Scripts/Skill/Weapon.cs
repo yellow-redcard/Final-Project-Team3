@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
     public float damage;
     public float fireRate;
     public float projectileSpeed;
+    public PoolManager poolManager; // PoolManager ÂüÁ¶
 
     private float fireTimer;
     private Scanner scanner;
