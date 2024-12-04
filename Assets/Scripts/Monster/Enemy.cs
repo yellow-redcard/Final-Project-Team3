@@ -74,17 +74,5 @@ public class Enemy : MonoBehaviour
         isLive = false;
         gameObject.SetActive(false); // 적 비활성화
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Skill")) // 스킬과 충돌 처리
-        {
-            Skill skill = collision.GetComponent<Skill>();
-            if (skill != null)
-            {
-                TakeDamage((int)skill.damage);
-            }
-        }
-    }
 }
- 
+
