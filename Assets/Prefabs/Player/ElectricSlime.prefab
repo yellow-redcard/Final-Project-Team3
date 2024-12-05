@@ -72,8 +72,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0560d33e0398a624bba1f9d33bc0db4f, type: 3}
+  m_SortingOrder: 100
+  m_Sprite: {fileID: 21300000, guid: a1d96419b71fc1b42b5014bdaf41e6a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 4008255195278040253}
   - component: {fileID: 5161088359880518358}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: ElectricSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -692,7 +692,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: d73e4466af0c5654c8afa68911d24de1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98e8afc96c4aeba488e48ffde32b09a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -807,6 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6584c81b552db64bbc1308c49e1b754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveAnimator: {fileID: 5161088359880518358}
 --- !u!114 &4008255195278040253
 MonoBehaviour:
   m_ObjectHideFlags: 0
