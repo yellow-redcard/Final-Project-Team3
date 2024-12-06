@@ -1,71 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace Goldmetal.UndeadSurvivor
 {
     public class Gear : MonoBehaviour
     {
-        public ItemData.ItemType type;
-        public float rate;
+        public ItemData.ItemType type; // 장비 타입 (Glove, Shoe)
+        public float rate; // 효과 값
 
         public void Init(ItemData data)
         {
-            // Basic Set
+            // Gear 초기화
             name = "Gear " + data.itemId;
-            //transform.parent = GameManager.instance.player.transform;
-            transform.localPosition = Vector3.zero;
-
-            // Property Set
             type = data.itemType;
-            rate = data.damages[0];
+            rate = data.damages[0]; // 초기 효과 값 설정
             ApplyGear();
         }
 
-        public void LevelUp(float rate)
+        public void LevelUp(float nextRate)
         {
-            this.rate = rate;
+            rate = nextRate; // 새로운 효과 값 설정
             ApplyGear();
         }
 
-        void ApplyGear()
+        private void ApplyGear()
         {
+            // 장비 종류에 따라 효과 적용
             switch (type)
             {
                 case ItemData.ItemType.Glove:
-                    RateUp();
+                    ApplyRateUp(); // 발사 속도 증가
                     break;
+
                 case ItemData.ItemType.Shoe:
-                    SpeedUp();
+                    ApplySpeedUp(); // 이동 속도 증가
                     break;
             }
         }
 
-        void RateUp()
+        private void ApplyRateUp()
         {
-            Weapon[] weapons = transform.parent.GetComponentsInChildren<Weapon>();
-
-            //foreach (Weapon weapon in weapons)
-            //{
-            //    switch (weapon.id)
-            //    {
-            //        case 0:
-            //            float speed = 150 * Character.WeaponSpeed;
-            //            weapon.speed = speed + (speed * rate);
-            //            break;
-            //        default:
-            //            speed = 0.5f * Character.WeaponRate;
-            //            weapon.speed = speed * (1f - rate);
-            //            break;
-            //    }
-            //}
+            // SkillManager를 통해 발사 속도 증가 적용
+            if (GameManager.Instance.skillManager != null)
+            {
+                GameManager.Instance.skillManager.AdjustFireRate(rate);
+                Debug.Log($"[Gear] 발사 속도 증가 적용! Rate: {rate}");
+            }
         }
 
-        void SpeedUp()
+        private void ApplySpeedUp()
         {
-            //float speed = 3 * Character.Speed;
-            //GameManager.instance.player.speed = speed + speed * rate;
+            // PlayerMovement를 통해 이동 속도 증가 적용
+            if (GameManager.Instance.playerMovement != null)
+            {
+                GameManager.Instance.playerMovement.AdjustSpeed(rate);
+                Debug.Log($"[Gear] 이동 속도 증가 적용! Rate: {rate}");
+            }
         }
     }
 }
