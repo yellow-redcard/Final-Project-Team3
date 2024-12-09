@@ -10,7 +10,7 @@ public class Skill : MonoBehaviour
 
     public float damage = 10f; // 스킬 데미지
     public float range = 5f; // 스킬 범위
-    public float duration = 0f; //스킬 지속 시간
+    public float duration = 2f; //스킬 지속 시간
     public float speed = 10f; //투사체 속도
     public float cooldown = 3f; //쿨타임
 
