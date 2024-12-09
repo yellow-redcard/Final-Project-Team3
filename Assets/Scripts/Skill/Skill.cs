@@ -75,5 +75,13 @@ public class Skill : MonoBehaviour
     {
         gameObject.SetActive( false );
     }
+    public void UpgradeSkill(float damageIncrease, float rangeIncrease, float cooldownDecrease)
+    {
+        damage += damageIncrease;
+        range += rangeIncrease;
+        cooldown = Mathf.Max(0.5f, cooldown - cooldownDecrease); // 쿨타임은 최소 0.5초
+        Debug.Log($"{skillType} 업그레이드! 데미지: +{damageIncrease}, 범위: +{rangeIncrease}, 쿨타임: -{cooldownDecrease}");
+    }
+
 }
 
