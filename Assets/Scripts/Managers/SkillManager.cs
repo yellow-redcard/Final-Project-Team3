@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,12 +63,20 @@ public class SkillManager : MonoBehaviour, IManager
             {
                 activeSkills.Add(skill); // 활성화된 스킬 리스트에 추가
                 skill.UseSkill();
+
+                // 스킬이 종료되면 풀로 반환
+                StartCoroutine(ReturnToPoolAfterUse(skillInstance, prefabIndex, skill.duration));
             }
         }
         else
         {
             Debug.LogError($"Skill not found for {currentElement} - {skillType}");
         }
+    }
+    private IEnumerator ReturnToPoolAfterUse(GameObject skillInstance, int prefabIndex, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        poolManager.ReturnToPool(skillInstance, prefabIndex); // 풀로 반환
     }
     public void AdjustFireRate(float rate)
     {
