@@ -23,7 +23,6 @@ public class GameManager : MonoSingleton<GameManager>
         //itemManager.init();
         poolManager.init();
         skillManager.init();
-        skillManager.poolManager = poolManager;
         skillManager.SetCurrentElement(SkillManager.Element.Water);
 
 
