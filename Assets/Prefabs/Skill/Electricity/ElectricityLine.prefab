@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4251909838807962969}
   - component: {fileID: 8472635926996084146}
   - component: {fileID: 7417416085675818232}
+  - component: {fileID: -8037874878946312356}
   m_Layer: 0
   m_Name: ElectricityLine
   m_TagString: Untagged
@@ -4974,3 +4975,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 14.2, y: 14.200004}
   m_EdgeRadius: 0
+--- !u!114 &-8037874878946312356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788955891620655974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 2
+  damage: 10
+  range: 5
+  duration: 0
+  speed: 10
+  cooldown: 3

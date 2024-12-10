@@ -4,7 +4,7 @@ public class GameManager : MonoSingleton<GameManager>
 {
     public TopDownMovement playerMovement;
 
-    //public UIManager uiManager;
+    public UIManager uiManager;
     //public SlimeManager slimeManager;
     //public MonsterManager monsterManager;
     //public SpawnManager spawnManager;
@@ -26,6 +26,8 @@ public class GameManager : MonoSingleton<GameManager>
         skillManager.poolManager = poolManager;
         skillManager.SetCurrentElement(SkillManager.Element.Water);
 
+        uiManager.SetSkillManager(skillManager);
+
         InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
     }
 
@@ -40,7 +42,7 @@ public class GameManager : MonoSingleton<GameManager>
     }
     private void AutoFireSkills()
     {
-        // 플레이어 위치 기준으로 스킬 자동 발사
+        // 플레이어 위치 기준으로 스킬 발사
         Vector3 spawnPosition = playerMovement.transform.position;
 
         skillManager.FireSkill(Skill.SkillType.Single, spawnPosition);

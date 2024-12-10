@@ -54,26 +54,39 @@ public class Skill : MonoBehaviour
     private void Single()
     {
         Debug.Log($"[Single] 투사체 사용 (Damage: { damage})");
-        Invoke(nameof(Deactivate), duration);
+        StartCoroutine(DeactivateAfterDuration());
     }
     private void Cone()
     {
         Debug.Log($"[Cone] 원뿔 모양 투사체 사용 (Damage: {damage})");
-        Invoke(nameof(Deactivate), duration);
+        StartCoroutine(DeactivateAfterDuration());
     }
     private void Line()
     {
         Debug.Log($"[Line] 직선 범위 스킬 사용 (Damage: {damage})");
-        Invoke(nameof(Deactivate), duration);
+        StartCoroutine(DeactivateAfterDuration());
     }
     private void Area()
     {
         Debug.Log($"[Area] 장판 스킬 사용 (Damage: {damage}, Range: {range})");
-        Invoke(nameof(Deactivate), duration);
+        StartCoroutine(DeactivateAfterDuration());
+    }
+    private IEnumerator DeactivateAfterDuration()
+    {
+        yield return new WaitForSeconds(duration);
+        Deactivate();
     }
     public void Deactivate()
     {
         gameObject.SetActive( false );
     }
+    public void UpgradeSkill(float damageIncrease, float rangeIncrease, float cooldownDecrease)
+    {
+        damage += damageIncrease;
+        range += rangeIncrease;
+        cooldown = Mathf.Max(0.5f, cooldown - cooldownDecrease); // 쿨타임은 최소 0.5초
+        Debug.Log($"{skillType} 업그레이드! 데미지: +{damageIncrease}, 범위: +{rangeIncrease}, 쿨타임: -{cooldownDecrease}");
+    }
+
 }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2185627846520943350}
   - component: {fileID: 5342155165723928120}
   - component: {fileID: 6513269554279799757}
+  - component: {fileID: -3778186424064793569}
   m_Layer: 0
   m_Name: WaterLine
   m_TagString: Untagged
@@ -4974,3 +4975,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 14.2, y: 14.200004}
   m_EdgeRadius: 0
+--- !u!114 &-3778186424064793569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818661725725257430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 2
+  damage: 10
+  range: 5
+  duration: 0
+  speed: 10
+  cooldown: 3

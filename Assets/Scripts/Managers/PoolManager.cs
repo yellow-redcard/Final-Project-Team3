@@ -15,7 +15,6 @@ public class PoolManager : MonoBehaviour, IManager
         {
             if (!item.activeSelf) // 발견하면?
             {
-                // select 변수에 할당
                 select = item;
                 select.SetActive(true);
                 break;
@@ -24,7 +23,6 @@ public class PoolManager : MonoBehaviour, IManager
 
         if (!select) // 못찾았다면?
         {
-            // 새롭게 생성하고 select 변수에 할당
             select = Instantiate(prefabs[index], transform);
             pools[index].Add(select);
         }
@@ -48,5 +46,13 @@ public class PoolManager : MonoBehaviour, IManager
     public void release()
     {
 
+    }
+    public void ReturnToPool(GameObject obj, int index)
+    {
+        obj.SetActive(false); // 비활성화
+        if (!pools[index].Contains(obj))
+        {
+            pools[index].Add(obj); // 풀로 반환
+        }
     }
 }

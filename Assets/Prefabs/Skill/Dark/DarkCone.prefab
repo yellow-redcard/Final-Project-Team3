@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4349751120474123072}
   - component: {fileID: 4429289006686655555}
   - component: {fileID: 923093999995234920}
+  - component: {fileID: 6851904734558174836}
   m_Layer: 0
   m_Name: DarkCone
   m_TagString: Untagged
@@ -4974,3 +4975,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
+--- !u!114 &6851904734558174836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2672957236518770244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 1
+  damage: 10
+  range: 5
+  duration: 0
+  speed: 10
+  cooldown: 3
