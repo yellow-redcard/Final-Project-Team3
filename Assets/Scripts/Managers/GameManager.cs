@@ -26,7 +26,6 @@ public class GameManager : MonoSingleton<GameManager>
         skillManager.poolManager = poolManager;
         skillManager.SetCurrentElement(SkillManager.Element.Water);
 
-        uiManager.SetSkillManager(skillManager);
 
         InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
     }

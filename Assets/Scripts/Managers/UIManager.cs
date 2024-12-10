@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour, IManager
 {
-    public SkillManager skillManager;
     [SerializeField] private Transform canvas;
     public static float ScreenWidth = 1920;
     public static float ScreenHeight = 1080;
@@ -67,14 +66,14 @@ public class UIManager : MonoBehaviour, IManager
         List<Skill.SkillType> options = new List<Skill.SkillType>();
         var lockedSkills = System.Enum.GetValues(typeof(Skill.SkillType))
             .Cast<Skill.SkillType>()
-            .Except(skillManager.GetUnlockedSkills());
+            .Except(GameManager.Instance.skillManager.GetUnlockedSkills());
 
         // 확률적으로 새로운 스킬 추가
         if (lockedSkills.Any() && Random.value < 0.5f)
             options.Add(lockedSkills.First());
 
         // 기존 스킬 업그레이드 추가
-        var unlockedSkills = skillManager.GetUnlockedSkills();
+        var unlockedSkills = GameManager.Instance.skillManager.GetUnlockedSkills();
         foreach (var skill in unlockedSkills)
         {
             if (options.Count < 3)
@@ -86,9 +85,5 @@ public class UIManager : MonoBehaviour, IManager
         {
             Debug.Log($"레벨업 선택지: {skillOption}");
         }
-    }
-    public void SetSkillManager(SkillManager manager)
-    {
-        skillManager = manager;
     }
 }
