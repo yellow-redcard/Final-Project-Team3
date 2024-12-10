@@ -15,10 +15,12 @@ public class UIManager : MonoBehaviour, IManager
     {
 
     }
+
     public void release()
     {
 
     }
+
     public T Show<T>(params object[] param) where T : UIBase
     {
         string uiName = typeof(T).ToString();

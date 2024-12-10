@@ -11,6 +11,6 @@ public class UIBase : MonoBehaviour
 
     public void Hide()
     {
-        //GameManager.Instance.uiManager.Hide(gameObject.name);
+        GameManager.Instance.uiManager.Hide(gameObject.name);
     }
 }
