@@ -38,3 +38,11 @@ public class Spawner : MonoBehaviour
         enemy.GetComponent<Enemy>().Init(spawnData[level]);
     }
 }
+[System.Serializable]
+public class SpawnData
+{
+    public int spriteType;
+    public float spawnTime;
+    public int health;
+    public float speed;
+}
