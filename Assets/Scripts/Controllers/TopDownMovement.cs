@@ -6,6 +6,7 @@ public class TopDownMovement : MonoBehaviour
     [SerializeField] public float speed;
     private TopDownController controller;
     private Rigidbody2D move_rb;
+    private CharacterStatsHandler characterStatsHandler;
     private Vector2 moveDirection = Vector2.zero;
 
     public float maxHealth = 100f; // 최대 체력
@@ -16,6 +17,7 @@ public class TopDownMovement : MonoBehaviour
     {
         controller = GetComponent<TopDownController>();
         move_rb = GetComponent<Rigidbody2D>();
+        characterStatsHandler = GetComponent<CharacterStatsHandler>();
     }
     private void Start()
     {
@@ -33,7 +35,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * speed;
+        direction = direction * characterStatsHandler.CurrentStat.speed;
         move_rb.velocity = direction;
     }
     public void AdjustSpeed(float rate)
