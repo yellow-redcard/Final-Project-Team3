@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        GameObject enemy = GameManager.Instance.poolManager.Get(Random.Range(0, 2)); //enemy를 정의
+        GameObject enemy = GameManager.Instance.poolManager.Get(Random.Range(0, 3)); //enemy를 정의
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         // enemy가 생성되는 위치를 유니티에서 만든 spawnpoint들에서 생성
     }
