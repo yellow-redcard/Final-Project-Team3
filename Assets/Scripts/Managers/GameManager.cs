@@ -13,6 +13,13 @@ public class GameManager : MonoSingleton<GameManager>
     public SkillManager skillManager; 
     public float gameTime;
     public float maxGameTime = 2 * 10f;
+    public Transform player {  get; private set; }
+    [SerializeField] private string playerTag = "Player";
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag(playerTag).transform;
+    }
 
     private void Start()
     {
