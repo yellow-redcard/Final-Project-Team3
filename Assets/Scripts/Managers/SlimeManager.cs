@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlimeManager : MonoBehaviour, IManager
 {
     public List<GameObject> slimePrefabs;
-    private GameObject currentSlime;
+    public GameObject currentSlime;
     private int currentIndex = 0;
 
     void Start()

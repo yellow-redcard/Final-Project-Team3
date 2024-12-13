@@ -24,9 +24,9 @@ public class SkillManager : MonoBehaviour, IManager
         {
             Dictionary<Skill.SkillType, int> elementSkills = new Dictionary<Skill.SkillType, int>();
 
-            for (int i = 0; i < GameManager.Instance.poolManager.prefabs.Length; i++)
+            for (int i = 0; i < GameManager.Instance.skillPool.prefabs.Length; i++)
             {
-                string prefabName = GameManager.Instance.poolManager.prefabs[i].name;
+                string prefabName = GameManager.Instance.skillPool.prefabs[i].name;
 
                 if (prefabName.Contains($"{element}Single"))
                     elementSkills[Skill.SkillType.Single] = i;
@@ -54,7 +54,7 @@ public class SkillManager : MonoBehaviour, IManager
         if (skillPrefabIndices.ContainsKey(currentElement) && skillPrefabIndices[currentElement].ContainsKey(skillType))
         {
             int prefabIndex = skillPrefabIndices[currentElement][skillType];
-            GameObject skillInstance = GameManager.Instance.poolManager.Get(prefabIndex);
+            GameObject skillInstance = GameManager.Instance.skillPool.Get(prefabIndex);
             skillInstance.transform.position = spawnPosition;
             skillInstance.SetActive(true);
 
@@ -76,7 +76,7 @@ public class SkillManager : MonoBehaviour, IManager
     private IEnumerator ReturnToPoolAfterUse(GameObject skillInstance, int prefabIndex, float duration)
     {
         yield return new WaitForSeconds(duration);
-        GameManager.Instance.poolManager.ReturnToPool(skillInstance, prefabIndex); // 풀로 반환
+        GameManager.Instance.skillPool.ReturnToPool(skillInstance, prefabIndex); // 풀로 반환
     }
     public void AdjustFireRate(float rate)
     {

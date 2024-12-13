@@ -9,7 +9,8 @@ public class GameManager : MonoSingleton<GameManager>
     //public MonsterManager monsterManager;
     //public SpawnManager spawnManager;
     //public ItemManager itemManager;
-    public PoolManager poolManager;
+    public MonsterPoolManager monsterPool;
+    public SkillPoolManager skillPool;
     public SkillManager skillManager; 
     public float gameTime;
     public float maxGameTime = 2 * 10f;
@@ -18,7 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag(playerTag).transform;
+        
     }
 
     private void Start()
@@ -28,9 +29,11 @@ public class GameManager : MonoSingleton<GameManager>
         //monsterManager.init();
         //spawnManager.init();
         //itemManager.init();
-        poolManager.init();
+        monsterPool.init();
+        skillPool.init();
         skillManager.init();
         skillManager.SetCurrentElement(SkillManager.Element.Water);
+        player = GameObject.FindGameObjectWithTag(playerTag).transform;
 
         InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
     }

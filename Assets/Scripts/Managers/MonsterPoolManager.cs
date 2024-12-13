@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolManager : MonoBehaviour, IManager
+public class MonsterPoolManager : MonoBehaviour, IManager
 {
     public GameObject[] prefabs;
 

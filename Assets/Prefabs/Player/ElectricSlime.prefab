@@ -891,8 +891,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStat:
     statsChangeType: 2
-    maxHealth: 5
-    speed: 2
+    maxHealth: 3
+    speed: 5
     attackSO: {fileID: 11400000, guid: 4a2d1ed5a07095e49ab80e997cd6547b, type: 2}
   statModifiers: []
 --- !u!1 &8191824870333800851
