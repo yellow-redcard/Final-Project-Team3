@@ -65,9 +65,9 @@ public class UIManager : MonoBehaviour, IManager
     }
     public void ShowLevelUpUI()
     {
-        List<Skill.SkillType> options = new List<Skill.SkillType>();
-        var lockedSkills = System.Enum.GetValues(typeof(Skill.SkillType))
-            .Cast<Skill.SkillType>()
+        List<SkillManager.SkillType> options = new List<SkillManager.SkillType>();
+        var lockedSkills = System.Enum.GetValues(typeof(SkillManager.SkillType))
+            .Cast<SkillManager.SkillType>()
             .Except(GameManager.Instance.skillManager.GetUnlockedSkills());
 
         // 확률적으로 새로운 스킬 추가
@@ -87,5 +87,7 @@ public class UIManager : MonoBehaviour, IManager
         {
             Debug.Log($"레벨업 선택지: {skillOption}");
         }
+
+        // 실제 UI 선택 로직 구현 필요
     }
 }

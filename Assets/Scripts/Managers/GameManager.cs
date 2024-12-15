@@ -49,12 +49,11 @@ public class GameManager : MonoSingleton<GameManager>
     }
     private void AutoFireSkills()
     {
-        // 플레이어 위치 기준으로 스킬 발사
         Vector3 spawnPosition = playerMovement.transform.position;
 
-        skillManager.FireSkill(Skill.SkillType.Single, spawnPosition);
-        skillManager.FireSkill(Skill.SkillType.Cone, spawnPosition);
-        skillManager.FireSkill(Skill.SkillType.Line, spawnPosition);
-        skillManager.FireSkill(Skill.SkillType.Area, spawnPosition);
+        foreach (var skillType in skillManager.GetUnlockedSkills())
+        {
+            skillManager.FireSkill(skillType, spawnPosition);
+        }
     }
 }
