@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KillUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Text KillTxt;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        KillTxt.text = GameManager.Instance.monsterKill.ToString();
     }
 }

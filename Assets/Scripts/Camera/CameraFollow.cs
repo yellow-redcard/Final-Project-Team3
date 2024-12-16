@@ -7,11 +7,6 @@ public class CameraFollow : MonoBehaviour
     private Transform slime;
     public float cameraPositionZ = -10f;
 
-    private void Update()
-    {
-        
-    }
-
     void FixedUpdate()
     {
         slime = GameManager.Instance.slimeManager.currentSlime.transform;
