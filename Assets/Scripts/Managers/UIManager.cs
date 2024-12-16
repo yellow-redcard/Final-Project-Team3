@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static SkillManager;
 
 public class UIManager : MonoBehaviour, IManager
 {
@@ -65,29 +66,19 @@ public class UIManager : MonoBehaviour, IManager
     }
     public void ShowLevelUpUI()
     {
-        List<SkillManager.SkillType> options = new List<SkillManager.SkillType>();
-        var lockedSkills = System.Enum.GetValues(typeof(SkillManager.SkillType))
-            .Cast<SkillManager.SkillType>()
-            .Except(GameManager.Instance.skillManager.GetUnlockedSkills());
+        var upgradeOptions = GameManager.Instance.skillManager.GetUpgradeOptions();
 
-        // 확률적으로 새로운 스킬 추가
-        if (lockedSkills.Any() && Random.value < 0.5f)
-            options.Add(lockedSkills.First());
-
-        // 기존 스킬 업그레이드 추가
-        var unlockedSkills = GameManager.Instance.skillManager.GetUnlockedSkills();
-        foreach (var skill in unlockedSkills)
+        // UI에 옵션 표시
+        foreach (var option in upgradeOptions)
         {
-            if (options.Count < 3)
-                options.Add(skill);
+            Debug.Log($"업그레이드 선택지: 스킬 {option.Item1}, 옵션: {option.Item2}");
         }
 
-        // UI 표시
-        foreach (var skillOption in options)
-        {
-            Debug.Log($"레벨업 선택지: {skillOption}");
-        }
-
-        // 실제 UI 선택 로직 구현 필요
+        // 예시: 플레이어가 첫 번째 옵션을 선택한 경우
+        HandleSkillUpgrade(upgradeOptions[0].Item1, upgradeOptions[0].Item2);
+    }
+    private void HandleSkillUpgrade(SkillType skillType, string option)
+    {
+        GameManager.Instance.skillManager.UpgradeSkill(skillType, option);
     }
 }

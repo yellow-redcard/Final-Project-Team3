@@ -55,4 +55,22 @@ public class MonsterPoolManager : MonoBehaviour, IManager
             pools[index].Add(obj); // 풀로 반환
         }
     }
+    public List<Transform> GetActiveMonsters()
+    {
+        List<Transform> activeMonsters = new List<Transform>();
+
+        foreach (var pool in pools)
+        {
+            foreach (var monster in pool)
+            {
+                if (monster.activeSelf) // 활성화된 몬스터만 가져오기
+                {
+                    activeMonsters.Add(monster.transform);
+                }
+            }
+        }
+
+        return activeMonsters;
+    }
 }
+
