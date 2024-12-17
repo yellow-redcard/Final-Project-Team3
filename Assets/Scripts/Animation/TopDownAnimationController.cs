@@ -10,7 +10,7 @@ public class TopDownAnimationController : AnimationController
     // StringToHash는 IsWalking이라는 문자열을 일방향 함수인 해쉬함수를 통해 특정한 값으로 변환합니다.
     // 더 궁금하시다면 C# GetHashCode를 검색해보세요!
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
-    private static readonly int IsHit = Animator.StringToHash("IsHit");
+    private static readonly int IsDie = Animator.StringToHash("IsDie");
 
     private readonly float magnituteThreshold = 0.5f;
 
@@ -30,13 +30,13 @@ public class TopDownAnimationController : AnimationController
         animator.SetBool(IsWalking, obj.magnitude > magnituteThreshold);
     }
 
-    private void Hit()
+    private void Die()
     {
-        animator.SetBool(IsHit, true);
+        animator.SetBool(IsDie, true);
     }
 
     private void InvincibilityEnd()
     {
-        animator.SetBool(IsHit, false);
+        animator.SetBool(IsDie, false);
     }
 }
