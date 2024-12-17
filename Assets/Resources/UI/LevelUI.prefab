@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4306983999781988612}
   - component: {fileID: 8088584562903221941}
   - component: {fileID: 1657994399281232178}
+  - component: {fileID: -8542810807145717646}
   m_Layer: 5
   m_Name: LevelUI
   m_TagString: Untagged
@@ -78,4 +79,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Lv 999
+  m_Text: 0
+--- !u!114 &-8542810807145717646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6649998338493037886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c45bab91393a5346a13882a71c196c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

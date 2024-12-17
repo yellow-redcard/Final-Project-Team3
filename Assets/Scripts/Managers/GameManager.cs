@@ -16,18 +16,15 @@ public class GameManager : MonoSingleton<GameManager>
     public SkillManager skillManager;
     public float gameTime;
     public float maxGameTime = 2 * 10f;
+    public int monsterKill = 0;
+    public int Level = 0;
     public Transform player { get; private set; }
     [SerializeField] private string playerTag = "Player";
-
-    private void Awake()
-    {
-
-    }
 
     private void Start()
     {
         uiManager.init();
-        //slimeManager.init();
+        slimeManager.init();
         //monsterManager.init();
         //spawnManager.init();
         //itemManager.init();
@@ -53,6 +50,10 @@ public class GameManager : MonoSingleton<GameManager>
         if (gameTime > maxGameTime)
         {
             gameTime = maxGameTime;
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //GameManager.Instance.uiManager.Show<TagSlimeUI>();
         }
     }
     private void AutoFireSkills()

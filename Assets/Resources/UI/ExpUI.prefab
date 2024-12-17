@@ -196,6 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6028313988594669021}
   - component: {fileID: 7164017319350991961}
+  - component: {fileID: -8529441235896758977}
   m_Layer: 5
   m_Name: ExpUI
   m_TagString: Untagged
@@ -275,3 +276,15 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-8529441235896758977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199796890323773073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ac0728e412e6c4b98928da0641514d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -182,8 +182,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a2dd0de3d48b447a9e2c1921df63bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimePrefabs: []
+  slimePrefabs:
+  - {fileID: 7989081032443773260, guid: ed9497d1195b7964d97c3ae45c06e29b, type: 3}
+  - {fileID: 7989081032443773260, guid: 2cb618e8f25e79f4babd4e8a6c9268bb, type: 3}
+  - {fileID: 7989081032443773260, guid: d875288aa705ab1498931973df984cb7, type: 3}
+  - {fileID: 7989081032443773260, guid: 191365d4a0e41814c8e6adecd057ac85, type: 3}
   currentSlime: {fileID: 0}
+  currentIndex: 0
 --- !u!1 &8573729210390135359
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,4 +294,6 @@ MonoBehaviour:
   skillManager: {fileID: 8469381269882448206}
   gameTime: 0
   maxGameTime: 20
+  monsterKill: 0
+  Level: 0
   playerTag: Player
