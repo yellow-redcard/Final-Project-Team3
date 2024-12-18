@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followRange: 100
   targetTag: Player
-  characterRenderer: {fileID: 7380207905279817450}
+  characterTransform: {fileID: 7580935590835802636}
 --- !u!114 &6485866973250880564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,8 +295,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!212 &7380207905279817450 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7130993010582082712, guid: 7a00bcee877dfcc4a9be832ef88b6c0c, type: 3}
+--- !u!4 &7580935590835802636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7901925505112223870, guid: 7a00bcee877dfcc4a9be832ef88b6c0c, type: 3}
   m_PrefabInstance: {fileID: 332601856850289266}
   m_PrefabAsset: {fileID: 0}

@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followRange: 100
   targetTag: Player
-  characterRenderer: {fileID: 3163258237296236352}
+  characterTransform: {fileID: 3163258235716682135}
 --- !u!114 &5917696721940980639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,8 +214,8 @@ MonoBehaviour:
     speed: 2
     attackSO: {fileID: 11400000, guid: 0774862b960c2ef47a52fbf2482308d8, type: 2}
   statModifiers: []
---- !u!212 &3163258237296236352 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 117150393779553013, guid: 8d075978ea8e22846805c02c86764e1b, type: 3}
+--- !u!4 &3163258235716682135 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 117150395161187362, guid: 8d075978ea8e22846805c02c86764e1b, type: 3}
   m_PrefabInstance: {fileID: 3046145506621904309}
   m_PrefabAsset: {fileID: 0}

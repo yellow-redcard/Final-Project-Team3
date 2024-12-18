@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followRange: 100
   targetTag: Player
-  characterRenderer: {fileID: 1805485586836759664}
+  characterTransform: {fileID: 3042980799535633600}
 --- !u!114 &1254138784112713721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13effddf49b7d0e4194944cdaf686f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &1805485586836759664 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1423470162059733919, guid: 99e071b4b80df204999471650ea2b760, type: 3}
+--- !u!4 &3042980799535633600 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2374989008031308591, guid: 99e071b4b80df204999471650ea2b760, type: 3}
   m_PrefabInstance: {fileID: 778965510867783663}
   m_PrefabAsset: {fileID: 0}

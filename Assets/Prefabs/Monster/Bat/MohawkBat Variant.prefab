@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MohawkBat Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6746996791406158598, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}
+      propertyPath: characterTransform
+      value: 
+      objectReference: {fileID: 5568662765186198826}
     - target: {fileID: 7901925505112223870, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -63,6 +67,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6282207591495014351}
   m_SourcePrefab: {fileID: 100100000, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}
+--- !u!4 &5568662765186198826 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7901925505112223870, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}
+  m_PrefabInstance: {fileID: 2373003544305212756}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8276134379444687875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5923401707093281111, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}

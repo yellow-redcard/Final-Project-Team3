@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followRange: 0
   targetTag: Player
-  characterRenderer: {fileID: 4036532448518587098}
+  characterTransform: {fileID: 6819680033273058895}
 --- !u!114 &1836929632150881671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,3 +274,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.5952396, y: 4.0505066}
   m_EdgeRadius: 0
+--- !u!4 &6819680033273058895 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8440062949481559485, guid: 2b05bf5a785c389449bbfc9dca2bbcd5, type: 3}
+  m_PrefabInstance: {fileID: 3136051609018573810}
+  m_PrefabAsset: {fileID: 0}

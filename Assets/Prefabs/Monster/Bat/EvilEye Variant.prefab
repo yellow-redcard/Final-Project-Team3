@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4293552151503205331, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
+      propertyPath: characterTransform
+      value: 
+      objectReference: {fileID: 5701495535284515324}
     - target: {fileID: 5923401707093281111, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
       propertyPath: m_Name
       value: EvilEye Variant
@@ -63,6 +67,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 991389269758780060}
   m_SourcePrefab: {fileID: 100100000, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
+--- !u!4 &5701495535284515324 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7901925505112223870, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
+  m_PrefabInstance: {fileID: 2501328042782867842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8107225769450080469 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5923401707093281111, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}

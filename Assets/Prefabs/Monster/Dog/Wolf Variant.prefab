@@ -80,9 +80,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8705299138453666593}
   m_SourcePrefab: {fileID: 100100000, guid: 9be81215ad29f7f438264e4851dac964, type: 3}
---- !u!212 &1344428105807714513 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 117150393779553013, guid: 9be81215ad29f7f438264e4851dac964, type: 3}
+--- !u!4 &1344428106045083142 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 117150395161187362, guid: 9be81215ad29f7f438264e4851dac964, type: 3}
   m_PrefabInstance: {fileID: 1371466571880290852}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1344428106045083143 stripped
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followRange: 100
   targetTag: Player
-  characterRenderer: {fileID: 1344428105807714513}
+  characterTransform: {fileID: 1344428106045083142}
 --- !u!114 &5437419209405026389
 MonoBehaviour:
   m_ObjectHideFlags: 0

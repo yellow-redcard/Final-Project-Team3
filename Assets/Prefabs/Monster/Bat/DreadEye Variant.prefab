@@ -84,6 +84,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4197933432216328603}
   m_SourcePrefab: {fileID: 100100000, guid: 4b16dd11cac072d4a920f58a91f97e75, type: 3}
+--- !u!4 &887558418428968568 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7901925505112223870, guid: 4b16dd11cac072d4a920f58a91f97e75, type: 3}
+  m_PrefabInstance: {fileID: 7059527435213966854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3732460122420627281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5923401707093281111, guid: 4b16dd11cac072d4a920f58a91f97e75, type: 3}
@@ -187,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followRange: 100
   targetTag: Player
-  characterRenderer: {fileID: 6984527203137506583}
+  characterTransform: {fileID: 887558418428968568}
 --- !u!114 &6608741360050415862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,8 +244,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!212 &6984527203137506583 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 78387142926910225, guid: 4b16dd11cac072d4a920f58a91f97e75, type: 3}
-  m_PrefabInstance: {fileID: 7059527435213966854}
-  m_PrefabAsset: {fileID: 0}
