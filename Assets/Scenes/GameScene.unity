@@ -411,6 +411,14 @@ PrefabInstance:
       propertyPath: prefabs.Array.data[8]
       value: 
       objectReference: {fileID: 3371171209663124616, guid: a54055a4dafbfb847bc6922bd90d3272, type: 3}
+    - target: {fileID: 4113155625145028632, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: bossPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113155625145028632, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: bossPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2343854503923001977, guid: 754c35613444b954c9d4289320885b94, type: 3}
     - target: {fileID: 4121076861802647501, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
