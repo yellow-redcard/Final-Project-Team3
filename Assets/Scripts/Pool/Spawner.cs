@@ -29,7 +29,7 @@ public class Spawner : MonoBehaviour
         if (bossTimer > 20f)
         {
             SpawnBossMonster();
-            timer = 0f;
+            bossTimer = 0f;
         }
     }
 

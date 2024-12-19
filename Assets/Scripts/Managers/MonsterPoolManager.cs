@@ -67,6 +67,12 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         {
             pools[index] = new List<GameObject>();
         }
+
+        bossPools = new List<GameObject>[bossPrefabs.Length];
+        for (int i = 0; i < bossPrefabs.Length; i++)
+        {
+            bossPools[i] = new List<GameObject>(); // 각 보스 풀 리스트 생성
+        }
     }
 
     public GameObject GetNextPrefab(int level)
