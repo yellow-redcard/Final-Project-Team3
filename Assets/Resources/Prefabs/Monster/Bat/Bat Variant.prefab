@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5923401707093281111, guid: 7a00bcee877dfcc4a9be832ef88b6c0c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6131182453297221300, guid: 7a00bcee877dfcc4a9be832ef88b6c0c, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -259,6 +263,7 @@ MonoBehaviour:
   followRange: 100
   targetTag: Player
   characterTransform: {fileID: 7580935590835802636}
+  getHealthSystemGameObject: {fileID: 0}
 --- !u!114 &6485866973250880564
 MonoBehaviour:
   m_ObjectHideFlags: 0
