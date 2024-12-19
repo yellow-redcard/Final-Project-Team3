@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6652176475600281070}
   - component: {fileID: 1766901389063365556}
   - component: {fileID: 7419972482777651893}
-  - component: {fileID: 4453663046233377663}
   - component: {fileID: 8733870213641069360}
+  - component: {fileID: 2762036690037625480}
   m_Layer: 0
   m_Name: WaterSingle
-  m_TagString: Untagged
+  m_TagString: Skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -4930,8 +4930,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &4453663046233377663
-BoxCollider2D:
+--- !u!114 &8733870213641069360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829025158753739492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 0
+  baseDamage: 10
+  baseRange: 5
+  duration: 1
+  cooldown: 1
+  projectileCount: 1
+--- !u!70 &2762036690037625480
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4962,34 +4980,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 14.2, y: 14.200004}
-  m_EdgeRadius: 0
---- !u!114 &8733870213641069360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829025158753739492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillType: 0
-  damage: 10
-  range: 5
-  duration: 1
-  speed: 5
-  cooldown: 1
+  m_Offset: {x: -0.020634174, y: 0}
+  m_Size: {x: 2.3563461, y: 0.0001}
+  m_Direction: 0
