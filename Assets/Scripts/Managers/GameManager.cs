@@ -15,7 +15,7 @@ public class GameManager : MonoSingleton<GameManager>
     public SkillPoolManager skillPool;
     public SkillManager skillManager;
     public float gameTime;
-    public float maxGameTime = 2 * 10f;
+    public float maxGameTime = 30 * 60f;
     public int monsterKill = 0;
     public int Level = 0;
     public Transform player { get; private set; }
