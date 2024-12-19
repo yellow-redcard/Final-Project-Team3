@@ -7,6 +7,8 @@ public class MonsterPoolManager : MonoBehaviour, IManager
     public GameObject[] prefabs;
 
     List<GameObject>[] pools;
+    private int currentPrefabIndex = 0;
+
     public GameObject Get(int index)
     {
         GameObject select = null;
@@ -39,6 +41,20 @@ public class MonsterPoolManager : MonoBehaviour, IManager
             pools[index] = new List<GameObject>();
         }
     }
+
+    public GameObject GetNextPrefab(int level)
+    {
+        // 현재 레벨에서 사용할 수 있는 프리팹 인덱스 계산
+        int startIndex = GetStartIndexForLevel(level);
+        int endIndex = GetEndIndexForLevel(level);
+
+        // 범위 내의 프리팹에서 순서대로 가져오기
+        int index = currentPrefabIndex;
+        currentPrefabIndex = (currentPrefabIndex + 1) % (endIndex - startIndex + 1) + startIndex;
+
+        return Get(index);
+    }
+
     public void init()
     {
 
@@ -71,6 +87,18 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         }
 
         return activeMonsters;
+    }
+
+    private int GetStartIndexForLevel(int level)
+    {
+        // 레벨에 따른 시작 인덱스 정의
+        return Mathf.Clamp(level * 3, 0, prefabs.Length - 1); // 예: 레벨당 2개씩 활성화
+    }
+
+    private int GetEndIndexForLevel(int level)
+    {
+        // 레벨에 따른 끝 인덱스 정의
+        return Mathf.Clamp(level * 3 + 2, 0, prefabs.Length - 1); // 예: 레벨당 2개씩 활성화
     }
 }
 
