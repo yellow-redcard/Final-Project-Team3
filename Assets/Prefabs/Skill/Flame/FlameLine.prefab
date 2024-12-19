@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6803920967409820276}
   m_Layer: 0
   m_Name: FlameLine
-  m_TagString: Untagged
+  m_TagString: Skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4929,9 +4929,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 2
-  damage: 10
-  range: 5
+  skillType: 0
+  baseDamage: 10
+  baseRange: 5
   duration: 0
-  speed: 10
   cooldown: 3
+  projectileCount: 1

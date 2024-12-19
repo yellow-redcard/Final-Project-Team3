@@ -8,7 +8,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public UIManager uiManager;
     public SlimeManager slimeManager;
-    //public MonsterManager monsterManager;
+    public MonsterManager monsterManager;
     //public SpawnManager spawnManager;
     //public ItemManager itemManager;
     public MonsterPoolManager monsterPool;
@@ -25,7 +25,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         uiManager.init();
         slimeManager.init();
-        //monsterManager.init();
+        monsterManager.init();
         //spawnManager.init();
         //itemManager.init();
         monsterPool.init();
@@ -35,11 +35,7 @@ public class GameManager : MonoSingleton<GameManager>
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
 
         InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
-        if (Input.GetKeyDown(KeyCode.L)) // L키로 레벨업 테스트
-        {
-            Debug.Log("레벨업! 스킬 업그레이드 UI 표시");
-            uiManager.ShowLevelUpUI();
-        }
+
     }
 
 

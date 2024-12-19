@@ -12,9 +12,17 @@ PrefabInstance:
       propertyPath: characterTransform
       value: 
       objectReference: {fileID: 5701495535284515324}
+    - target: {fileID: 5300400214770849962, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5923401707093281111, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
       propertyPath: m_Name
       value: EvilEye Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516070502677669983, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7901925505112223870, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5923401707093281111, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 991389269758780060}
+    - targetCorrespondingSourceObject: {fileID: 5923401707093281111, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1171492125186561}
   m_SourcePrefab: {fileID: 100100000, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
 --- !u!4 &5701495535284515324 stripped
 Transform:
@@ -110,3 +121,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13effddf49b7d0e4194944cdaf686f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1171492125186561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107225769450080469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b73872f3f11d14cb031f30843e664e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 10
