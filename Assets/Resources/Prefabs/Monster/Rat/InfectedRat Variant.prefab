@@ -79,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: 2b5371ce0e89b0544941743176d63e14, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1798326168874615929}
+    - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: 2b5371ce0e89b0544941743176d63e14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6537420495015136172}
   m_SourcePrefab: {fileID: 100100000, guid: 2b5371ce0e89b0544941743176d63e14, type: 3}
 --- !u!4 &6777810825222705362 stripped
 Transform:
@@ -219,3 +222,19 @@ MonoBehaviour:
     speed: 2
     attackSO: {fileID: 11400000, guid: 9a2efe493c9e6c143b60064f9b2d7ec0, type: 2}
   statModifiers: []
+--- !u!114 &6537420495015136172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777810825222705363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2f7d015a2e029429a745efd01ce4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPool: {fileID: 0}
+  spawnArea: {fileID: 0}
+  maxMonsters: 10
+  spawnInterval: 2
