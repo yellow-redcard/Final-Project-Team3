@@ -189,6 +189,54 @@ MonoBehaviour:
   - {fileID: 7989081032443773260, guid: 191365d4a0e41814c8e6adecd057ac85, type: 3}
   currentSlime: {fileID: 0}
   currentIndex: 0
+--- !u!1 &7134634365146700228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8925009639874408927}
+  - component: {fileID: 2112432926129299627}
+  m_Layer: 0
+  m_Name: MonsterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8925009639874408927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134634365146700228}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4121076861802647501}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112432926129299627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134634365146700228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2f7d015a2e029429a745efd01ce4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPool: {fileID: 4113155625145028632}
+  spawnArea: {fileID: 0}
+  maxMonsters: 10
+  spawnInterval: 2
 --- !u!1 &8573729210390135359
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +320,7 @@ Transform:
   - {fileID: 7133503234120618802}
   - {fileID: 5785195511417222918}
   - {fileID: 6266564164720989602}
+  - {fileID: 8925009639874408927}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5622273613721806263
@@ -289,6 +338,7 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   uiManager: {fileID: 8145768516793066664}
   slimeManager: {fileID: 2567184685954987846}
+  monsterManager: {fileID: 2112432926129299627}
   monsterPool: {fileID: 4113155625145028632}
   skillPool: {fileID: 1801188945580902502}
   skillManager: {fileID: 8469381269882448206}
