@@ -7,6 +7,7 @@ public class TopDownMovement : MonoBehaviour
     private Rigidbody2D move_rb;
     private CharacterStatsHandler characterStatsHandler;
     private Vector2 moveDirection = Vector2.zero;
+    private Collider2D _collider;
     
     private void Awake()
     {

@@ -7,7 +7,8 @@ public class SlimeHPUI : MonoBehaviour
 {
     public class HealthBarUI : MonoBehaviour
     {
-        [SerializeField] private GameObject getHealthSystem;
+        private GameObject getHealthSystem;
+        private GameObject previousHealthSystem;
         [SerializeField] private Slider slider;
 
 
@@ -16,9 +17,29 @@ public class SlimeHPUI : MonoBehaviour
 
         private void Start()
         {
-            if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem healthSystem))
+            getHealthSystem = GameObject.FindGameObjectWithTag("Player");
+            UpdateHealthSystem();
+        }
+        private void Update()
+        {
+            if (getHealthSystem != previousHealthSystem)
             {
+                UpdateHealthSystem();
+            }
+        }
+        private void UpdateHealthSystem()
+        {
+            getHealthSystem = GameObject.FindGameObjectWithTag("Player");
+            if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem newHealthSystem))
+            {
+                healthSystem = newHealthSystem;
+                previousHealthSystem = getHealthSystem;
                 SetHealthSystem(healthSystem);
+            }
+            else
+            {
+                healthSystem = null;
+                Debug.LogError("No HealthSystem found on the assigned GameObject!");
             }
         }
 
@@ -44,12 +65,6 @@ public class SlimeHPUI : MonoBehaviour
         private void UpdateHealthBar()
         {
             slider.value = healthSystem.GetHealthNormalized();
-        }
-
-        private void OnDamage()
-        {
-            HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem healthSystem, true);
-            healthSystem.Damage(10);
         }
     }
 }
