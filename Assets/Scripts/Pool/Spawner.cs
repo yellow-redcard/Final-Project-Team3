@@ -2,31 +2,41 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public Transform[] spawnPoint; //유니티에서 몬스터를 생성할 위치
+    public Transform[] spawnPoint; // 스폰 포인트 배열
 
-    float timer;
+    private float timer;
 
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        timer += Time.deltaTime; // 시간을 흐르게 만들어 줌
+        timer += Time.deltaTime;
 
         if (timer > 0.2f)
         {
             Spawn();
-            timer = 0f; // 시간 초기화
+            timer = 0f; // 타이머 초기화
         }
     }
 
-    void Spawn()
+    private void Spawn()
     {
-        GameObject enemy = GameManager.Instance.monsterPool.Get(Random.Range(0, 3)); //enemy를 정의
-        enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
-        // enemy가 생성되는 위치를 유니티에서 만든 spawnpoint들에서 생성
+        if (GameManager.Instance == null || GameManager.Instance.monsterPool == null)
+        {
+            Debug.LogError("Spawner: GameManager 또는 MonsterPoolManager가 설정되지 않았습니다.");
+            return;
+        }
+
+        int randomIndex = Random.Range(0, 3);
+        GameObject enemy = GameManager.Instance.monsterPool.Get(randomIndex);
+
+        if (enemy != null)
+        {
+            enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+        }
     }
 }
+
