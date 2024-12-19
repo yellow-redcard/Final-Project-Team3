@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 
     int level;
     float timer;
+    float bossTimer;
 
     private void Awake()
     {
@@ -16,35 +17,40 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime; // 시간을 흐르게 만들어 줌
-       
-        level = Mathf.FloorToInt(GameManager.Instance.gameTime / 20f);  //레벨 계산: 게임 시간을 기준으로 20초마다 레벨 증가
+        bossTimer += Time.deltaTime;
 
-        if (timer > 0.2f) //타이머가 0.2초 이상일 때 스폰 실행 
+        level = Mathf.FloorToInt(GameManager.Instance.gameTime / 20f);
+
+        if (timer > 1f)
         {
-            Spawn();
+            SpawnMonsters();
             timer = 0f; // 시간 초기화
+        }
+        if (bossTimer > 20f)
+        {
+            SpawnBossMonster();
+            bossTimer = 0f;
         }
     }
 
-    void Spawn()
-    {    
-        if (GameManager.Instance == null || GameManager.Instance.monsterPool == null) // GameManager와 MonsterPoolManager가 올바르게 설정되었는지 확인 한마디로 방어코드
-        {
-            Debug.LogError("Spawner: GameManager 또는 MonsterPoolManager가 설정되지 않았습니다.");
-            return;
-        }
+    private void SpawnBossMonster()
+    {
         MonsterPoolManager poolManager = GameManager.Instance.monsterPool;
 
-        GameObject enemy = poolManager.GetNextPrefab(level);  // 레벨 기반으로 적 프리팹 가져오기
+        // 보스 몬스터 소환
+        GameObject boss = poolManager.GetNextBossPrefab();
+        boss.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+    }
 
+    void SpawnMonsters()
+    {
+        MonsterPoolManager poolManager = GameManager.Instance.monsterPool;
 
-        if (enemy != null)
+        // 3개의 몬스터를 레벨에 따라 소환
+        for (int i = 0; i < 3; i++)
         {
-            enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; // 랜덤한 스폰 포인트에 배치
-        }
-        else
-        {
-            Debug.LogError($"Spawner: 레벨 {level}에 대한 몬스터 프리팹이 없습니다.");
+            GameObject enemy = poolManager.GetNextPrefab(level);
+            enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         }
     }
 }

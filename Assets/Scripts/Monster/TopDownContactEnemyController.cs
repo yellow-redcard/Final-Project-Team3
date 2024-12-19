@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEditor;
+using UnityEngine;
 
 public class TopDownContactEnemyController : TopDownEnemyController
 {
@@ -7,12 +9,21 @@ public class TopDownContactEnemyController : TopDownEnemyController
     private bool isCollidingWithTarget;
 
     [SerializeField] private Transform characterTransform;
+    [SerializeField] private GameObject getHealthSystemGameObject;
+    private HealthSystem collidingTargetHealthSystem;
+    private TopDownMovement collidingMovement;
 
     protected override void Start()
     {
         base.Start();
-    }
 
+        HealthSystem.TryGetHealthSystem(getHealthSystemGameObject, out HealthSystem healthSystem, true);
+
+    }
+    private void OnDamage()
+    {
+
+    }
     protected override void FixedUpdate()
     {
         base.FixedUpdate();

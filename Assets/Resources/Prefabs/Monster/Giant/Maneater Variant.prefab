@@ -79,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: a62b250ac02770349b6765791549fbcf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3853363063247888465}
+    - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: a62b250ac02770349b6765791549fbcf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5979123024291456278}
   m_SourcePrefab: {fileID: 100100000, guid: a62b250ac02770349b6765791549fbcf, type: 3}
 --- !u!1 &2735150266107409568 stripped
 GameObject:
@@ -214,6 +217,19 @@ MonoBehaviour:
     speed: 2
     attackSO: {fileID: 11400000, guid: 31440126fc44f324db96eaae2da3e0bb, type: 2}
   statModifiers: []
+--- !u!114 &-5979123024291456278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2735150266107409568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b73872f3f11d14cb031f30843e664e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 10
 --- !u!4 &2735150266107409569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 117150395161187362, guid: a62b250ac02770349b6765791549fbcf, type: 3}
