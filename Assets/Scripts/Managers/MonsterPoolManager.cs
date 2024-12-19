@@ -5,9 +5,12 @@ using UnityEngine;
 public class MonsterPoolManager : MonoBehaviour, IManager
 {
     public GameObject[] prefabs;
+    public GameObject[] bossPrefabs;
 
+    List<GameObject>[] bossPools;
     List<GameObject>[] pools;
     private int currentPrefabIndex = 0;
+    private int currentBossIndex = 0;
 
     public GameObject Get(int index)
     {
@@ -27,6 +30,30 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         {
             select = Instantiate(prefabs[index], transform);
             pools[index].Add(select);
+        }
+
+        return select;
+    }
+
+    public GameObject GetBoss(int index)
+    {
+        GameObject select = null;
+
+        // 비활성화된 보스 몬스터 찾기
+        foreach (GameObject item in bossPools[index])
+        {
+            if (!item.activeSelf)
+            {
+                select = item;
+                select.SetActive(true);
+                break;
+            }
+        }
+
+        if (select == null)
+        {
+            select = Instantiate(bossPrefabs[index], transform);
+            bossPools[index].Add(select);
         }
 
         return select;
@@ -53,6 +80,14 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         currentPrefabIndex = (currentPrefabIndex + 1) % (endIndex - startIndex + 1) + startIndex;
 
         return Get(index);
+    }
+
+    public GameObject GetNextBossPrefab()
+    {
+        // 보스 몬스터 순서대로 반환
+        int index = currentBossIndex;
+        currentBossIndex = (currentBossIndex + 1) % bossPrefabs.Length;
+        return GetBoss(index);
     }
 
     public void init()

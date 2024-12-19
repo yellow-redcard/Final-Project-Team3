@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 
     int level;
     float timer;
+    float bossTimer;
 
     private void Awake()
     {
@@ -16,16 +17,32 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime; // 시간을 흐르게 만들어 줌
+        bossTimer += Time.deltaTime;
+
         level = Mathf.FloorToInt(GameManager.Instance.gameTime / 20f);
 
         if (timer > 1f)
         {
-            Spawn();
+            SpawnMonsters();
             timer = 0f; // 시간 초기화
+        }
+        if (bossTimer > 20f)
+        {
+            SpawnBossMonster();
+            timer = 0f;
         }
     }
 
-    void Spawn()
+    private void SpawnBossMonster()
+    {
+        MonsterPoolManager poolManager = GameManager.Instance.monsterPool;
+
+        // 보스 몬스터 소환
+        GameObject boss = poolManager.GetNextBossPrefab();
+        boss.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+    }
+
+    void SpawnMonsters()
     {
         MonsterPoolManager poolManager = GameManager.Instance.monsterPool;
 
