@@ -31,7 +31,7 @@ public class GameManager : MonoSingleton<GameManager>
         monsterPool.init();
         skillPool.init();
         skillManager.init();
-        skillManager.SetCurrentElement(SkillManager.Element.Water);
+        //skillManager.SetCurrentElement(SkillManager.Element.Water);
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
 
         InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
