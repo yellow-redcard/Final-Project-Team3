@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TagSlimeUI : MonoBehaviour
+public class TagSlimeUI : UIBase
 {
     public int tagSlimeIndex;
 

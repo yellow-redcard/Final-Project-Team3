@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KillUI : MonoBehaviour
+public class KillUI : UIBase
 {
     [SerializeField] private Text KillTxt;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelUI : MonoBehaviour
+public class LevelUI : UIBase
 {
     [SerializeField] private Text levelTxt;
 

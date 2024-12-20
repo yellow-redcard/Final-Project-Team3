@@ -35,7 +35,10 @@ public class GameManager : MonoSingleton<GameManager>
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
 
         InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
-
+        uiManager.Show<ExpUI>();
+        uiManager.Show<SlimeHPUI>();
+        uiManager.Show<KillUI>();
+        uiManager.Show<LevelUI>();
     }
 
 
@@ -62,10 +65,5 @@ public class GameManager : MonoSingleton<GameManager>
         skillManager.FireSkill(SkillManager.SkillType.Cone, playerPosition, activeMonsters);
         skillManager.FireSkill(SkillManager.SkillType.Line, playerPosition, activeMonsters);
         skillManager.FireSkill(SkillManager.SkillType.Area, playerPosition, activeMonsters);
-    }
-    private void OnLevelUp()
-    {
-        Debug.Log("레벨업! 스킬 선택지 표시.");
-        uiManager.ShowLevelUpUI();
     }
 }

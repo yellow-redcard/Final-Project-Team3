@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SlimeHPUI : MonoBehaviour
+public class SlimeHPUI : UIBase
 {
     public class HealthBarUI : MonoBehaviour
     {

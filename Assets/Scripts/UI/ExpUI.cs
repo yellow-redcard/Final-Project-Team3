@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExpUI : MonoBehaviour
+public class ExpUI : UIBase
 {
     [SerializeField] private Slider expBar;
     private float _exp;
@@ -32,7 +32,7 @@ public class ExpUI : MonoBehaviour
         if(curExp >= maxExp)
         {
             SetLevelUpExp();
-            //GameManager.Instance.uiManager.Show<LevelUpUI>();
+            GameManager.Instance.uiManager.Show<LevelUpUI>();
         }
         GetMonsterExp();
     }
