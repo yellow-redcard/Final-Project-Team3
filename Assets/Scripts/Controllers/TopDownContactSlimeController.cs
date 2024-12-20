@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TopDownContactSlimeController : MonoBehaviour
 {
+    /*
     private GameObject getHealthSystemGameObject;
     private HealthSystem collidingHealthSystem;
     private string monsterTag = "Enemy";
@@ -30,6 +31,11 @@ public class TopDownContactSlimeController : MonoBehaviour
         {
             isCollidingWithSlime = true;
         }
+        if (collision.TryGetComponent(out Slime slime))
+        {
+            slime.Damage();
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -37,6 +43,7 @@ public class TopDownContactSlimeController : MonoBehaviour
     }
     private void ApplyHealthChange()
     {
-        
+
     }
+    */
 }

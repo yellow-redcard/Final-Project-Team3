@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 4008255195278040253}
   - component: {fileID: 5161088359880518358}
   - component: {fileID: 4163590412805343735}
-  - component: {fileID: 2095011963555069582}
+  - component: {fileID: 5772261988788729457}
   m_Layer: 7
   m_Name: ElectricSlime
   m_TagString: Player
@@ -896,7 +896,7 @@ MonoBehaviour:
     speed: 5
     attackSO: {fileID: 11400000, guid: 4a2d1ed5a07095e49ab80e997cd6547b, type: 2}
   statModifiers: []
---- !u!114 &2095011963555069582
+--- !u!114 &5772261988788729457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -905,7 +905,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7989081032443773260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19a0634bbb3531e4a8240c76b301d33a, type: 3}
+  m_Script: {fileID: 11500000, guid: 92360b56200163146ad2b16050b2b3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthMax: 100
