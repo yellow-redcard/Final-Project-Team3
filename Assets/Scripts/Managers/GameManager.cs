@@ -14,6 +14,7 @@ public class GameManager : MonoSingleton<GameManager>
     public MonsterPoolManager monsterPool;
     public SkillPoolManager skillPool;
     public SkillManager skillManager;
+    public TileMapManager tileMapManager;
     public float gameTime;
     public float maxGameTime = 30 * 60f;
     public int monsterKill = 0;
@@ -33,6 +34,11 @@ public class GameManager : MonoSingleton<GameManager>
         skillManager.init();
         //skillManager.SetCurrentElement(SkillManager.Element.Water);
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
+
+        if (tileMapManager != null)
+        {
+            tileMapManager.Init(player);
+        }
 
         InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
         uiManager.Show<ExpUI>();
