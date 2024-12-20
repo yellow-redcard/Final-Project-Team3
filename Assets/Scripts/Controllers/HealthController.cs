@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthController : MonoBehaviour, IHealth
+public class HealthController : MonoBehaviour//, IHealth
 {
+    /*
     [SerializeField] private float healthMax;
     [SerializeField] private float healthAmount;
-
     private HealthSystem healthSystem;
 
     private void Awake()
@@ -22,4 +22,5 @@ public class HealthController : MonoBehaviour, IHealth
     {
         return healthSystem;
     }
+    */
 }

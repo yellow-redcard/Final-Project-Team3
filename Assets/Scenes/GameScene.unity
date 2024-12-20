@@ -199,6 +199,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4113155625145028632, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: prefabs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113155625145028632, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: prefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 5393358972908687783, guid: 9ab173736a790a54893471c0106f648a, type: 3}
+    - target: {fileID: 4113155625145028632, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: prefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 6275428978905263047, guid: b00b132a67199c246b29a09a8cd76481, type: 3}
+    - target: {fileID: 4113155625145028632, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: prefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 2159549025405102905, guid: 36179204c3e93444a9087f1067f18305, type: 3}
+    - target: {fileID: 4113155625145028632, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: prefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 3421344826863216810, guid: f83febc6bdb3d2747bc8b36ef4df39ea, type: 3}
     - target: {fileID: 4121076861802647501, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -310,7 +330,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

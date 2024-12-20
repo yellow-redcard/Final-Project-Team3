@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 4008255195278040253}
   - component: {fileID: 5161088359880518358}
   - component: {fileID: 1238975542379759226}
-  - component: {fileID: 4062985028311671314}
+  - component: {fileID: 1326061407134638289}
   m_Layer: 7
   m_Name: WaterSlime
   m_TagString: Player
@@ -860,7 +860,7 @@ MonoBehaviour:
     speed: 5
     attackSO: {fileID: 0}
   statModifiers: []
---- !u!114 &4062985028311671314
+--- !u!114 &1326061407134638289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -869,7 +869,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7989081032443773260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19a0634bbb3531e4a8240c76b301d33a, type: 3}
+  m_Script: {fileID: 11500000, guid: 92360b56200163146ad2b16050b2b3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthMax: 100

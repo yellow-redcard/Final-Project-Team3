@@ -5,66 +5,60 @@ using UnityEngine.UI;
 
 public class SlimeHPUI : UIBase
 {
-    public class HealthBarUI : MonoBehaviour
+    [SerializeField] private GameObject getHealthSystem;
+    [SerializeField] private GameObject previousHealthSystem;
+    [SerializeField] private Slider slider;
+
+    private HealthSystem currentHealthSystem;
+    private void Start()
     {
-        private GameObject getHealthSystem;
-        private GameObject previousHealthSystem;
-        [SerializeField] private Slider slider;
-
-
-        private HealthSystem healthSystem;
-
-
-        private void Start()
+        getHealthSystem = GameObject.FindGameObjectWithTag("Player");
+        previousHealthSystem = GameObject.FindGameObjectWithTag("Player");
+        if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem healthSystem))
         {
-            getHealthSystem = GameObject.FindGameObjectWithTag("Player");
+            SetHealthSystem(healthSystem);
+        }
+    }
+    private void Update()
+    {
+        getHealthSystem = GameObject.FindGameObjectWithTag("Player");
+        if (getHealthSystem != previousHealthSystem)
+        {
             UpdateHealthSystem();
         }
-        private void Update()
+    }
+    private void UpdateHealthSystem()
+    {
+        if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem newHealthSystem))
         {
-            if (getHealthSystem != previousHealthSystem)
-            {
-                UpdateHealthSystem();
-            }
+            currentHealthSystem = newHealthSystem;
+            previousHealthSystem = getHealthSystem;
         }
-        private void UpdateHealthSystem()
+        else
         {
-            getHealthSystem = GameObject.FindGameObjectWithTag("Player");
-            if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem newHealthSystem))
-            {
-                healthSystem = newHealthSystem;
-                previousHealthSystem = getHealthSystem;
-                SetHealthSystem(healthSystem);
-            }
-            else
-            {
-                healthSystem = null;
-                Debug.LogError("No HealthSystem found on the assigned GameObject!");
-            }
+            currentHealthSystem = null;
+            Debug.LogError("No HealthSystem found on the assigned GameObject!");
         }
-
-        public void SetHealthSystem(HealthSystem healthSystem)
+    }
+    public void SetHealthSystem(HealthSystem healthSystem)
+    {
+        if (this.currentHealthSystem != null)
         {
-            if (this.healthSystem != null)
-            {
-                this.healthSystem.OnHealthChanged -= HealthSystem_OnHealthChanged;
-            }
-            this.healthSystem = healthSystem;
-
-            UpdateHealthBar();
-
-            healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
+            this.currentHealthSystem.OnHealthChanged -= HealthSystem_OnHealthChanged;
         }
+        this.currentHealthSystem = healthSystem;
 
+        UpdateHealthBar();
 
-        private void HealthSystem_OnHealthChanged(object sender, System.EventArgs e)
-        {
-            UpdateHealthBar();
-        }
-
-        private void UpdateHealthBar()
-        {
-            slider.value = healthSystem.GetHealthNormalized();
-        }
+        healthSystem.OnHealthChanged += HealthSystem_OnHealthChanged;
+    }
+    private void HealthSystem_OnHealthChanged(object sender, System.EventArgs e)
+    {
+        Debug.Log($"슬라임 체력바 {slider.value}");
+        UpdateHealthBar();
+    }
+    private void UpdateHealthBar()
+    {
+        slider.value = currentHealthSystem.GetHealthNormalized();
     }
 }

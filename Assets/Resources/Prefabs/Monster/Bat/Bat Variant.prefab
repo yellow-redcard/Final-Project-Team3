@@ -263,7 +263,6 @@ MonoBehaviour:
   followRange: 100
   targetTag: Player
   characterTransform: {fileID: 7580935590835802636}
-  getHealthSystemGameObject: {fileID: 0}
 --- !u!114 &6485866973250880564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b73872f3f11d14cb031f30843e664e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 20
+  maxHp: 10
 --- !u!4 &7580935590835802636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7901925505112223870, guid: 7a00bcee877dfcc4a9be832ef88b6c0c, type: 3}

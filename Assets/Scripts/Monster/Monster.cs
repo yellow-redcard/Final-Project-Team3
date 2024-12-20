@@ -29,6 +29,12 @@ public class Monster : MonoBehaviour
                 TakeDamage(skill.baseDamage);
             }
         }
+        // 슬라임과 충돌 처리
+        if (collision.TryGetComponent(out Slime slime))
+        {
+            Debug.Log("슬라임 데미지");
+            slime.Damage();
+        }
     }
 
     public void TakeDamage(float damage)
