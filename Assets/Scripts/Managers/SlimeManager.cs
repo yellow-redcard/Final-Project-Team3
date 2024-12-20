@@ -7,6 +7,7 @@ public class SlimeManager : MonoBehaviour, IManager
     public List<GameObject> slimePrefabs;
     public GameObject currentSlime;
     public int currentIndex;
+    public Vector3 InputVec { get; private set; }
 
     // 슬라임 이름에 따라 속성을 매핑합니다.
     private Dictionary<string, SkillManager.Element> slimeToElementMap = new Dictionary<string, SkillManager.Element>
