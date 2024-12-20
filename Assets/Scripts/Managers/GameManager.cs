@@ -52,7 +52,8 @@ public class GameManager : MonoSingleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            //GameManager.Instance.uiManager.Show<TagSlimeUI>();
+            Time.timeScale = 0f;
+            GameManager.Instance.uiManager.Show<TagSlimeUI>();
         }
     }
     private void AutoFireSkills()

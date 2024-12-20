@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcab734e1a2ce774c8b1e3a7f420da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  KillTxt: {fileID: 1286483364724366302}
 --- !u!1 &5799305131614593208
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using static SkillManager;
 
 public class LevelUpUI : UIBase
@@ -21,5 +22,10 @@ public class LevelUpUI : UIBase
     private void HandleSkillUpgrade(SkillType skillType, string option)
     {
         GameManager.Instance.skillManager.UpgradeSkill(skillType, option);
+    }
+    public void CloseUI()
+    {
+        GameManager.Instance.uiManager.Hide<LevelUpUI>();
+        Time.timeScale = 1.0f;
     }
 }

@@ -32,7 +32,7 @@ public class TitleScene : MonoBehaviour
     }
     private void StartGame()
     {
-        SceneManager.LoadScene("HynuScene");
+        SceneManager.LoadScene("GameScene");
     }
     private void ShowUpgradeMenu()
     {

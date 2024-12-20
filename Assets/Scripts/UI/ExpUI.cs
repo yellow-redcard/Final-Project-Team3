@@ -14,7 +14,7 @@ public class ExpUI : UIBase
     public float curExp
     {
         get => _exp;
-        private set => _exp = Math.Clamp(value, 0, _exp);
+        private set => _exp = Math.Clamp(value, 0, maxExp);
     }
     private void Start()
     {
@@ -38,11 +38,12 @@ public class ExpUI : UIBase
     }
     public void SetExp()
     {
-        expBar.value = 0;
+        curExp = 0f;
     }
 
     public void SetLevelUpExp()
     {
+        Time.timeScale = 0f;
         GameManager.Instance.Level += 1;
         maxExp = maxExp * 1.2f;
         SetExp();
@@ -51,9 +52,28 @@ public class ExpUI : UIBase
 
     public void GetMonsterExp()
     {
-        //monsterExp = 몬스터 유형
-        //몬스터가 파괴되었을때 경험치 증가
-        //curExp += monsterExp * monsterType
+        Debug.Log($"{curExp} {maxExp}");
         expBar.value = curExp / maxExp;
+    }
+    private void OnEnable()
+    {
+        Monster.OnMonsterDie += Monster_OnMonsterDie;
+    }
+    private void OnDisable()
+    {
+        Monster.OnMonsterDie -= Monster_OnMonsterDie;
+    }
+    private void Monster_OnMonsterDie(object sender, EventArgs e)
+    {
+        Debug.Log("MonsterDie");
+        if (sender is Monster monster)
+        {
+            GainExperience(monsterExp);
+        }
+    }
+    public void GainExperience(float amount)
+    {
+        Debug.Log("Gain");
+        curExp += amount;
     }
 }

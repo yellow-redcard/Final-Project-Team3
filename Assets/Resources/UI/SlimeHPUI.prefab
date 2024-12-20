@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 933682922797388966}
   - component: {fileID: 5065662127453542092}
+  - component: {fileID: 6638061597294741102}
   m_Layer: 5
   m_Name: SlimeHPUI
   m_TagString: Untagged
@@ -239,6 +240,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6638061597294741102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4952868228926286763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd268b74b2f9d4a40a762142b2afe66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
 --- !u!1 &6766248891924937273
 GameObject:
   m_ObjectHideFlags: 0

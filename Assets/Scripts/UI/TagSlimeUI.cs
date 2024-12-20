@@ -68,6 +68,8 @@ public class TagSlimeUI : UIBase
 
         // 货肺款 浇扼烙 积己
         GameManager.Instance.slimeManager.CreateSlime();
+        Time.timeScale = 1f;
+        GameManager.Instance.uiManager.Hide<TagSlimeUI>();
     }
 }
 

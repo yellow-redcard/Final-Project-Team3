@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
     public int maxHp = 10; // 몬스터 최대 체력
     private int currentHp;
+    public static event EventHandler OnMonsterDie;
 
     private void OnEnable()
     {
@@ -38,11 +40,14 @@ public class Monster : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
+        OnMonsterDie?.Invoke(this, EventArgs.Empty);
+        GameManager.Instance.monsterKill += 1;
         // 파괴 효과 (필요 시)
         Debug.Log("몬스터 사망");
         GameManager.Instance.monsterPool.ReturnToPool(gameObject, GetMonsterIndex());
+
     }
 
     private int GetMonsterIndex()
