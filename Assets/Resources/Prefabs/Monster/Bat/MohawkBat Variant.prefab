@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MohawkBat Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5923401707093281111, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6746996791406158598, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}
       propertyPath: characterTransform
       value: 

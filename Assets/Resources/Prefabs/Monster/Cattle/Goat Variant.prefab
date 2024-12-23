@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goat Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: 727ef3e6fdd20784ba705087d03f0e11, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: 727ef3e6fdd20784ba705087d03f0e11, type: 3}
     - {fileID: 3028706453810577491, guid: 727ef3e6fdd20784ba705087d03f0e11, type: 3}

@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerberus Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
     - {fileID: 1967507198131867429, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}

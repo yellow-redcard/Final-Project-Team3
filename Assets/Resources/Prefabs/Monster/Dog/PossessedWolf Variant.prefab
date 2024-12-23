@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PossessedWolf Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2342415255017079070, guid: b269564598026e348ac4750be7d611cc, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2342415255017079071, guid: b269564598026e348ac4750be7d611cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4

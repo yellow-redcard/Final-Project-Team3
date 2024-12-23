@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wolf Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: 9be81215ad29f7f438264e4851dac964, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: 9be81215ad29f7f438264e4851dac964, type: 3}
     - {fileID: 1967507198131867429, guid: 9be81215ad29f7f438264e4851dac964, type: 3}

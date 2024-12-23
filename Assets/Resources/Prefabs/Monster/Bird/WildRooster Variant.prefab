@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WildRooster Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1423470163212545534, guid: 112306b97b015ba4c87ece5d14c48895, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2374989008031308591, guid: 112306b97b015ba4c87ece5d14c48895, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.06

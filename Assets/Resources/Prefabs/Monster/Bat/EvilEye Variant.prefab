@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EvilEye Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5923401707093281111, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7516070502677669983, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
       propertyPath: m_BodyType
       value: 1

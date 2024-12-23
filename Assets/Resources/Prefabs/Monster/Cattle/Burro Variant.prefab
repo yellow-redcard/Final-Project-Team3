@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burro Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: 7444c8d70b86fd84c8b6956b3e130bfa, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: 7444c8d70b86fd84c8b6956b3e130bfa, type: 3}
     - {fileID: 3028706453810577491, guid: 7444c8d70b86fd84c8b6956b3e130bfa, type: 3}

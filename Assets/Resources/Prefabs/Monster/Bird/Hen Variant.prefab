@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hen Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1423470163212545534, guid: 4c10f2b3e268ea3488bf74b71707c68e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2374989008031308591, guid: 4c10f2b3e268ea3488bf74b71707c68e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.45

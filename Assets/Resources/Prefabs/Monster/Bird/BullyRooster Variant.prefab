@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BullyRooster Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1423470163212545534, guid: d1064c9ceb15d7846a6f45db33c17870, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2374989008031308591, guid: d1064c9ceb15d7846a6f45db33c17870, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.95

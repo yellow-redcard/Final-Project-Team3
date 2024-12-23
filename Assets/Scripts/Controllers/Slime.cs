@@ -6,6 +6,8 @@ public class Slime : MonoBehaviour, IHealth
 
     private HealthSystem healthSystem;
 
+    public Animator deadAnimator;
+
     private void Awake()
     {
         healthSystem = new HealthSystem(healthMax);
@@ -13,13 +15,21 @@ public class Slime : MonoBehaviour, IHealth
     }
     private void HealthSystem_OnDead(object sender, System.EventArgs e)
     {
-        GameManager.Instance.uiManager.Hide<SlimeHPUI>();
+        OnDead();
         //게임 종료 UI 불러오기
-        Destroy(gameObject);
     }
     public void Damage()
     {
-        healthSystem.Damage(5);
+        healthSystem.Damage(20);
+    }
+    void OnDead()
+    {
+        deadAnimator.Play("Dead");
+    }
+    void OnDeadComplete()
+    {
+        Time.timeScale = 0f;
+        Destroy(gameObject);
     }
     public HealthSystem GetHealthSystem()
     {

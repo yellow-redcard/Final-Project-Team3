@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turkey Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1423470163212545534, guid: 2473815fed4abc44582e86f2af87f4e7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2374989008031308591, guid: 2473815fed4abc44582e86f2af87f4e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

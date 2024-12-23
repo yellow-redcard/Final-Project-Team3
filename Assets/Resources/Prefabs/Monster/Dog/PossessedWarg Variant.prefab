@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PossessedWarg Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3037274505797839139, guid: fb771d4b40e5f3748b6d6d9372e10376, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2953802163180528389, guid: fb771d4b40e5f3748b6d6d9372e10376, type: 3}
     - {fileID: 3516009369603125797, guid: fb771d4b40e5f3748b6d6d9372e10376, type: 3}

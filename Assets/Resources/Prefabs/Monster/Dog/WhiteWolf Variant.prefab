@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteWolf Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3393446993597103771, guid: 08a2b9609e4295145bff3ffe38472b0e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3300963118170059965, guid: 08a2b9609e4295145bff3ffe38472b0e, type: 3}
     - {fileID: 3889488268402976157, guid: 08a2b9609e4295145bff3ffe38472b0e, type: 3}

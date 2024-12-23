@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WildGoat Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: d51a7d3396b416b47bf1306a817d495b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: d51a7d3396b416b47bf1306a817d495b, type: 3}
     - {fileID: 3028706453810577491, guid: d51a7d3396b416b47bf1306a817d495b, type: 3}

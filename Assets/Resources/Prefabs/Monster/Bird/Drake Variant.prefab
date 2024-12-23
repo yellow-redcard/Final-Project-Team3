@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drake Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1423470163212545534, guid: 99e071b4b80df204999471650ea2b760, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2374989008031308591, guid: 99e071b4b80df204999471650ea2b760, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.77

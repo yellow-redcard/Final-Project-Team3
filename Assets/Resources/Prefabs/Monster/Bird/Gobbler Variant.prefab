@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gobbler Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1423470163212545534, guid: 70b02548e3036f046ab704c78e209223, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2374989008031308591, guid: 70b02548e3036f046ab704c78e209223, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.92

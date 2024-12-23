@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2069015975501184387, guid: c4de079c74bed7f4ab57a0f99dd7bf90, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9183856356246293654, guid: c4de079c74bed7f4ab57a0f99dd7bf90, type: 3}
     - {fileID: 34852073098373796, guid: c4de079c74bed7f4ab57a0f99dd7bf90, type: 3}

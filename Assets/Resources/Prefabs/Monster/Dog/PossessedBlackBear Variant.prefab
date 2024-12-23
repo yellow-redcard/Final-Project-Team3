@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PossessedBlackBear Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5296977109030576814, guid: 2f743aaed25d2db479943c51cc052e35, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3046587559266849723, guid: 2f743aaed25d2db479943c51cc052e35, type: 3}
     - {fileID: 6147389621640197513, guid: 2f743aaed25d2db479943c51cc052e35, type: 3}

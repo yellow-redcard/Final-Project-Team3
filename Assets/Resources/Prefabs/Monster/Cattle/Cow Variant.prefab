@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cow Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: ad29202c563f045489287cea7bf43fa1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: ad29202c563f045489287cea7bf43fa1, type: 3}
     - {fileID: 3028706453810577491, guid: ad29202c563f045489287cea7bf43fa1, type: 3}

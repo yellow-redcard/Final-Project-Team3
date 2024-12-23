@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Watchdog Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: fea6bde0a78eadf459b05701d9fa5369, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: fea6bde0a78eadf459b05701d9fa5369, type: 3}
     - {fileID: 1967507198131867429, guid: fea6bde0a78eadf459b05701d9fa5369, type: 3}

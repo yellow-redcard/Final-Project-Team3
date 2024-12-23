@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LittleBunny Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: 6c283dae0b9a87f43b7c19f7fb8461ed, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: 6c283dae0b9a87f43b7c19f7fb8461ed, type: 3}
     - {fileID: 3028706453810577491, guid: 6c283dae0b9a87f43b7c19f7fb8461ed, type: 3}

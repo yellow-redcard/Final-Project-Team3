@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pug Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1423470163212545534, guid: f7f6c3f289adff041b1bf1e3b6bed6e7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2374989008031308591, guid: f7f6c3f289adff041b1bf1e3b6bed6e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.81

@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ox Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: 47aaeecc281ccf2499647b3aaa06d458, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: 47aaeecc281ccf2499647b3aaa06d458, type: 3}
     - {fileID: 3028706453810577491, guid: 47aaeecc281ccf2499647b3aaa06d458, type: 3}

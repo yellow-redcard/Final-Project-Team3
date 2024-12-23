@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterWarg Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3431526414540065748, guid: 8e755ee11c677e241946f9fff2f8a669, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3431526414540065749, guid: 8e755ee11c677e241946f9fff2f8a669, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.11

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackBear Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6151211889636447821, guid: e3eddc37ccc1b03419ba416707f6bf21, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6151211889636447823, guid: e3eddc37ccc1b03419ba416707f6bf21, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.26

@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMax: 100
-  healthAmount: 0
+  deadAnimator: {fileID: 5161088359880518358}
 --- !u!1 &8191824870333800851
 GameObject:
   m_ObjectHideFlags: 0

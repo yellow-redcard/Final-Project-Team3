@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5771025906570419322, guid: b9d32bdf7741c4e4f89c1b22a0e1077d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5684636669627360493, guid: b9d32bdf7741c4e4f89c1b22a0e1077d, type: 3}
     - {fileID: 4170462454433883350, guid: b9d32bdf7741c4e4f89c1b22a0e1077d, type: 3}

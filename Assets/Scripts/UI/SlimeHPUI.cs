@@ -13,12 +13,16 @@ public class SlimeHPUI : UIBase
     private void Start()
     {
         getHealthSystem = GameObject.FindGameObjectWithTag("Player");
-        previousHealthSystem = GameObject.FindGameObjectWithTag("Player");
+        Debug.Log("getHealthSystem");
+        previousHealthSystem = GameObject.FindGameObjectWithTag("Player"); 
         if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem healthSystem))
         {
+            Debug.Log("HealthSystem:"+ healthSystem);
             SetHealthSystem(healthSystem);
         }
+        SetHealthSystem(healthSystem);
     }
+    
     private void Update()
     {
         getHealthSystem = GameObject.FindGameObjectWithTag("Player");
@@ -40,6 +44,7 @@ public class SlimeHPUI : UIBase
             Debug.LogError("No HealthSystem found on the assigned GameObject!");
         }
     }
+    
     public void SetHealthSystem(HealthSystem healthSystem)
     {
         if (this.currentHealthSystem != null)

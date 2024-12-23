@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warg Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3431526414540065748, guid: d5beda1937ed44d46abb6cbc0641d432, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3431526414540065749, guid: d5beda1937ed44d46abb6cbc0641d432, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.54

@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chick Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5771025906570419322, guid: bb53af76b39682941931e3d95dbae2c2, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5684636669627360493, guid: bb53af76b39682941931e3d95dbae2c2, type: 3}
     - {fileID: 4170462454433883350, guid: bb53af76b39682941931e3d95dbae2c2, type: 3}
