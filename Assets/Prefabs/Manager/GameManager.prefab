@@ -372,5 +372,5 @@ MonoBehaviour:
   gameTime: 0
   maxGameTime: 20
   monsterKill: 0
-  Level: 0
+  Level: 1
   playerTag: Player
