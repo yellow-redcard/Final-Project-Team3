@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SlimeManager : MonoBehaviour, IManager
 {
     public List<GameObject> slimePrefabs;
     public GameObject currentSlime;
     public int currentIndex;
-    public Vector3 InputVec { get; private set; }
+    private List<GameObject> inactiveSlimes = new List<GameObject>();
 
     // 슬라임 이름에 따라 속성을 매핑합니다.
     private Dictionary<string, SkillManager.Element> slimeToElementMap = new Dictionary<string, SkillManager.Element>
@@ -23,23 +24,22 @@ public class SlimeManager : MonoBehaviour, IManager
         currentIndex = Random.Range(0, slimePrefabs.Count);
         if (slimePrefabs.Count > 0)
         {
-            CreateSlime();
+            CreateSlime((Vector2)transform.position);
         }
     }
-
     public void release()
     {
         Destroy(currentSlime);
     }
 
-    public void CreateSlime()
+    public void CreateSlime(Vector2 position)
     {
         if (currentSlime != null)
         {
             Destroy(currentSlime);
         }
-
-        currentSlime = Instantiate(slimePrefabs[currentIndex], transform.position, Quaternion.identity);
+        currentSlime = Instantiate(slimePrefabs[currentIndex], new Vector3(position.x, position.y, 0f), Quaternion.identity);
+        
 
         // 생성된 슬라임 이름으로 속성을 설정
         if (currentSlime != null)

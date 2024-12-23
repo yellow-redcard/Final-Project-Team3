@@ -23,12 +23,6 @@ public class ExpUI : UIBase
 
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log($"GetKeyDown:{KeyCode.E}");
-            curExp += 40;
-        }
         if(curExp >= maxExp)
         {
             SetLevelUpExp();
@@ -45,8 +39,8 @@ public class ExpUI : UIBase
     {
         Time.timeScale = 0f;
         GameManager.Instance.Level += 1;
-        maxExp = maxExp * 1.2f;
-        SetExp();
+        curExp = curExp - maxExp;
+        maxExp = maxExp * 1.4f;
     }
 
 

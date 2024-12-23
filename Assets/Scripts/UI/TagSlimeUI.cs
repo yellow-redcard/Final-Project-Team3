@@ -61,13 +61,14 @@ public class TagSlimeUI : UIBase
     }
     public void TagSlime(int index)
     {
+        Vector2 currentPosition = GameManager.Instance.slimeManager.currentSlime.transform.position;
         GameManager.Instance.slimeManager.release();
 
         // 새로운 슬라임 인덱스 설정
         GameManager.Instance.slimeManager.currentIndex = index;
 
         // 새로운 슬라임 생성
-        GameManager.Instance.slimeManager.CreateSlime();
+        GameManager.Instance.slimeManager.CreateSlime(currentPosition);
         Time.timeScale = 1f;
         GameManager.Instance.uiManager.Hide<TagSlimeUI>();
     }

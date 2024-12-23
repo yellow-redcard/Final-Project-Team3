@@ -6,43 +6,17 @@ using UnityEngine.UI;
 public class SlimeHPUI : UIBase
 {
     [SerializeField] private GameObject getHealthSystem;
-    [SerializeField] private GameObject previousHealthSystem;
     [SerializeField] private Slider slider;
 
     private HealthSystem currentHealthSystem;
     private void Start()
     {
-        getHealthSystem = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log("getHealthSystem");
-        previousHealthSystem = GameObject.FindGameObjectWithTag("Player"); 
         if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem healthSystem))
         {
             Debug.Log("HealthSystem:"+ healthSystem);
             SetHealthSystem(healthSystem);
         }
         SetHealthSystem(healthSystem);
-    }
-    
-    private void Update()
-    {
-        getHealthSystem = GameObject.FindGameObjectWithTag("Player");
-        if (getHealthSystem != previousHealthSystem)
-        {
-            UpdateHealthSystem();
-        }
-    }
-    private void UpdateHealthSystem()
-    {
-        if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem newHealthSystem))
-        {
-            currentHealthSystem = newHealthSystem;
-            previousHealthSystem = getHealthSystem;
-        }
-        else
-        {
-            currentHealthSystem = null;
-            Debug.LogError("No HealthSystem found on the assigned GameObject!");
-        }
     }
     
     public void SetHealthSystem(HealthSystem healthSystem)
