@@ -24,21 +24,18 @@ public class SkillPoolManager : MonoBehaviour
 
     public GameObject Get(int index)
     {
-        GameObject select = null;
-
-        foreach (GameObject item in pools[index])
+        foreach (var obj in pools[index])
         {
-            if (!item.activeSelf)
+            if (!obj.activeSelf)
             {
-                select = item;
-                select.SetActive(true);
-                return select;
+                obj.SetActive(true);
+                return obj;
             }
         }
 
-        select = Instantiate(prefabs[index], transform);
-        pools[index].Add(select);
-        return select;
+        var newObject = Instantiate(prefabs[index]);
+        pools[index].Add(newObject);
+        return newObject;
     }
 
     public void ReturnToPool(GameObject obj, int index)
@@ -49,7 +46,17 @@ public class SkillPoolManager : MonoBehaviour
             pools[index].Add(obj);
         }
     }
-
+    public GameObject GetSkillPrefab(SkillManager.Element element, SkillManager.SkillType skillType)
+    {
+        string prefabName = $"{element}{skillType}";
+        for (int i = 0; i < prefabs.Length; i++)
+        {
+            if (prefabs[i].name == prefabName)
+                return Get(i);
+        }
+        Debug.LogWarning($"스킬 프리팹 '{prefabName}'을 찾을 수 없습니다.");
+        return null;
+    }
     public void release()
     {
         // 필요에 따라 구현

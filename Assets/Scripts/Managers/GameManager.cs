@@ -64,10 +64,11 @@ public class GameManager : MonoSingleton<GameManager>
     }
     private void AutoFireSkills()
     {
-        Vector3 playerPosition = player.position;
-        List<Transform> activeMonsters = monsterPool.GetActiveMonsters(); // 활성화된 몬스터 가져오기
+        if (player == null || monsterPool == null || skillManager == null) return;
 
-        // 스킬 발사: 한 번의 스킬당 한 마리 몬스터 타겟팅
+        Vector3 playerPosition = player.position;
+        List<Transform> activeMonsters = monsterPool.GetActiveMonsters();
+
         skillManager.FireSkill(SkillManager.SkillType.Single, playerPosition, activeMonsters);
         skillManager.FireSkill(SkillManager.SkillType.Cone, playerPosition, activeMonsters);
         skillManager.FireSkill(SkillManager.SkillType.Line, playerPosition, activeMonsters);

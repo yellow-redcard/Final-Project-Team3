@@ -288,7 +288,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4121076861802647501, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2070389674}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
 --- !u!114 &1122382140 stripped
@@ -302,6 +305,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c275ba07b42272e488566b6d92211a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1389844609 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4121076861802647501, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+  m_PrefabInstance: {fileID: 735739708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1439854749 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4113155625145028632, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
@@ -404,6 +412,263 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fc507897d6b36d4aa54cfe49812da7b, type: 3}
+--- !u!1 &1878448162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1878448165}
+  - component: {fileID: 1878448164}
+  - component: {fileID: 1878448163}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1878448163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878448162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1878448164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878448162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1878448165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878448162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2070389672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070389674}
+  - component: {fileID: 2070389673}
+  m_Layer: 0
+  m_Name: SkillDataBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070389673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070389672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d036f42278c2bbc4ca7d386a02cd4402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDataList:
+  - skillName: DarkArea
+    skillType: 3
+    element: 0
+    baseDamage: 10
+    baseRange: 5
+    duration: 2
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: DarkCone
+    skillType: 1
+    element: 0
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: DarkLine
+    skillType: 2
+    element: 0
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: DarkSingle
+    skillType: 0
+    element: 0
+    baseDamage: 10
+    baseRange: 5
+    duration: 0.5
+    cooldown: 2
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: ElectricityArea
+    skillType: 3
+    element: 1
+    baseDamage: 10
+    baseRange: 5
+    duration: 2
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: ElectricityCone
+    skillType: 1
+    element: 1
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: ElectricityLine
+    skillType: 2
+    element: 1
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: ElectricitySingle
+    skillType: 0
+    element: 1
+    baseDamage: 10
+    baseRange: 5
+    duration: 0.5
+    cooldown: 2
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: FlameArea
+    skillType: 3
+    element: 2
+    baseDamage: 10
+    baseRange: 5
+    duration: 2
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: FlameCone
+    skillType: 1
+    element: 2
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: FlameLine
+    skillType: 2
+    element: 2
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: FlameSingle
+    skillType: 0
+    element: 2
+    baseDamage: 10
+    baseRange: 5
+    duration: 0.5
+    cooldown: 2
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: WaterArea
+    skillType: 3
+    element: 3
+    baseDamage: 10
+    baseRange: 5
+    duration: 2
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: WaterCone
+    skillType: 1
+    element: 3
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: WaterLine
+    skillType: 2
+    element: 3
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: WaterSingle
+    skillType: 0
+    element: 3
+    baseDamage: 10
+    baseRange: 5
+    duration: 0.5
+    cooldown: 2
+    maxLevel: 1
+    projectileCount: 1
+--- !u!4 &2070389674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070389672}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1074.5917, y: 203.7644, z: -20.98403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1389844609}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5628329597581148240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -468,3 +733,4 @@ SceneRoots:
   - {fileID: 735739708}
   - {fileID: 1843986784}
   - {fileID: 5628329597581148240}
+  - {fileID: 1878448165}
