@@ -41,10 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
 
         InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
-        uiManager.Show<ExpUI>();
-        uiManager.Show<SlimeHPUI>();
         uiManager.Show<KillUI>();
-        uiManager.Show<LevelUI>();
     }
 
 
