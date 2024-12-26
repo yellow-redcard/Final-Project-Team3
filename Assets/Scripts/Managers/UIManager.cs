@@ -8,7 +8,7 @@ using static SkillManager;
 
 public class UIManager : MonoBehaviour, IManager
 {
-    private LevelUpUI levelUpUI;
+    [SerializeField] private LevelUpUI levelUpUI;
     [SerializeField] private Transform canvas;
     public static float ScreenWidth = 1920;
     public static float ScreenHeight = 1080;
@@ -67,27 +67,18 @@ public class UIManager : MonoBehaviour, IManager
     }
     public void ShowLevelUpUI(List<SkillData> skillOptions)
     {
-        var levelUpUI = FindObjectOfType<LevelUpUI>();
-
-        if (levelUpUI != null)
+        if (levelUpUI == null)
         {
-            Debug.Log("[UIManager] 레벨업 UI에 전달할 데이터:");
-            foreach (var skill in skillOptions)
-            {
-                Debug.Log($"[UIManager] 스킬 이름: {skill.skillName}, 타입: {skill.skillType}, 속성: {skill.element}");
-            }
-
-            levelUpUI.ConfigureButtons(
-                skillOptions.Count > 0 ? skillOptions[0] : null,
-                skillOptions.Count > 1 ? skillOptions[1] : null,
-                skillOptions.Count > 2 ? skillOptions[2] : null
-            );
-
-            levelUpUI.gameObject.SetActive(true);
+            Debug.LogError("[UIManager] LevelUpUI가 설정되지 않았습니다.");
+            return;
         }
-        else
-        {
-            Debug.LogError("[UIManager] LevelUpUI를 찾을 수 없습니다.");
-        }
+
+        levelUpUI.ConfigureButtons(
+            skillOptions.Count > 0 ? skillOptions[0] : null,
+            skillOptions.Count > 1 ? skillOptions[1] : null,
+            skillOptions.Count > 2 ? skillOptions[2] : null
+        );
+
+        levelUpUI.gameObject.SetActive(true);
     }
 }

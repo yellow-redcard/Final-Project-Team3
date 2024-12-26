@@ -74,12 +74,9 @@ public class GameManager : MonoSingleton<GameManager>
     public void ShowLevelUpUI()
     {
         var options = skillManager.GetLevelUpOptions();
-        if (options.Count == 0)
+        if (options.Count > 0)
         {
-            Debug.LogError("[GameManager] 레벨업 옵션이 없습니다.");
-            return;
+            uiManager.ShowLevelUpUI(options);
         }
-
-        uiManager.ShowLevelUpUI(options);
     }
 }

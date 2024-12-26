@@ -3,15 +3,12 @@ using UnityEngine;
 
 public class SkillDatabase : MonoBehaviour
 {
-    [SerializeField] // 인스펙터에서 접근 가능하도록 설정
-    private List<SkillData> skillDataList = new List<SkillData>();
+    [SerializeField]
+    private List<SkillData> skillDataList; // ScriptableObject 리스트
 
     /// <summary>
     /// 특정 SkillType과 Element에 해당하는 SkillData를 반환합니다.
     /// </summary>
-    /// <param name="type">스킬 타입</param>
-    /// <param name="element">스킬 속성</param>
-    /// <returns>SkillData 또는 null</returns>
     public SkillData GetSkillData(SkillManager.SkillType type, SkillManager.Element element)
     {
         return skillDataList.Find(skill => skill.skillType == type && skill.element == element);
@@ -20,11 +17,14 @@ public class SkillDatabase : MonoBehaviour
     /// <summary>
     /// 모든 스킬 데이터를 반환합니다.
     /// </summary>
-    /// <returns>SkillData 리스트</returns>
     public List<SkillData> GetAllSkills()
     {
         return skillDataList;
     }
+
+    /// <summary>
+    /// 디버그용: 모든 스킬 정보를 출력합니다.
+    /// </summary>
     public void TestSkillDatabase()
     {
         foreach (var skill in skillDataList)

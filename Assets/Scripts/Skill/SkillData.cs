@@ -1,39 +1,30 @@
-using System.Collections.Generic;
+using UnityEngine;
 
-[System.Serializable]
-public class SkillData
+[CreateAssetMenu(fileName = "NewSkillData", menuName = "Skill/SkillData")]
+public class SkillData : ScriptableObject
 {
-    public string description;
-    public string skillName;
-    public SkillManager.SkillType skillType;
-    public SkillManager.Element element;
-    public float baseDamage;
-    public float baseRange;
-    public float duration;
-    public float cooldown;
-    public int maxLevel;
-    public int projectileCount; // 단일기 전용
-    public int level; // 현재 스킬 레벨 추가
-    public Dictionary<string, float> upgradeModifiers; // 업그레이드 옵션
+    public string skillName;                // 스킬 이름
+    public SkillManager.SkillType skillType; // 스킬 타입 (Single, Cone 등)
+    public SkillManager.Element element;    // 스킬 속성 (Fire, Water 등)
 
-    public SkillData(string name, SkillManager.SkillType type, SkillManager.Element element, float damage, float range, float duration, float cooldown, int maxLevel, int projectiles = 1)
+    public float baseDamage;                // 기본 데미지
+    public float baseRange;                 // 기본 사거리
+    public float cooldown;                  // 기본 쿨다운
+    public float duration;                  // 지속 시간
+    public int level;
+    public int maxLevel;                    // 최대 레벨
+    public int projectileCount;             // 투사체 개수
+    public string upgradeDescription;       // 업그레이드 설명
+
+    // 레벨별 데이터
+    [System.Serializable]
+    public class LevelUpStats
     {
-        skillName = name;
-        skillType = type;
-        this.element = element;
-        baseDamage = damage;
-        baseRange = range;
-        this.duration = duration;
-        this.cooldown = cooldown;
-        this.maxLevel = maxLevel;
-        level = 1; // 초기 레벨 1
-        projectileCount = projectiles;
-        upgradeModifiers = new Dictionary<string, float>
-        {
-            { "Cooldown", -0.5f },
-            { "Damage", 5f },
-            { "Range", 2f },
-            { "Projectile", 1f }
-        };
+        public float damage;       // 레벨별 데미지
+        public float cooldown;     // 레벨별 쿨다운
+        public float range;        // 레벨별 사거리
+        public int projectileCount; // 레벨별 투사체 수
     }
+
+    public LevelUpStats[] levelUpStats; // 레벨별 데이터 배열
 }
