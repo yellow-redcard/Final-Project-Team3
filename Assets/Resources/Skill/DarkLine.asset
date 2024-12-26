@@ -15,11 +15,12 @@ MonoBehaviour:
   skillName: "\uB2E4\uD06C \uAD11\uC5ED\uAE30(\uC9C1\uC120)"
   skillType: 2
   element: 1
-  baseDamage: 10
+  baseDamage: 5
   baseRange: 5
-  duration: 0.5
   cooldown: 2
-  maxLevel: 5
+  duration: 0.5
   level: 0
+  maxLevel: 5
   projectileCount: 1
-  upgradeDescription: "\uBC1C\uC0AC \uC218\uAC00 1\uC99D\uAC00\uD569\uB2C8\uB2E4"
+  upgradeDescription: 
+  levelUpStats: []

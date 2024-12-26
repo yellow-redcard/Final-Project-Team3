@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8588768d2198f8e4bb7f6a961e23d43b, type: 3}
   m_Name: WaterCone
   m_EditorClassIdentifier: 
-  skillName: "\uB2E4\uD06C \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
+  skillName: "\uBB3C \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
   skillType: 1
   element: 4
-  baseDamage: 10
+  baseDamage: 5
   baseRange: 5
-  duration: 0.5
   cooldown: 2
-  maxLevel: 5
+  duration: 2
   level: 0
+  maxLevel: 5
   projectileCount: 1
-  upgradeDescription: "\uBC1C\uC0AC \uC218\uAC00 1\uC99D\uAC00\uD569\uB2C8\uB2E4"
+  upgradeDescription: 
+  levelUpStats: []
