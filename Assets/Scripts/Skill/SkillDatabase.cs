@@ -25,4 +25,11 @@ public class SkillDatabase : MonoBehaviour
     {
         return skillDataList;
     }
+    public void TestSkillDatabase()
+    {
+        foreach (var skill in skillDataList)
+        {
+            Debug.Log($"[SkillDatabase] 스킬 이름: {skill.skillName}, 타입: {skill.skillType}, 속성: {skill.element}");
+        }
+    }
 }

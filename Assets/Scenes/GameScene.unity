@@ -171,6 +171,230 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[0].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: e82888a24c5b5184295b8e72c77e5c1b, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[1].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: ef5340abdec29b44da2fa77cb972b088, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[2].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d686d30a59e7db489743f51cfa10077, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[3].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5c5117ef2226a914486be92d793d3deb, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[4].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: e5d71ada2100d9a4bb2f278ca8cc4943, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[5].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 434da758f18138c4a8f10cc889bc5370, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[6].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 152a232daf50bbb43addeeb746365357, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[7].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 92e09466fbedf734bacde2a24df73b8c, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[8].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: a0839941d8f98494c91b86f08921512d, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[9].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 97f92ba0a917c214c9038f34ebdf31ea, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[10].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: b9dc2d575243cf0458814ce1fca2ab4f, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[11].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a15b8c7a9e3ab94b90d1eab5b1b1a5d, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[12].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: e22575bece6904d4e8109fdc0731c9b0, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[13].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 717ad5574da6ebb4b8b7a8b64eb7cb89, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[14].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 4122be1ee6620c948bfd458b25aedc94, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[15].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: e97963179b368584d977b99f9f6b747e, type: 3}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[1].duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[2].duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[5].duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[6].duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[9].duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[10].duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[13].duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[14].duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[0].description
+      value: "\uC5B4\uB460 \uC7A5\uD310"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[1].description
+      value: "\uC5B4\uB460 \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[2].description
+      value: "\uC5B4\uB460 \uAD11\uC5ED\uAE30(\uC9C1\uC120)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[3].description
+      value: "\uC5B4\uB460 \uB2E8\uC77C\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[4].description
+      value: "\uC804\uAE30 \uC7A5\uD310"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[5].description
+      value: "\uC804\uAE30 \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[6].description
+      value: "\uC804\uAE30 \uAD11\uC5ED\uAE30(\uC9C1\uC120)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[7].description
+      value: "\uC804\uAE30 \uB2E8\uC77C\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[8].description
+      value: "\uBD88 \uC7A5\uD310"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[9].description
+      value: "\uBD88 \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[10].description
+      value: "\uBD88 \uAD11\uC5ED\uAE30(\uC9C1\uC120)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[11].description
+      value: "\uBD88 \uB2E8\uC77C\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[12].description
+      value: "\uBB3C \uC7A5\uD310"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[13].description
+      value: "\uBB3C \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[14].description
+      value: "\uBB3C \uAD11\uC5ED\uAE30(\uC9C1\uC120)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961984769399206453, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[15].description
+      value: "\uBB3C \uB2E8\uC77C\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[0].description
+      value: "\uC5B4\uB460 \uC7A5\uD310"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[1].description
+      value: "\uC5B4\uB460 \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[2].description
+      value: "\uC5B4\uB460 \uAD11\uC5ED\uAE30(\uC9C1\uC120)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[3].description
+      value: "\uC5B4\uB460 \uB2E8\uC77C\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[4].description
+      value: "\uC804\uAE30 \uC7A5\uD310"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[5].description
+      value: "\uC804\uAE30 \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[6].description
+      value: "\uC804\uAE30 \uAD11\uC5ED\uAE30(\uC9C1\uC120)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[7].description
+      value: "\uC804\uAE30 \uB2E8\uC77C\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[8].description
+      value: "\uBD88 \uC7A5\uD310"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[9].description
+      value: "\uBD88 \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[10].description
+      value: "\uBD88 \uAD11\uC5ED\uAE30(\uC9C1\uC120)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[11].description
+      value: "\uBD88 \uB2E8\uC77C\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[12].description
+      value: "\uBB3C \uC7A5\uD310"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[13].description
+      value: "\uBB3C \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[14].description
+      value: "\uBB3C \uAD11\uC5ED\uAE30(\uC9C1\uC120)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092831097959911180, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: skillDataList.Array.data[15].description
+      value: "\uBB3C \uB2E8\uC77C\uAE30"
+      objectReference: {fileID: 0}
     - target: {fileID: 9105980131700377440, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
       propertyPath: m_Name
       value: GameManager

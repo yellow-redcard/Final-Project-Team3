@@ -8,27 +8,34 @@ public class SkillManager : MonoBehaviour, IManager
     public enum Element { Dark, Electricity, Flame, Water }
     public enum SkillType { Single, Cone, Line, Area }
 
+    private Dictionary<SkillType, HashSet<string>> skillUpgrades = new Dictionary<SkillType, HashSet<string>>()
+    {
+        { SkillType.Single, new HashSet<string> { "Cooldown", "Damage", "Projectile" } },
+        { SkillType.Cone, new HashSet<string> { "Cooldown", "Damage", "Range" } },
+        { SkillType.Line, new HashSet<string> { "Cooldown", "Damage", "Range" } },
+        { SkillType.Area, new HashSet<string> { "Damage", "Range" } }
+    };
+
     private Dictionary<Element, Dictionary<SkillType, int>> skillPrefabIndices;
     private HashSet<SkillType> unlockedSkills = new HashSet<SkillType> { SkillType.Single };
     private Dictionary<SkillType, int> skillLevels = new Dictionary<SkillType, int>();
-    private List<Skill> activeSkills = new List<Skill>(); // 활성화된 스킬 목록
+    private List<Skill> activeSkills = new List<Skill>();
     private Element currentElement;
 
-    private SkillDatabase skillDatabase;
-    /// <summary>
-    /// 초기화 메서드 (Manager Init 호출)
-    /// </summary>
+    public SkillDatabase skillDatabase;
+    public void release()
+    {
+
+    }
     public void init()
     {
         skillPrefabIndices = new Dictionary<Element, Dictionary<SkillType, int>>();
 
-        // 모든 스킬 레벨 초기화
         foreach (SkillType skillType in System.Enum.GetValues(typeof(SkillType)))
         {
             skillLevels[skillType] = 1;
         }
 
-        // SkillDatabase 참조
         skillDatabase = FindObjectOfType<SkillDatabase>();
         if (skillDatabase == null)
         {
@@ -37,12 +44,9 @@ public class SkillManager : MonoBehaviour, IManager
         }
 
         LoadSkillPrefabs();
-        UnlockSkill(SkillType.Single); // 기본 스킬 해금
+        UnlockSkill(SkillType.Single);
     }
 
-    /// <summary>
-    /// 스킬 프리팹 로드 (Element 및 SkillType 별로 분류)
-    /// </summary>
     private void LoadSkillPrefabs()
     {
         foreach (Element element in System.Enum.GetValues(typeof(Element)))
@@ -67,33 +71,27 @@ public class SkillManager : MonoBehaviour, IManager
         }
     }
 
-    /// <summary>
-    /// 현재 속성 설정
-    /// </summary>
     public void SetCurrentElement(Element element)
     {
         currentElement = element;
     }
 
-    /// <summary>
-    /// 스킬 발사
-    /// </summary>
     public void FireSkill(SkillType skillType, Vector3 playerPosition, List<Transform> enemies)
     {
         if (!unlockedSkills.Contains(skillType)) return;
 
-        SkillData skillData = skillDatabase.GetSkillData(skillType, currentElement); // SkillData 사용
+        SkillData skillData = skillDatabase.GetSkillData(skillType, currentElement);
         if (skillData == null)
         {
             Debug.LogWarning($"[SkillManager] {currentElement} {skillType} 스킬 데이터가 없습니다.");
             return;
         }
 
-        if (skillType == SkillType.Area) // 장판 스킬은 플레이어 위치에 생성
+        if (skillType == SkillType.Area)
         {
             SpawnSkill(skillType, playerPosition, skillData);
         }
-        else // 단일기, 원뿔, 일직선은 한 마리의 몬스터를 타겟팅
+        else
         {
             Transform targetEnemy = GetSingleTarget(enemies);
             if (targetEnemy != null)
@@ -103,9 +101,6 @@ public class SkillManager : MonoBehaviour, IManager
         }
     }
 
-    /// <summary>
-    /// 가장 가까운 적 타겟팅
-    /// </summary>
     private Transform GetSingleTarget(List<Transform> enemies)
     {
         if (enemies == null || enemies.Count == 0) return null;
@@ -126,9 +121,6 @@ public class SkillManager : MonoBehaviour, IManager
         return closestEnemy;
     }
 
-    /// <summary>
-    /// 스킬 생성 및 사용
-    /// </summary>
     private void SpawnSkill(SkillType skillType, Vector3 position, SkillData skillData)
     {
         if (skillPrefabIndices.ContainsKey(currentElement) && skillPrefabIndices[currentElement].ContainsKey(skillType))
@@ -141,7 +133,6 @@ public class SkillManager : MonoBehaviour, IManager
             Skill skill = skillInstance.GetComponent<Skill>();
             if (skill != null)
             {
-                // SkillData 기반으로 스킬 초기화
                 skill.baseDamage = skillData.baseDamage;
                 skill.cooldown = skillData.cooldown;
                 skill.baseRange = skillData.baseRange;
@@ -154,18 +145,12 @@ public class SkillManager : MonoBehaviour, IManager
         }
     }
 
-    /// <summary>
-    /// 스킬 사용 후 풀에 반환
-    /// </summary>
     private IEnumerator ReturnToPoolAfterUse(GameObject skillInstance, int prefabIndex, float duration)
     {
         yield return new WaitForSeconds(duration);
         GameManager.Instance.skillPool.ReturnToPool(skillInstance, prefabIndex);
     }
 
-    /// <summary>
-    /// 스킬 잠금 해제
-    /// </summary>
     public void UnlockSkill(SkillType skillType)
     {
         if (!unlockedSkills.Contains(skillType))
@@ -176,86 +161,79 @@ public class SkillManager : MonoBehaviour, IManager
         }
     }
 
-    /// <summary>
-    /// 스킬 업그레이드
-    /// </summary>
-    public void UpgradeSkill(SkillType skillType, string option)
+    public void UpgradeSkill(SkillType skillType, Element element)
     {
-        if (option == "Unlock")
+        SkillData skillData = skillDatabase.GetSkillData(skillType, element);
+        if (skillData == null)
+        {
+            Debug.LogError($"[SkillManager] {element} 속성의 {skillType} 스킬 데이터를 찾을 수 없습니다.");
+            return;
+        }
+
+        if (skillData.upgradeModifiers.ContainsKey("Damage"))
+        {
+            skillData.baseDamage += skillData.upgradeModifiers["Damage"];
+        }
+
+        if (skillData.upgradeModifiers.ContainsKey("Cooldown"))
+        {
+            skillData.cooldown += skillData.upgradeModifiers["Cooldown"];
+        }
+
+        Debug.Log($"스킬 {skillData.skillName} 업그레이드 완료!");
+    }
+
+    public List<SkillData> GetLevelUpOptions()
+    {
+        List<SkillData> options = new List<SkillData>();
+
+        // 이미 해금된 스킬 추가
+        foreach (var skill in unlockedSkills)
+        {
+            SkillData skillData = skillDatabase.GetSkillData(skill, currentElement);
+            if (skillData != null)
+            {
+                options.Add(skillData); // 리스트에 추가
+            }
+        }
+
+        // 신규 스킬 추가 (랜덤 확률)
+        foreach (SkillType skill in System.Enum.GetValues(typeof(SkillType)))
+        {
+            if (!unlockedSkills.Contains(skill) && Random.value < 0.2f)
+            {
+                SkillData skillData = skillDatabase.GetSkillData(skill, currentElement);
+                if (skillData != null)
+                {
+                    options.Add(skillData);
+                }
+            }
+        }
+
+        // 반환 전 디버그
+        Debug.Log("[SkillManager] 레벨업 옵션 순서:");
+        foreach (var option in options)
+        {
+            Debug.Log($"[SkillManager] 스킬 이름: {option.skillName}");
+        }
+
+        return options.GetRange(0, Mathf.Min(3, options.Count)); // 최대 3개 반환
+    }
+
+    public void UpgradeOrUnlockSkill(SkillType skillType, Element element, bool isNewSkill)
+    {
+        if (isNewSkill)
         {
             UnlockSkill(skillType);
         }
         else
         {
-            skillLevels[skillType]++;
-            Debug.Log($"스킬 {skillType} {option} 업그레이드! 현재 레벨: {skillLevels[skillType]}");
+            UpgradeSkill(skillType, element);
         }
     }
 
-    /// <summary>
-    /// 현재 스킬 레벨 반환
-    /// </summary>
-    public int GetSkillLevel(SkillType skillType)
-    {
-        return skillLevels.ContainsKey(skillType) ? skillLevels[skillType] : 0;
-    }
-
-    /// <summary>
-    /// 잠금 해제된 스킬 목록 반환
-    /// </summary>
     public HashSet<SkillType> GetUnlockedSkills()
     {
         return new HashSet<SkillType>(unlockedSkills);
-    }
-
-    /// <summary>
-    /// 발사 속도 조정
-    /// </summary>
-    public void AdjustFireRate(float rate)
-    {
-        foreach (var skill in activeSkills)
-        {
-            skill.cooldown = Mathf.Max(0.1f, skill.cooldown * (1f - rate)); // 최소 쿨타임 0.1초
-        }
-
-        Debug.Log($"[SkillManager] 모든 스킬의 발사 속도가 {rate * 100}% 만큼 증가했습니다.");
-    }
-
-    /// <summary>
-    /// Manager Release
-    /// </summary>
-    public void release()
-    {
-        activeSkills.Clear();
-    }
-
-    /// <summary>
-    /// 레벨업 업그레이드 선택지 반환
-    /// </summary>
-    public List<(SkillType, string)> GetUpgradeOptions()
-    {
-        List<(SkillType, string)> options = new List<(SkillType, string)>();
-
-        // 잠금 해제된 스킬 업그레이드 옵션 추가
-        foreach (var skill in unlockedSkills)
-        {
-            options.Add((skill, "Cooldown"));
-            options.Add((skill, "Damage"));
-            if (skill == SkillType.Single) options.Add((skill, "Projectile"));
-            if (skill != SkillType.Single) options.Add((skill, "Range"));
-        }
-
-        // 잠금 해제되지 않은 광역 스킬 추가 (확률적으로)
-        var lockedSkills = new List<SkillType> { SkillType.Cone, SkillType.Line, SkillType.Area }
-            .FindAll(skill => !unlockedSkills.Contains(skill));
-
-        if (lockedSkills.Count > 0)
-        {
-            SkillType randomSkill = lockedSkills[Random.Range(0, lockedSkills.Count)];
-            options.Add((randomSkill, "Unlock"));
-        }
-
-        // 최대 3개의 선택지 제한
-        return options.GetRange(0, Mathf.Min(3, options.Count));
     }
 }

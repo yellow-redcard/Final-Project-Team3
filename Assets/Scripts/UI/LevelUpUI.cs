@@ -1,72 +1,83 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class LevelUpUI : UIBase
 {
-    [SerializeField] private GameObject skillUp1; // SkillUp1 이미지
-    [SerializeField] private GameObject skillUp2; // SkillUp2 이미지
-    [SerializeField] private GameObject skillUp3; // SkillUp3 이미지
-    [SerializeField] private Button closeButton;  // CloseButton 버튼
+    [SerializeField] private Text titleText;
+    [SerializeField] private Button skillButton1;
+    [SerializeField] private Button skillButton2;
+    [SerializeField] private Button skillButton3;
 
-    private List<GameObject> skillButtons = new List<GameObject>();
-
-    private void Start()
+    private SkillData skillData1;
+    private SkillData skillData2;
+    private SkillData skillData3;
+    public void ConfigureButtons(SkillData data1, SkillData data2, SkillData data3)
     {
-        // 버튼 리스트 초기화
-        skillButtons.Add(skillUp1);
-        skillButtons.Add(skillUp2);
-        skillButtons.Add(skillUp3);
+        skillData1 = data1;
+        skillData2 = data2;
+        skillData3 = data3;
 
-        // CloseButton 클릭 이벤트 설정
-        closeButton.onClick.AddListener(CloseUI);
+        UpdateButton(skillButton1, skillData1);
+        UpdateButton(skillButton2, skillData2);
+        UpdateButton(skillButton3, skillData3);
+
+        Debug.Log($"[LevelUpUI] ConfigureButtons 호출 완료");
+        Debug.Log($"[LevelUpUI] skillData1: {skillData1?.skillName ?? "null"}");
+        Debug.Log($"[LevelUpUI] skillData2: {skillData2?.skillName ?? "null"}");
+        Debug.Log($"[LevelUpUI] skillData3: {skillData3?.skillName ?? "null"}");
+
     }
 
-    public void ShowLevelUpUI()
+    private void UpdateButton(Button button, SkillData skillData)
     {
-        // 스킬 업그레이드 옵션 가져오기
-        var upgradeOptions = GameManager.Instance.skillManager.GetUpgradeOptions();
-
-        // 각 스킬 업그레이드 이미지에 옵션 배정
-        for (int i = 0; i < skillButtons.Count; i++)
+        if (skillData != null)
         {
-            if (i < upgradeOptions.Count)
-            {
-                // 버튼 활성화 및 텍스트 설정
-                skillButtons[i].SetActive(true);
+            Text buttonText = button.GetComponentInChildren<Text>();
+            buttonText.text = $"{skillData.skillName}\n{skillData.description}";
 
-                // 이미지 하위에 텍스트 추가 (옵션 설명 표시)
-                var buttonText = skillButtons[i].GetComponentInChildren<Text>();
-                if (buttonText != null)
-                {
-                    buttonText.text = $"{upgradeOptions[i].Item1}: {upgradeOptions[i].Item2}";
-                }
+            button.gameObject.SetActive(true);
+        }
+        else
+        {
+            button.gameObject.SetActive(false);
+        }
+    }
 
-                // 버튼 클릭 이벤트 설정
-                var option = upgradeOptions[i]; // 클로저 문제 방지
-                skillButtons[i].GetComponent<Button>().onClick.RemoveAllListeners();
-                skillButtons[i].GetComponent<Button>().onClick.AddListener(() => SelectUpgrade(option.Item1, option.Item2));
-            }
-            else
-            {
-                // 남은 버튼 비활성화
-                skillButtons[i].SetActive(false);
-            }
+    public void SelectSkill(int buttonIndex)
+    {
+        SkillData selectedSkillData = buttonIndex switch
+        {
+            1 => skillData1,
+            2 => skillData2,
+            3 => skillData3,
+            _ => null
+        };
+
+        if (selectedSkillData == null)
+        {
+            Debug.LogError($"[LevelUpUI] 선택된 스킬 데이터가 유효하지 않습니다. 버튼 인덱스: {buttonIndex}");
+            Debug.Log($"[LevelUpUI] skillData1: {skillData1?.skillName ?? "null"}");
+            Debug.Log($"[LevelUpUI] skillData2: {skillData2?.skillName ?? "null"}");
+            Debug.Log($"[LevelUpUI] skillData3: {skillData3?.skillName ?? "null"}");
+            return;
         }
 
-        gameObject.SetActive(true); // 레벨업 UI 활성화
-        Time.timeScale = 0f;       // 게임 일시 정지
-    }
+        Debug.Log($"[LevelUpUI] 선택된 스킬: {selectedSkillData.skillName}");
 
-    private void SelectUpgrade(SkillManager.SkillType skillType, string option)
-    {
-        GameManager.Instance.skillManager.UpgradeSkill(skillType, option);
+        // SkillManager로 데이터 전달
+        GameManager.Instance.skillManager.UpgradeOrUnlockSkill(
+            selectedSkillData.skillType,
+            selectedSkillData.element,
+            selectedSkillData.level == 1 // 신규 스킬 여부
+        );
+
         CloseUI();
     }
 
     public void CloseUI()
     {
-        gameObject.SetActive(false); // UI 비활성화
-        Time.timeScale = 1f;        // 게임 재개
+        gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

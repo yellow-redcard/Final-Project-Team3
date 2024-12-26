@@ -480,195 +480,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2070389672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2070389674}
-  - component: {fileID: 2070389673}
-  m_Layer: 0
-  m_Name: SkillDataBase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2070389673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070389672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d036f42278c2bbc4ca7d386a02cd4402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillDataList:
-  - skillName: DarkArea
-    skillType: 3
-    element: 0
-    baseDamage: 10
-    baseRange: 5
-    duration: 2
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: DarkCone
-    skillType: 1
-    element: 0
-    baseDamage: 10
-    baseRange: 5
-    duration: 0
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: DarkLine
-    skillType: 2
-    element: 0
-    baseDamage: 10
-    baseRange: 5
-    duration: 0
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: DarkSingle
-    skillType: 0
-    element: 0
-    baseDamage: 10
-    baseRange: 5
-    duration: 0.5
-    cooldown: 2
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: ElectricityArea
-    skillType: 3
-    element: 1
-    baseDamage: 10
-    baseRange: 5
-    duration: 2
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: ElectricityCone
-    skillType: 1
-    element: 1
-    baseDamage: 10
-    baseRange: 5
-    duration: 0
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: ElectricityLine
-    skillType: 2
-    element: 1
-    baseDamage: 10
-    baseRange: 5
-    duration: 0
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: ElectricitySingle
-    skillType: 0
-    element: 1
-    baseDamage: 10
-    baseRange: 5
-    duration: 0.5
-    cooldown: 2
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: FlameArea
-    skillType: 3
-    element: 2
-    baseDamage: 10
-    baseRange: 5
-    duration: 2
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: FlameCone
-    skillType: 1
-    element: 2
-    baseDamage: 10
-    baseRange: 5
-    duration: 0
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: FlameLine
-    skillType: 2
-    element: 2
-    baseDamage: 10
-    baseRange: 5
-    duration: 0
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: FlameSingle
-    skillType: 0
-    element: 2
-    baseDamage: 10
-    baseRange: 5
-    duration: 0.5
-    cooldown: 2
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: WaterArea
-    skillType: 3
-    element: 3
-    baseDamage: 10
-    baseRange: 5
-    duration: 2
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: WaterCone
-    skillType: 1
-    element: 3
-    baseDamage: 10
-    baseRange: 5
-    duration: 0
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: WaterLine
-    skillType: 2
-    element: 3
-    baseDamage: 10
-    baseRange: 5
-    duration: 0
-    cooldown: 3
-    maxLevel: 1
-    projectileCount: 1
-  - skillName: WaterSingle
-    skillType: 0
-    element: 3
-    baseDamage: 10
-    baseRange: 5
-    duration: 0.5
-    cooldown: 2
-    maxLevel: 1
-    projectileCount: 1
---- !u!4 &2070389674
+--- !u!4 &2070389674 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+  m_PrefabInstance: {fileID: 2141786141793390916}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070389672}
+--- !u!1001 &2141786141793390916
+PrefabInstance:
+  m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1074.5917, y: 203.7644, z: -20.98403}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1389844609}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1389844609}
+    m_Modifications:
+    - target: {fileID: 1122802626108397100, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_Name
+      value: SkillDataBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1074.5917
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 203.7644
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.98403
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558419582678883305, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b945be4691622f40b54fadebbe2cf4e, type: 3}
 --- !u!1001 &5628329597581148240
 PrefabInstance:
   m_ObjectHideFlags: 0
