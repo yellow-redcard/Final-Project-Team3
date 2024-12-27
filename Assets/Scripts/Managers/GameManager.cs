@@ -75,9 +75,20 @@ public class GameManager : MonoSingleton<GameManager>
     public void ShowLevelUpUI()
     {
         var options = skillManager.GetLevelUpOptions();
+        Debug.Log($"[ShowLevelUpUI] Options Count: {options.Count}");
+
+        foreach (var option in options)
+        {
+            Debug.Log($"Option Skill: {option.skillName}, Level: {option.level}");
+        }
+
         if (options.Count > 0)
         {
             uiManager.ShowLevelUpUI(options);
+        }
+        else
+        {
+            Debug.LogWarning("[ShowLevelUpUI] No available skill options to display!");
         }
     }
     public void UpdatePlayer(Transform newPlayer)

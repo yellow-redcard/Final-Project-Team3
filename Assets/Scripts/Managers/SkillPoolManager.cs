@@ -52,9 +52,19 @@ public class SkillPoolManager : MonoBehaviour
         for (int i = 0; i < prefabs.Length; i++)
         {
             if (prefabs[i].name == prefabName)
-                return Get(i);
+            {
+                var skillPrefab = prefabs[i];
+                // SkillDataComponent 검증
+                SkillDataComponent skillDataComponent = skillPrefab.GetComponent<SkillDataComponent>();
+                if (skillDataComponent == null || skillDataComponent.skillData == null)
+                {
+                    Debug.LogError($"[SkillPoolManager] {prefabName} 프리팹에 SkillDataComponent가 없거나 연결되지 않았습니다!");
+                    return null;
+                }
+                return skillPrefab;
+            }
         }
-        Debug.LogWarning($"스킬 프리팹 '{prefabName}'을 찾을 수 없습니다.");
+        Debug.LogWarning($"[SkillPoolManager] 스킬 프리팹 '{prefabName}'을 찾을 수 없습니다.");
         return null;
     }
     public void release()

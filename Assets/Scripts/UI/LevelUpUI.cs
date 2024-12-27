@@ -1,4 +1,4 @@
-using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +7,6 @@ public class LevelUpUI : UIBase
     [SerializeField] private Button skillButton1;
     [SerializeField] private Button skillButton2;
     [SerializeField] private Button skillButton3;
-    [SerializeField] private Text levelUpDescription; // 설명 텍스트 추가
 
     private SkillData skillData1, skillData2, skillData3;
 
@@ -17,27 +16,21 @@ public class LevelUpUI : UIBase
         skillData2 = data2;
         skillData3 = data3;
 
-        // 데이터가 null인지 확인
-        Debug.Log($"[ConfigureButtons] Data1: {data1?.skillName}, Data2: {data2?.skillName}, Data3: {data3?.skillName}");
-
-        UpdateButton(skillButton1, skillData1, 1);
-        UpdateButton(skillButton2, skillData2, 2);
-        UpdateButton(skillButton3, skillData3, 3);
+        UpdateButton(skillButton1, skillData1);
+        UpdateButton(skillButton2, skillData2);
+        UpdateButton(skillButton3, skillData3);
     }
-    private void UpdateButton(Button button, SkillData skillData, int buttonIndex)
+
+    private void UpdateButton(Button button, SkillData skillData)
     {
         if (skillData != null)
         {
             Text buttonText = button.GetComponentInChildren<Text>();
-            buttonText.text = $"{skillData.skillName} (Lv {skillData.level + 1})";
-            Debug.Log($"[UpdateButton] Button {buttonIndex} Text: {buttonText.text}");
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() => SelectSkill(buttonIndex));
+            buttonText.text = $"{skillData.skillName}\n레벨: {skillData.level}/{skillData.maxLevel}";
             button.gameObject.SetActive(true);
         }
         else
         {
-            Debug.Log($"[UpdateButton] Button {buttonIndex} is disabled.");
             button.gameObject.SetActive(false);
         }
     }
@@ -58,12 +51,18 @@ public class LevelUpUI : UIBase
             return;
         }
 
-        Debug.Log($"[LevelUpUI] 선택된 스킬: {selectedSkill.skillName}");
-        GameManager.Instance.skillManager.UpgradeSkill(selectedSkill.skillType, selectedSkill.element);
+        if (selectedSkill.level < selectedSkill.maxLevel)
+        {
+            GameManager.Instance.skillManager.UpgradeSkill(selectedSkill.skillType, selectedSkill.element);
+        }
+        else
+        {
+            GameManager.Instance.skillManager.UnlockSkill(selectedSkill.skillType);
+        }
 
         CloseUI();
     }
-    private void CloseUI()
+private void CloseUI()
     {
         gameObject.SetActive(false);
     }

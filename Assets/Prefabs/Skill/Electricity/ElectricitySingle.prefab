@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2723675844488697888}
   - component: {fileID: 3011628639250757351}
   - component: {fileID: -3705019969689780094}
+  - component: {fileID: -3114424002671104682}
   m_Layer: 0
   m_Name: ElectricitySingle
   m_TagString: Skill
@@ -4983,3 +4984,16 @@ CircleCollider2D:
   m_Offset: {x: -0.00000023841858, y: 0}
   serializedVersion: 2
   m_Radius: 0.9952036
+--- !u!114 &-3114424002671104682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506295906671275046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: 6b7644837c50ad14eba445778c7debcf, type: 2}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4429289006686655555}
   - component: {fileID: 6851904734558174836}
   - component: {fileID: -8331949997155187137}
+  - component: {fileID: -1423893713075046795}
   m_Layer: 0
   m_Name: DarkCone
   m_TagString: Skill
@@ -4983,3 +4984,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-1423893713075046795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2672957236518770244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: 437d3598c1ed0bf449cea56f820f6570, type: 2}

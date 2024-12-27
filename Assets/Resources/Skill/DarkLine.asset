@@ -20,7 +20,7 @@ MonoBehaviour:
   cooldown: 8
   duration: 0.5
   level: 0
-  maxLevel: 5
+  maxLevel: 1
   projectileCount: 1
   upgradeDescription: 
   levelUpStats:

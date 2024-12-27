@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8519906609553216760}
   - component: {fileID: 6289135340071183449}
   - component: {fileID: 2531714579943672321}
+  - component: {fileID: 6329564148927687126}
   m_Layer: 0
   m_Name: WaterCone
   m_TagString: Skill
@@ -4983,3 +4984,16 @@ CircleCollider2D:
   m_Offset: {x: 0.00000071525574, y: -23370816}
   serializedVersion: 2
   m_Radius: 2.228743
+--- !u!114 &6329564148927687126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781213176879194232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: 9347a27d17266c042bb0b8dcc977067f, type: 2}

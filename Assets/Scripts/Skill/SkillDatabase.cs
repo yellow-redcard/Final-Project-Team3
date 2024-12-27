@@ -29,7 +29,7 @@ public class SkillDatabase : MonoBehaviour
     {
         foreach (var skill in skillDataList)
         {
-            Debug.Log($"[SkillDatabase] 스킬 이름: {skill.skillName}, 타입: {skill.skillType}, 속성: {skill.element}");
+            Debug.Log($"Skill Name: {skill.skillName}, Type: {skill.skillType}, Level: {skill.level}/{skill.maxLevel}");
         }
     }
 }

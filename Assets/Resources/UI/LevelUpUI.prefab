@@ -691,7 +691,6 @@ MonoBehaviour:
   skillButton1: {fileID: 638776447878943483}
   skillButton2: {fileID: 1278131978590928405}
   skillButton3: {fileID: 7111660751328832393}
-  levelUpDescription: {fileID: 0}
 --- !u!1 &5809003902307063035
 GameObject:
   m_ObjectHideFlags: 0

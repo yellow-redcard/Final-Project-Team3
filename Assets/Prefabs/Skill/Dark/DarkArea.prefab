@@ -4915,6 +4915,7 @@ GameObject:
   - component: {fileID: 6013057576792658089}
   - component: {fileID: 5388974102330437198}
   - component: {fileID: 2881112777248091968}
+  - component: {fileID: 7351829166790744892}
   m_Layer: 0
   m_Name: DarkArea
   m_TagString: Untagged
@@ -9888,6 +9889,19 @@ MonoBehaviour:
   duration: 2
   cooldown: 3
   projectileCount: 1
+--- !u!114 &7351829166790744892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522886552225114426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: f03c3af393d46594a8715ccbd5887939, type: 2}
 --- !u!1 &6675862736030803213
 GameObject:
   m_ObjectHideFlags: 0

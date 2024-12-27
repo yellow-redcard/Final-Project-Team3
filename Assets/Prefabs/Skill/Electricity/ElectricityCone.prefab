@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6966266829484833758}
   - component: {fileID: -8053542204840743408}
   - component: {fileID: 3615008059157192303}
+  - component: {fileID: -6152390351673760352}
   m_Layer: 0
   m_Name: ElectricityCone
   m_TagString: Skill
@@ -4942,7 +4943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 1
+  skillType: 0
   baseDamage: 10
   baseRange: 5
   duration: 0
@@ -4983,3 +4984,16 @@ CircleCollider2D:
   m_Offset: {x: 0.12522376, y: 3413942}
   serializedVersion: 2
   m_Radius: 1.277149
+--- !u!114 &-6152390351673760352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8803212361442548040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: 816f917ca0a5c3448b2bf3906f38dd7f, type: 2}

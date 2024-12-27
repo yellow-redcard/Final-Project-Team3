@@ -15,6 +15,7 @@ public class SkillData : ScriptableObject
     public int maxLevel;                    // 최대 레벨
     public int projectileCount;             // 투사체 개수
     public string upgradeDescription;       // 업그레이드 설명
+    public LevelUpStats[] levelUpStats; // 레벨별 데이터 배열
 
     // 레벨별 데이터
     [System.Serializable]
@@ -26,5 +27,5 @@ public class SkillData : ScriptableObject
         public int projectileCount; // 레벨별 투사체 수
     }
 
-    public LevelUpStats[] levelUpStats; // 레벨별 데이터 배열
+    
 }

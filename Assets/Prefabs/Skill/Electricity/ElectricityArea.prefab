@@ -14603,6 +14603,7 @@ GameObject:
   - component: {fileID: 9188235477545747788}
   - component: {fileID: -3431068200850307697}
   - component: {fileID: 6324949840218802995}
+  - component: {fileID: -681598526185349608}
   m_Layer: 0
   m_Name: ElectricityArea
   m_TagString: Skill
@@ -19534,7 +19535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 3
+  skillType: 0
   baseDamage: 10
   baseRange: 5
   duration: 0
@@ -19575,3 +19576,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.11646032, y: 0}
   m_Size: {x: 19.929775, y: 0.0001}
   m_Direction: 0
+--- !u!114 &-681598526185349608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136922957240147832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: fbf092484fa4acc429113fda2dd996b4, type: 2}

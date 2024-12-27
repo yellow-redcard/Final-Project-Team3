@@ -43,9 +43,6 @@ public class SkillManager : MonoBehaviour, IManager
 
         LoadSkillPrefabs(); // 스킬 프리팹 로드
         UnlockSkill(SkillType.Single); // 기본 스킬 해금
-        UnlockSkill(SkillType.Area); // 기본 스킬 해금
-        UnlockSkill(SkillType.Line); // 기본 스킬 해금
-        UnlockSkill(SkillType.Cone); // 기본 스킬 해금
 
         // 초기 슬라임 참조 설정
         if (GameManager.Instance.slimeManager != null)
@@ -208,17 +205,7 @@ public class SkillManager : MonoBehaviour, IManager
         {
             int prefabIndex = skillPrefabIndices[currentElement][skillType];
             GameObject skillInstance = GameManager.Instance.skillPool.Get(prefabIndex);
-
-            if (skillType == SkillType.Area)
-            {
-                skillInstance.transform.SetParent(GameManager.Instance.player); // 플레이어를 부모로 설정
-                skillInstance.transform.localPosition = Vector3.zero; // 플레이어 위치로 이동
-            }
-            else
-            {
-                skillInstance.transform.position = position; // 적 위치로 이동
-            }
-
+            skillInstance.transform.position = position;
             skillInstance.SetActive(true);
 
             Skill skill = skillInstance.GetComponent<Skill>();
@@ -230,13 +217,14 @@ public class SkillManager : MonoBehaviour, IManager
                 skill.duration = skillData.duration;
                 skill.projectileCount = skillData.projectileCount;
 
-                skill.Initialize(GameManager.Instance.player); // 플레이어 참조 전달
                 skill.UseSkill();
+
+                StartCoroutine(ReturnToPoolAfterUse(skillInstance, prefabIndex, skill.duration));
             }
         }
         else
         {
-            Debug.LogError($"[SpawnSkill] {currentElement} 속성 또는 {skillType} 스킬의 프리팹이 존재하지 않습니다.");
+            Debug.LogError($"[SkillManager] {currentElement} 속성 또는 {skillType} 스킬의 프리팹이 존재하지 않습니다.");
         }
     }
     private IEnumerator ReturnToPoolAfterUse(GameObject skillInstance, int prefabIndex, float duration)
@@ -256,7 +244,7 @@ public class SkillManager : MonoBehaviour, IManager
         }
     }
 
-    public void UpgradeSkill(SkillManager.SkillType skillType, SkillManager.Element element)
+    public void UpgradeSkill(SkillType skillType, Element element)
     {
         SkillData skillData = skillDatabase.GetSkillData(skillType, element);
         if (skillData == null)
@@ -276,14 +264,14 @@ public class SkillManager : MonoBehaviour, IManager
         skillLevels[skillType] = currentLevel;
 
         SkillData.LevelUpStats stats = skillData.levelUpStats[currentLevel - 1];
-
-        Debug.Log($"[SkillManager] {skillData.skillName} 업그레이드 완료! 레벨: {currentLevel}, 데미지: {stats.damage}, 쿨다운: {stats.cooldown}, 사거리: {stats.range}");
+        Debug.Log($"[SkillManager] {skillData.skillName} 업그레이드 완료! 레벨: {currentLevel}, 데미지: {stats.damage}, 쿨다운: {stats.cooldown}, 범위: {stats.range}");
     }
 
     public List<SkillData> GetLevelUpOptions()
     {
         List<SkillData> options = new List<SkillData>();
 
+        // 기존 스킬 업그레이드 추가
         foreach (var skill in unlockedSkills)
         {
             SkillData skillData = skillDatabase.GetSkillData(skill, currentElement);
@@ -293,6 +281,7 @@ public class SkillManager : MonoBehaviour, IManager
             }
         }
 
+        // 신규 스킬 추가
         foreach (SkillData skill in skillDatabase.GetAllSkills())
         {
             if (!unlockedSkills.Contains(skill.skillType))
@@ -302,7 +291,12 @@ public class SkillManager : MonoBehaviour, IManager
         }
 
         Debug.Log($"[GetLevelUpOptions] Generated {options.Count} options.");
-        return options.GetRange(0, Mathf.Min(3, options.Count));
+        foreach (var option in options)
+        {
+            Debug.Log($"Option: {option.skillName}, Level: {option.level}");
+        }
+
+        return options.GetRange(0, Mathf.Min(3, options.Count)); // 최대 3개 반환
     }
 
     public HashSet<SkillType> GetUnlockedSkills()
