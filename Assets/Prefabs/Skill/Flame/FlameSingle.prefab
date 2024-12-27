@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3687193897609199151}
   - component: {fileID: -1948157386191220767}
   - component: {fileID: 1342041442600728002}
+  - component: {fileID: -3259188987694619275}
   m_Layer: 0
   m_Name: FlameSingle
   m_TagString: Skill
@@ -4983,3 +4984,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 692348}
   serializedVersion: 2
   m_Radius: 1.7766113
+--- !u!114 &-3259188987694619275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016701147869090898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: 094dc8692708ea34b87f46183d5f5b39, type: 2}

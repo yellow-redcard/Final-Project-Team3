@@ -8,6 +8,7 @@ using static SkillManager;
 
 public class UIManager : MonoBehaviour, IManager
 {
+    [SerializeField] private LevelUpUI levelUpUI;
     [SerializeField] private Transform canvas;
     public static float ScreenWidth = 1920;
     public static float ScreenHeight = 1080;
@@ -64,4 +65,22 @@ public class UIManager : MonoBehaviour, IManager
         uiList.Remove(go);
         Destroy(go.canvas.gameObject);
     }
+    public void ShowLevelUpUI(List<SkillData> skillOptions)
+    {
+        if (levelUpUI == null)
+        {
+            Debug.LogError("[UIManager] LevelUpUI가 설정되지 않았습니다.");
+            return;
+        }
+
+        // SkillData 리스트를 LevelUpUI에 전달
+        levelUpUI.ConfigureButtons(
+            skillOptions.Count > 0 ? skillOptions[0] : null,
+            skillOptions.Count > 1 ? skillOptions[1] : null,
+            skillOptions.Count > 2 ? skillOptions[2] : null
+        );
+
+        levelUpUI.gameObject.SetActive(true);
+    }
 }
+

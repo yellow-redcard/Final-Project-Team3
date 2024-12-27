@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6499564961878582291}
   - component: {fileID: 2865264860725589462}
   - component: {fileID: 884834197873358472}
+  - component: {fileID: -153504044443280273}
   m_Layer: 0
   m_Name: DarkSingle
   m_TagString: Skill
@@ -4983,3 +4984,16 @@ CircleCollider2D:
   m_Offset: {x: -0.017454624, y: -3051316}
   serializedVersion: 2
   m_Radius: 1.074852
+--- !u!114 &-153504044443280273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470017487920219615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: 861b008906963804094e259cbec8e3c3, type: 2}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8472635926996084146}
   - component: {fileID: -8037874878946312356}
   - component: {fileID: 8753722136463635773}
+  - component: {fileID: 634810472943459163}
   m_Layer: 0
   m_Name: ElectricityLine
   m_TagString: Skill
@@ -4942,7 +4943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 2
+  skillType: 0
   baseDamage: 10
   baseRange: 5
   duration: 0
@@ -4983,3 +4984,16 @@ CircleCollider2D:
   m_Offset: {x: -0.22696829, y: 3634806}
   serializedVersion: 2
   m_Radius: 2.1892312
+--- !u!114 &634810472943459163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788955891620655974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: c1a556b42b854ae49a3cf0a75896bf59, type: 2}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 939662352449422805}
   - component: {fileID: 7214729188544569558}
   - component: {fileID: 6797982947803191635}
+  - component: {fileID: 7401387937412756866}
   m_Layer: 0
   m_Name: WaterArea
   m_TagString: Skill
@@ -4977,9 +4978,22 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.04126644, y: 0}
   m_Size: {x: 5.451399, y: 0.0001}
   m_Direction: 0
+--- !u!114 &7401387937412756866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470959047585324272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: 5db46e5e8c4047c4facde3169df196b3, type: 2}

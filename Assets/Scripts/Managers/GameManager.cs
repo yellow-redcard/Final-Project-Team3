@@ -5,7 +5,7 @@ using static SkillManager;
 public class GameManager : MonoSingleton<GameManager>
 {
     public TopDownMovement playerMovement;
-    
+
     public UIManager uiManager;
     public SlimeManager slimeManager;
     public MonsterManager monsterManager;
@@ -14,15 +14,13 @@ public class GameManager : MonoSingleton<GameManager>
     public MonsterPoolManager monsterPool;
     public SkillPoolManager skillPool;
     public SkillManager skillManager;
-
+    public TileMapManager tileMapManager;
     public float gameTime;
     public float maxGameTime = 30 * 60f;
     public int monsterKill = 0;
     public int Level = 1;
-    public Transform player { get; private set; }
+    public Transform player { get; set; }
     [SerializeField] private string playerTag = "Player";
-
-
 
     private void Start()
     {
@@ -36,9 +34,15 @@ public class GameManager : MonoSingleton<GameManager>
         skillManager.init();
         //skillManager.SetCurrentElement(SkillManager.Element.Water);
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
-        playerMovement = player.GetComponent<TopDownMovement>();
-        InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
+
+        if (tileMapManager != null)
+        {
+            tileMapManager.Init(player);
+        }
+
+        // InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
         uiManager.Show<KillUI>();
+        StartCoroutine(skillManager.AutoFireSkills());
     }
 
 
@@ -58,13 +62,38 @@ public class GameManager : MonoSingleton<GameManager>
     }
     private void AutoFireSkills()
     {
-        Vector3 playerPosition = player.position;
-        List<Transform> activeMonsters = monsterPool.GetActiveMonsters(); // 활성화된 몬스터 가져오기
+        if (player == null || monsterPool == null || skillManager == null) return;
 
-        // 스킬 발사: 한 번의 스킬당 한 마리 몬스터 타겟팅
+        Vector3 playerPosition = player.position;
+        List<Transform> activeMonsters = monsterPool.GetActiveMonsters();
+
         skillManager.FireSkill(SkillManager.SkillType.Single, playerPosition, activeMonsters);
         skillManager.FireSkill(SkillManager.SkillType.Cone, playerPosition, activeMonsters);
         skillManager.FireSkill(SkillManager.SkillType.Line, playerPosition, activeMonsters);
         skillManager.FireSkill(SkillManager.SkillType.Area, playerPosition, activeMonsters);
+    }
+    public void ShowLevelUpUI()
+    {
+        var options = skillManager.GetLevelUpOptions();
+        Debug.Log($"[ShowLevelUpUI] Options Count: {options.Count}");
+
+        foreach (var option in options)
+        {
+            Debug.Log($"Option Skill: {option.skillName}, Level: {option.level}");
+        }
+
+        if (options.Count > 0)
+        {
+            uiManager.ShowLevelUpUI(options);
+        }
+        else
+        {
+            Debug.LogWarning("[ShowLevelUpUI] No available skill options to display!");
+        }
+    }
+    public void UpdatePlayer(Transform newPlayer)
+    {
+        player = newPlayer;
+        Debug.Log($"[GameManager] 플레이어가 업데이트되었습니다: {newPlayer.name}");
     }
 }

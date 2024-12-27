@@ -42,7 +42,7 @@ namespace Goldmetal.UndeadSurvivor
             // SkillManager를 통해 발사 속도 증가 적용
             if (GameManager.Instance.skillManager != null)
             {
-                GameManager.Instance.skillManager.AdjustFireRate(rate);
+              //  GameManager.Instance.skillManager.AdjustFireRate(rate);
                 Debug.Log($"[Gear] 발사 속도 증가 적용! Rate: {rate}");
             }
         }

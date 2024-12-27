@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MonsterPoolManager : MonoBehaviour, IManager
@@ -120,7 +121,7 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         {
             foreach (var monster in pool)
             {
-                if (monster.activeSelf) // 활성화된 몬스터만 가져오기
+                if (monster != null && monster.activeSelf)
                 {
                     activeMonsters.Add(monster.transform);
                 }

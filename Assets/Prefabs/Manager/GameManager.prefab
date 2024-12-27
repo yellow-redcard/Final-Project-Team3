@@ -150,6 +150,195 @@ MonoBehaviour:
   - {fileID: 4610830893318089848, guid: b40a6e47b5d2bda4d932c126fe711e84, type: 3}
   - {fileID: 8284754895594890011, guid: c97058b25f6a42b4794e6c1124410a67, type: 3}
   - {fileID: 1016701147869090898, guid: 7dfd873240af7474d8d4c721fe748148, type: 3}
+--- !u!1 &4697920685665403438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4063161344806391787}
+  - component: {fileID: 9092831097959911180}
+  m_Layer: 0
+  m_Name: SkillDataBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4063161344806391787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697920685665403438}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1074.5917, y: 203.7644, z: -20.98403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4121076861802647501}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9092831097959911180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697920685665403438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d036f42278c2bbc4ca7d386a02cd4402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDataList:
+  - skillName: DarkArea
+    skillType: 3
+    element: 0
+    baseDamage: 10
+    baseRange: 5
+    duration: 2
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: DarkCone
+    skillType: 1
+    element: 0
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: DarkLine
+    skillType: 2
+    element: 0
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: DarkSingle
+    skillType: 0
+    element: 0
+    baseDamage: 10
+    baseRange: 5
+    duration: 0.5
+    cooldown: 2
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: ElectricityArea
+    skillType: 3
+    element: 1
+    baseDamage: 10
+    baseRange: 5
+    duration: 2
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: ElectricityCone
+    skillType: 1
+    element: 1
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: ElectricityLine
+    skillType: 2
+    element: 1
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: ElectricitySingle
+    skillType: 0
+    element: 1
+    baseDamage: 10
+    baseRange: 5
+    duration: 0.5
+    cooldown: 2
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: FlameArea
+    skillType: 3
+    element: 2
+    baseDamage: 10
+    baseRange: 5
+    duration: 2
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: FlameCone
+    skillType: 1
+    element: 2
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: FlameLine
+    skillType: 2
+    element: 2
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: FlameSingle
+    skillType: 0
+    element: 2
+    baseDamage: 10
+    baseRange: 5
+    duration: 0.5
+    cooldown: 2
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: WaterArea
+    skillType: 3
+    element: 3
+    baseDamage: 10
+    baseRange: 5
+    duration: 2
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: WaterCone
+    skillType: 1
+    element: 3
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: WaterLine
+    skillType: 2
+    element: 3
+    baseDamage: 10
+    baseRange: 5
+    duration: 0
+    cooldown: 3
+    maxLevel: 1
+    projectileCount: 1
+  - skillName: WaterSingle
+    skillType: 0
+    element: 3
+    baseDamage: 10
+    baseRange: 5
+    duration: 0.5
+    cooldown: 2
+    maxLevel: 1
+    projectileCount: 1
 --- !u!1 &6868853890297908131
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +536,7 @@ Transform:
   - {fileID: 5785195511417222918}
   - {fileID: 6266564164720989602}
   - {fileID: 8925009639874408927}
+  - {fileID: 4063161344806391787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5622273613721806263

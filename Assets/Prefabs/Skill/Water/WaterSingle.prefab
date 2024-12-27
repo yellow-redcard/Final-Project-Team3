@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7419972482777651893}
   - component: {fileID: 8733870213641069360}
   - component: {fileID: 2762036690037625480}
+  - component: {fileID: -5658083162631090187}
   m_Layer: 0
   m_Name: WaterSingle
   m_TagString: Skill
@@ -4983,3 +4984,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.020634174, y: 0}
   m_Size: {x: 2.3563461, y: 0.0001}
   m_Direction: 0
+--- !u!114 &-5658083162631090187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829025158753739492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: b7014f5522ebef144b59dfd372d42c07, type: 2}
