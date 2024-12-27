@@ -131,6 +131,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: slimePrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: slimePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3902346518666332834, guid: ed9497d1195b7964d97c3ae45c06e29b, type: 3}
+    - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: slimePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 4237996768398756012, guid: 2cb618e8f25e79f4babd4e8a6c9268bb, type: 3}
+    - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: slimePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8321855615014388365, guid: d875288aa705ab1498931973df984cb7, type: 3}
+    - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: slimePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 3951609684800267589, guid: 191365d4a0e41814c8e6adecd057ac85, type: 3}
     - target: {fileID: 4121076861802647501, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -470,6 +490,10 @@ PrefabInstance:
     - target: {fileID: 9105980131700377440, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105980131700377440, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
