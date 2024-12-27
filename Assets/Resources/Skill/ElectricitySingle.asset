@@ -17,10 +17,14 @@ MonoBehaviour:
   element: 2
   baseDamage: 10
   baseRange: 5
-  cooldown: 0.5
+  cooldown: 4
   duration: 0.5
   level: 0
   maxLevel: 5
   projectileCount: 1
   upgradeDescription: 
-  levelUpStats: []
+  levelUpStats:
+  - damage: 15
+    cooldown: 3.7
+    range: 6
+    projectileCount: 2

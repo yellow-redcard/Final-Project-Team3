@@ -40,8 +40,9 @@ public class GameManager : MonoSingleton<GameManager>
             tileMapManager.Init(player);
         }
 
-        InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
+        // InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
         uiManager.Show<KillUI>();
+        StartCoroutine(skillManager.AutoFireSkills());
     }
 
 

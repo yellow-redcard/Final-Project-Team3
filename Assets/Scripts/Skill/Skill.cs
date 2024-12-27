@@ -22,7 +22,6 @@ public class Skill : MonoBehaviour
         float damage = baseDamage * level;
         float range = baseRange * level;
 
-        Debug.Log($"[{skillType}] 데미지: {damage}, 범위: {range}");
         StartCoroutine(DeactivateAfterDuration());
     }
 
