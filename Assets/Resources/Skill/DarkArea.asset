@@ -17,8 +17,8 @@ MonoBehaviour:
   element: 1
   baseDamage: 5
   baseRange: 5
-  cooldown: 5
-  duration: 0.5
+  cooldown: 15
+  duration: 2
   level: 0
   maxLevel: 5
   projectileCount: 1

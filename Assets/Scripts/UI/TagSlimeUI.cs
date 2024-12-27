@@ -69,6 +69,10 @@ public class TagSlimeUI : UIBase
 
         // 새로운 슬라임 생성
         GameManager.Instance.slimeManager.CreateSlime(currentPosition);
+
+        // GameManager의 player 참조 업데이트
+        GameManager.Instance.player = GameManager.Instance.slimeManager.currentSlime.transform;
+
         Time.timeScale = 1f;
         GameManager.Instance.uiManager.Hide<TagSlimeUI>();
     }

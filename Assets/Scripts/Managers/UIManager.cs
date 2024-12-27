@@ -73,13 +73,13 @@ public class UIManager : MonoBehaviour, IManager
             return;
         }
 
-        levelUpUI.gameObject.SetActive(true); // 강제 활성화
-
         levelUpUI.ConfigureButtons(
             skillOptions.Count > 0 ? skillOptions[0] : null,
             skillOptions.Count > 1 ? skillOptions[1] : null,
             skillOptions.Count > 2 ? skillOptions[2] : null
         );
-    }
 
+        levelUpUI.gameObject.SetActive(true);
+    }
 }
+

@@ -17,7 +17,7 @@ MonoBehaviour:
   element: 3
   baseDamage: 5
   baseRange: 5
-  cooldown: 5
+  cooldown: 15
   duration: 2
   level: 0
   maxLevel: 5

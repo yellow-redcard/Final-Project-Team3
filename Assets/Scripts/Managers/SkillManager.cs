@@ -43,10 +43,36 @@ public class SkillManager : MonoBehaviour, IManager
 
         LoadSkillPrefabs(); // 스킬 프리팹 로드
         UnlockSkill(SkillType.Single); // 기본 스킬 해금
+        UnlockSkill(SkillType.Area); // 기본 스킬 해금
+        UnlockSkill(SkillType.Line); // 기본 스킬 해금
+        UnlockSkill(SkillType.Cone); // 기본 스킬 해금
+
+        // 초기 슬라임 참조 설정
+        if (GameManager.Instance.slimeManager != null)
+        {
+            UpdatePlayerReference(GameManager.Instance.slimeManager.currentSlime.transform);
+        }
+        else
+        {
+            Debug.LogError("[SkillManager] SlimeManager가 설정되지 않았습니다.");
+        }
 
         StartCoroutine(AutoFireSkills());
     }
+    public void UpdatePlayerReference(Transform newPlayer)
+    {
+        if (newPlayer == null)
+        {
+            Debug.LogError("[SkillManager] 새로운 플레이어 참조가 null입니다.");
+            return;
+        }
 
+        // GameManager의 UpdatePlayer 메서드 호출
+        GameManager.Instance.UpdatePlayer(newPlayer);
+
+        Debug.Log($"[SkillManager] 플레이어 참조가 업데이트되었습니다: {newPlayer.name}");
+    }
+    
     private void LoadSkillPrefabs()
     {
         foreach (Element element in System.Enum.GetValues(typeof(Element)))
@@ -84,6 +110,9 @@ public class SkillManager : MonoBehaviour, IManager
         {
             List<Transform> enemies = monsterPoolManager.GetActiveMonsters();
 
+            // 삭제된 오브젝트 제거
+            enemies.RemoveAll(enemy => enemy == null || !enemy.gameObject.activeSelf);
+
             foreach (SkillType skillType in unlockedSkills)
             {
                 if (skillCooldownTimers[skillType] <= 0)
@@ -93,6 +122,7 @@ public class SkillManager : MonoBehaviour, IManager
                 }
             }
 
+            // 쿨다운 타이머 업데이트
             UpdateCooldownTimers();
             yield return null;
         }
@@ -135,6 +165,9 @@ public class SkillManager : MonoBehaviour, IManager
             return;
         }
 
+        // 삭제된 적 체크 및 제거
+        enemies.RemoveAll(enemy => enemy == null || !enemy.gameObject.activeSelf);
+
         if (skillType == SkillType.Area)
         {
             SpawnSkill(skillType, playerPosition, skillData);
@@ -175,7 +208,17 @@ public class SkillManager : MonoBehaviour, IManager
         {
             int prefabIndex = skillPrefabIndices[currentElement][skillType];
             GameObject skillInstance = GameManager.Instance.skillPool.Get(prefabIndex);
-            skillInstance.transform.position = position;
+
+            if (skillType == SkillType.Area)
+            {
+                skillInstance.transform.SetParent(GameManager.Instance.player); // 플레이어를 부모로 설정
+                skillInstance.transform.localPosition = Vector3.zero; // 플레이어 위치로 이동
+            }
+            else
+            {
+                skillInstance.transform.position = position; // 적 위치로 이동
+            }
+
             skillInstance.SetActive(true);
 
             Skill skill = skillInstance.GetComponent<Skill>();
@@ -187,9 +230,8 @@ public class SkillManager : MonoBehaviour, IManager
                 skill.duration = skillData.duration;
                 skill.projectileCount = skillData.projectileCount;
 
+                skill.Initialize(GameManager.Instance.player); // 플레이어 참조 전달
                 skill.UseSkill();
-
-                StartCoroutine(ReturnToPoolAfterUse(skillInstance, prefabIndex, skill.duration));
             }
         }
         else
@@ -197,7 +239,6 @@ public class SkillManager : MonoBehaviour, IManager
             Debug.LogError($"[SpawnSkill] {currentElement} 속성 또는 {skillType} 스킬의 프리팹이 존재하지 않습니다.");
         }
     }
-
     private IEnumerator ReturnToPoolAfterUse(GameObject skillInstance, int prefabIndex, float duration)
     {
         yield return new WaitForSeconds(duration);

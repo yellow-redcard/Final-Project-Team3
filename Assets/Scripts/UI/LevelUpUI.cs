@@ -59,15 +59,8 @@ public class LevelUpUI : UIBase
         }
 
         Debug.Log($"[LevelUpUI] 선택된 스킬: {selectedSkill.skillName}");
-
-        // GameManager 또는 SkillManager가 null인지 확인
-        if (GameManager.Instance == null || GameManager.Instance.skillManager == null)
-        {
-            Debug.LogError("[LevelUpUI] GameManager 또는 SkillManager가 설정되지 않았습니다.");
-            return;
-        }
-
         GameManager.Instance.skillManager.UpgradeSkill(selectedSkill.skillType, selectedSkill.element);
+
         CloseUI();
     }
     private void CloseUI()

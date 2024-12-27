@@ -19,7 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
     public float maxGameTime = 30 * 60f;
     public int monsterKill = 0;
     public int Level = 1;
-    public Transform player { get; private set; }
+    public Transform player { get; set; }
     [SerializeField] private string playerTag = "Player";
 
     private void Start()
@@ -79,5 +79,10 @@ public class GameManager : MonoSingleton<GameManager>
         {
             uiManager.ShowLevelUpUI(options);
         }
+    }
+    public void UpdatePlayer(Transform newPlayer)
+    {
+        player = newPlayer;
+        Debug.Log($"[GameManager] 플레이어가 업데이트되었습니다: {newPlayer.name}");
     }
 }
