@@ -5,7 +5,7 @@ using static SkillManager;
 public class GameManager : MonoSingleton<GameManager>
 {
     public TopDownMovement playerMovement;
-
+    
     public UIManager uiManager;
     public SlimeManager slimeManager;
     public MonsterManager monsterManager;
@@ -14,13 +14,15 @@ public class GameManager : MonoSingleton<GameManager>
     public MonsterPoolManager monsterPool;
     public SkillPoolManager skillPool;
     public SkillManager skillManager;
-    public TileMapManager tileMapManager;
+
     public float gameTime;
     public float maxGameTime = 30 * 60f;
     public int monsterKill = 0;
     public int Level = 1;
     public Transform player { get; private set; }
     [SerializeField] private string playerTag = "Player";
+
+
 
     private void Start()
     {
@@ -34,12 +36,7 @@ public class GameManager : MonoSingleton<GameManager>
         skillManager.init();
         //skillManager.SetCurrentElement(SkillManager.Element.Water);
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
-
-        if (tileMapManager != null)
-        {
-            tileMapManager.Init(player);
-        }
-
+        playerMovement = player.GetComponent<TopDownMovement>();
         InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
         uiManager.Show<KillUI>();
     }
