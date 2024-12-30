@@ -28,3 +28,7 @@ MonoBehaviour:
     cooldown: 4.5
     range: 6
     projectileCount: 1
+  - damage: 15
+    cooldown: 4
+    range: 7
+    projectileCount: 1
