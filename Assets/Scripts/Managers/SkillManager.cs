@@ -41,20 +41,9 @@ public class SkillManager : MonoBehaviour, IManager
             return;
         }
 
-        LoadSkillPrefabs(); // 스킬 프리팹 로드
+        Debug.Log("[SkillManager] SkillDatabase 초기화 성공");
+        LoadSkillPrefabs();
         UnlockSkill(SkillType.Single); // 기본 스킬 해금
-
-        // 초기 슬라임 참조 설정
-        if (GameManager.Instance.slimeManager != null)
-        {
-            UpdatePlayerReference(GameManager.Instance.slimeManager.currentSlime.transform);
-        }
-        else
-        {
-            Debug.LogError("[SkillManager] SlimeManager가 설정되지 않았습니다.");
-        }
-
-        StartCoroutine(AutoFireSkills());
     }
     public void UpdatePlayerReference(Transform newPlayer)
     {
@@ -271,17 +260,15 @@ public class SkillManager : MonoBehaviour, IManager
     {
         List<SkillData> options = new List<SkillData>();
 
-        // 기존 스킬 업그레이드 추가
-        foreach (var skill in unlockedSkills)
+        foreach (var skillType in unlockedSkills)
         {
-            SkillData skillData = skillDatabase.GetSkillData(skill, currentElement);
+            SkillData skillData = skillDatabase.GetSkillData(skillType, currentElement);
             if (skillData != null && skillData.level < skillData.maxLevel)
             {
                 options.Add(skillData);
             }
         }
 
-        // 신규 스킬 추가
         foreach (SkillData skill in skillDatabase.GetAllSkills())
         {
             if (!unlockedSkills.Contains(skill.skillType))
@@ -290,13 +277,8 @@ public class SkillManager : MonoBehaviour, IManager
             }
         }
 
-        Debug.Log($"[GetLevelUpOptions] Generated {options.Count} options.");
-        foreach (var option in options)
-        {
-            Debug.Log($"Option: {option.skillName}, Level: {option.level}");
-        }
-
-        return options.GetRange(0, Mathf.Min(3, options.Count)); // 최대 3개 반환
+        Debug.Log($"[SkillManager] 강화 가능한 스킬 옵션: {options.Count}");
+        return options;
     }
 
     public HashSet<SkillType> GetUnlockedSkills()

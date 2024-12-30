@@ -54,36 +54,22 @@ public class GameManager : MonoSingleton<GameManager>
             Time.timeScale = 0f;
             GameManager.Instance.uiManager.Show<TagSlimeUI>();
         }
-    }
-    private void AutoFireSkills()
-    {
-        if (player == null || monsterPool == null || skillManager == null) return;
-
-        Vector3 playerPosition = player.position;
-        List<Transform> activeMonsters = monsterPool.GetActiveMonsters();
-
-        skillManager.FireSkill(SkillManager.SkillType.Single, playerPosition, activeMonsters);
-        skillManager.FireSkill(SkillManager.SkillType.Cone, playerPosition, activeMonsters);
-        skillManager.FireSkill(SkillManager.SkillType.Line, playerPosition, activeMonsters);
-        skillManager.FireSkill(SkillManager.SkillType.Area, playerPosition, activeMonsters);
+        if (Input.GetKeyDown(KeyCode.L)) // L 키를 눌렀을 때 레벨업 UI 호출
+        {
+            ShowLevelUpUI();
+        }
     }
     public void ShowLevelUpUI()
     {
-        var options = skillManager.GetLevelUpOptions();
-        Debug.Log($"[ShowLevelUpUI] Options Count: {options.Count}");
+        var skillOptions = skillManager.GetLevelUpOptions();
 
-        foreach (var option in options)
+        if (skillOptions.Count > 0)
         {
-            Debug.Log($"Option Skill: {option.skillName}, Level: {option.level}");
-        }
-
-        if (options.Count > 0)
-        {
-            uiManager.ShowLevelUpUI(options);
+            uiManager.ShowLevelUpUI(skillOptions);
         }
         else
         {
-            Debug.LogWarning("[ShowLevelUpUI] No available skill options to display!");
+            Debug.LogWarning("[GameManager] 강화 가능한 스킬이 없습니다.");
         }
     }
     public void UpdatePlayer(Transform newPlayer)

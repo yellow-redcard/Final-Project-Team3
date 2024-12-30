@@ -19,6 +19,8 @@ public class LevelUpUI : UIBase
         UpdateButton(skillButton1, skillData1);
         UpdateButton(skillButton2, skillData2);
         UpdateButton(skillButton3, skillData3);
+
+        gameObject.SetActive(true); // UI 활성화
     }
 
     private void UpdateButton(Button button, SkillData skillData)
@@ -26,44 +28,33 @@ public class LevelUpUI : UIBase
         if (skillData != null)
         {
             Text buttonText = button.GetComponentInChildren<Text>();
-            buttonText.text = $"{skillData.skillName}\n레벨: {skillData.level}/{skillData.maxLevel}";
+            buttonText.text = $"{skillData.skillName}\n레벨: {skillData.level}/{skillData.maxLevel}\n{skillData.upgradeDescription}";
+
             button.gameObject.SetActive(true);
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(() => OnSkillSelected(skillData)); // SkillData 직접 전달
         }
         else
         {
             button.gameObject.SetActive(false);
+            button.onClick.RemoveAllListeners();
         }
     }
 
-    public void SelectSkill(int buttonIndex)
+    private void OnSkillSelected(SkillData skillData)
     {
-        SkillData selectedSkill = buttonIndex switch
+        if (skillData == null)
         {
-            1 => skillData1,
-            2 => skillData2,
-            3 => skillData3,
-            _ => null
-        };
-
-        if (selectedSkill == null)
-        {
-            Debug.LogError($"[LevelUpUI] 선택된 스킬 데이터가 유효하지 않습니다. 버튼 인덱스: {buttonIndex}");
+            Debug.LogError("[LevelUpUI] 선택된 스킬 데이터가 유효하지 않습니다.");
             return;
         }
 
-        if (selectedSkill.level < selectedSkill.maxLevel)
-        {
-            GameManager.Instance.skillManager.UpgradeSkill(selectedSkill.skillType, selectedSkill.element);
-        }
-        else
-        {
-            GameManager.Instance.skillManager.UnlockSkill(selectedSkill.skillType);
-        }
-
+        GameManager.Instance.skillManager.UpgradeSkill(skillData.skillType, skillData.element);
         CloseUI();
     }
-private void CloseUI()
+
+    private void CloseUI()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); // UI 비활성화
     }
 }

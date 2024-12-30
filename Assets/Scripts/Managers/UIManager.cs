@@ -73,7 +73,12 @@ public class UIManager : MonoBehaviour, IManager
             return;
         }
 
-        // SkillData 리스트를 LevelUpUI에 전달
+        Debug.Log($"[UIManager] 전달된 스킬 옵션 개수: {skillOptions.Count}");
+        foreach (var skill in skillOptions)
+        {
+            Debug.Log($"[UIManager] 스킬 옵션: {skill.skillName}, 레벨: {skill.level}");
+        }
+
         levelUpUI.ConfigureButtons(
             skillOptions.Count > 0 ? skillOptions[0] : null,
             skillOptions.Count > 1 ? skillOptions[1] : null,
