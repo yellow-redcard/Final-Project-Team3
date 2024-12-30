@@ -19,7 +19,6 @@ public class GameManager : MonoSingleton<GameManager>
     public int monsterKill = 0;
     public int Level = 1;
     public Transform player { get; set; }
-    [SerializeField] private string playerTag = "Player";
 
     private void Start()
     {
@@ -32,8 +31,6 @@ public class GameManager : MonoSingleton<GameManager>
         skillPool.init();
         skillManager.init();
         //skillManager.SetCurrentElement(SkillManager.Element.Water);
-        player = GameObject.FindGameObjectWithTag(playerTag).transform;
-        playerMovement = player.GetComponent<TopDownMovement>();
 
         // InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
         uiManager.Show<KillUI>();
@@ -75,5 +72,6 @@ public class GameManager : MonoSingleton<GameManager>
     {
         player = newPlayer;
         Debug.Log($"[GameManager] 플레이어가 업데이트되었습니다: {newPlayer.name}");
+        playerMovement = player.GetComponent<TopDownMovement>();
     }
 }
