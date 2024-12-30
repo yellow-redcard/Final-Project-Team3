@@ -53,11 +53,10 @@ public class GameManager : MonoSingleton<GameManager>
         {
             Time.timeScale = 0f;
             GameManager.Instance.uiManager.Show<TagSlimeUI>();
-        }
-        if (Input.GetKeyDown(KeyCode.L)) // L 키를 눌렀을 때 레벨업 UI 호출
-        {
-            ShowLevelUpUI();
-        }
+        } if (Input.GetKeyDown(KeyCode.L)) // L 키를 눌렀을 때 레벨업 UI 호출
+    {
+        ShowLevelUpUI();
+    }
     }
     public void ShowLevelUpUI()
     {

@@ -31,8 +31,8 @@ public class LevelUpUI : UIBase
             buttonText.text = $"{skillData.skillName}\n레벨: {skillData.level}/{skillData.maxLevel}\n{skillData.upgradeDescription}";
 
             button.gameObject.SetActive(true);
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() => OnSkillSelected(skillData)); // SkillData 직접 전달
+            button.onClick.RemoveAllListeners(); // 기존 이벤트 제거
+            button.onClick.AddListener(() => OnSkillSelected(skillData)); // SkillData를 전달하는 이벤트 추가
         }
         else
         {
@@ -49,7 +49,11 @@ public class LevelUpUI : UIBase
             return;
         }
 
+        Debug.Log($"[LevelUpUI] 선택된 스킬: {skillData.skillName}");
+
+        // SkillManager를 통해 스킬 강화
         GameManager.Instance.skillManager.UpgradeSkill(skillData.skillType, skillData.element);
+
         CloseUI();
     }
 
