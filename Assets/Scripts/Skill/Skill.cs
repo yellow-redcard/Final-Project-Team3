@@ -4,7 +4,7 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     public SkillManager.SkillType skillType;
-    public ElementType currentElement = GameManager.Instance.skillManager.currentElement;
+    public ElementType currentElement;
     public float baseDamage;
     public float baseRange;
     public float duration;
@@ -14,6 +14,19 @@ public class Skill : MonoBehaviour
     private Transform player; // 플레이어 참조
     private bool isReady = true;
     private bool isActive = false;
+
+    private void Awake()
+    {
+        // GameManager.Instance 초기화가 보장된 시점에 currentElement 설정
+        if (GameManager.Instance != null && GameManager.Instance.skillManager != null)
+        {
+            currentElement = GameManager.Instance.skillManager.currentElement;
+        }
+        else
+        {
+            Debug.LogError("[Skill] GameManager 또는 SkillManager가 초기화되지 않았습니다.");
+        }
+    }
 
     private void Update()
     {
