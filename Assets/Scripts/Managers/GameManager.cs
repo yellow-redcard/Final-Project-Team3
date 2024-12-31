@@ -19,6 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int monsterKill = 0;
     public int Level = 1;
     public Transform player { get; set; }
+    [SerializeField] private string playerTag = "Player";
 
     private void Start()
     {
@@ -31,7 +32,7 @@ public class GameManager : MonoSingleton<GameManager>
         skillPool.init();
         skillManager.init();
         //skillManager.SetCurrentElement(SkillManager.Element.Water);
-
+        player = GameObject.FindGameObjectWithTag(playerTag).transform;
         // InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
         uiManager.Show<KillUI>();
         StartCoroutine(skillManager.AutoFireSkills());
