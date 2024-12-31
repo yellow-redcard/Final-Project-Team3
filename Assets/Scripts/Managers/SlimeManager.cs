@@ -5,40 +5,39 @@ using UnityEngine.UIElements;
 
 public class SlimeManager : MonoBehaviour, IManager
 {
-    public List<GameObject> slimePrefabs;
+    public GameObject slime;
+    public List<GameObject> slimeBodies;
     public GameObject currentSlime;
     public int currentIndex;
     private List<GameObject> inactiveSlimes = new List<GameObject>();
 
     // 슬라임 이름에 따라 속성을 매핑합니다.
-    private Dictionary<string, SkillManager.Element> slimeToElementMap = new Dictionary<string, SkillManager.Element>
+    private Dictionary<string, ElementType> slimeToElementMap = new Dictionary<string, ElementType>
     {
-        { "DarkSlime", SkillManager.Element.Dark },
-        { "FireSlime", SkillManager.Element.Flame },
-        { "WaterSlime", SkillManager.Element.Water },
-        { "ElectricSlime", SkillManager.Element.Electricity }
+        { "DarkSlime", ElementType.Dark },
+        { "FireSlime", ElementType.Flame },
+        { "WaterSlime", ElementType.Water },
+        { "ElectricSlime", ElementType.Electricity }
     };
 
     public void init()
     {
-        currentIndex = Random.Range(0, slimePrefabs.Count);
-        if (slimePrefabs.Count > 0)
-        {
-            CreateSlime((Vector2)transform.position);
-        }
+        currentSlime = Instantiate(slime, new Vector3() , Quaternion.identity);
+        currentIndex = Random.Range(0, slimeBodies.Count);
+        slimeBodies[currentIndex].SetActive(true);
     }
     public void release()
     {
         Destroy(currentSlime);
     }
 
-    public void CreateSlime(Vector2 position)
+    public void ChangeSlime(Vector2 position)
     {
         if (currentSlime != null)
         {
-            Destroy(currentSlime);
+            currentSlime.SetActive(false);
         }
-        currentSlime = Instantiate(slimePrefabs[currentIndex], new Vector3(position.x, position.y, 0f), Quaternion.identity);
+        slimeBodies[currentIndex].SetActive(true); 
         
 
         // 생성된 슬라임 이름으로 속성을 설정
@@ -53,7 +52,7 @@ public class SlimeManager : MonoBehaviour, IManager
         // 이름에서 "(Clone)" 제거
         string cleanName = slimeName.Replace("(Clone)", "").Trim();
 
-        if (slimeToElementMap.TryGetValue(cleanName, out SkillManager.Element element))
+        if (slimeToElementMap.TryGetValue(cleanName, out ElementType element))
         {
             // SkillManager의 현재 속성을 설정
             GameManager.Instance.skillManager.SetCurrentElement(element);

@@ -46,7 +46,7 @@ public class SkillPoolManager : MonoBehaviour
             pools[index].Add(obj);
         }
     }
-    public GameObject GetSkillPrefab(SkillManager.Element element, SkillManager.SkillType skillType)
+    public GameObject GetSkillPrefab(ElementType element, SkillManager.SkillType skillType)
     {
         string prefabName = $"{element}{skillType}";
         for (int i = 0; i < prefabs.Length; i++)

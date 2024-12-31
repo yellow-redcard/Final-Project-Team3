@@ -4,6 +4,7 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     public SkillManager.SkillType skillType;
+    public ElementType currentElement = GameManager.Instance.skillManager.currentElement;
     public float baseDamage;
     public float baseRange;
     public float duration;
