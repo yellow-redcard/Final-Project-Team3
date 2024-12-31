@@ -23,6 +23,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
+
         uiManager.init();
         slimeManager.init();
         monsterManager.init();
@@ -31,9 +32,7 @@ public class GameManager : MonoSingleton<GameManager>
         monsterPool.init();
         skillPool.init();
         skillManager.init();
-        //skillManager.SetCurrentElement(SkillManager.Element.Water);
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
-        // InvokeRepeating(nameof(AutoFireSkills), 2f, 3f);
         uiManager.Show<KillUI>();
         StartCoroutine(skillManager.AutoFireSkills());
     }
@@ -51,22 +50,6 @@ public class GameManager : MonoSingleton<GameManager>
         {
             Time.timeScale = 0f;
             GameManager.Instance.uiManager.Show<TagSlimeUI>();
-        } if (Input.GetKeyDown(KeyCode.L)) // L 키를 눌렀을 때 레벨업 UI 호출
-    {
-        ShowLevelUpUI();
-    }
-    }
-    public void ShowLevelUpUI()
-    {
-        var skillOptions = skillManager.GetLevelUpOptions();
-
-        if (skillOptions.Count > 0)
-        {
-            uiManager.ShowLevelUpUI(skillOptions);
-        }
-        else
-        {
-            Debug.LogWarning("[GameManager] 강화 가능한 스킬이 없습니다.");
         }
     }
     public void UpdatePlayer(Transform newPlayer)
@@ -75,4 +58,25 @@ public class GameManager : MonoSingleton<GameManager>
         Debug.Log($"[GameManager] 플레이어가 업데이트되었습니다: {newPlayer.name}");
         playerMovement = player.GetComponent<TopDownMovement>();
     }
+    public void ShowLevelUpUI()
+    {
+        if (uiManager == null)
+        {
+            Debug.LogError("[GameManager] UIManager가 초기화되지 않았습니다.");
+            return;
+        }
+
+        List<SkillData> upgradeableSkills = skillManager.GetLevelUpOptions();
+        if (upgradeableSkills.Count > 0)
+        {
+            uiManager.ShowLevelUpUI(upgradeableSkills);
+            Time.timeScale = 0f; // 게임 일시 정지
+            Debug.Log($"[GameManager] 레벨업 UI 호출. 가능한 스킬 개수: {upgradeableSkills.Count}");
+        }
+        else
+        {
+            Debug.LogWarning("[GameManager] 업그레이드 가능한 스킬이 없습니다.");
+        }
+    }
 }
+

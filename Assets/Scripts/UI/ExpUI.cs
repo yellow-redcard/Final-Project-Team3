@@ -27,6 +27,7 @@ public class ExpUI : UIBase
         {
             SetLevelUpExp();
             GameManager.Instance.uiManager.Show<LevelUpUI>();
+            GameManager.Instance.ShowLevelUpUI();
         }
         GetMonsterExp();
     }

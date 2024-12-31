@@ -19,10 +19,10 @@ MonoBehaviour:
   baseRange: 5
   cooldown: 8
   duration: 0.5
-  level: 0
-  maxLevel: 2
+  level: 1
+  maxLevel: 3
   projectileCount: 1
-  upgradeDescription: 
+  upgradeDescription: "\uC9C1\uC120 \uACF5\uACA9 \uAC15\uD654"
   levelUpStats:
   - damage: 10
     cooldown: 4.5

@@ -20,6 +20,7 @@ public class SkillManager : MonoBehaviour, IManager
     private Dictionary<SkillType, float> skillCooldownTimers = new Dictionary<SkillType, float>(); // 쿨다운 타이머
     private Dictionary<SkillType, int> skillLevels = new Dictionary<SkillType, int>();
     private Element currentElement = Element.None;
+    public List<GameObject> skillPrefabs;
 
     public SkillDatabase skillDatabase;
     private bool isFiring = false;
@@ -44,21 +45,7 @@ public class SkillManager : MonoBehaviour, IManager
         Debug.Log("[SkillManager] SkillDatabase 초기화 성공");
         LoadSkillPrefabs();
         UnlockSkill(SkillType.Single); // 기본 스킬 해금
-    }
-    public void UpdatePlayerReference(Transform newPlayer)
-    {
-        if (newPlayer == null)
-        {
-            Debug.LogError("[SkillManager] 새로운 플레이어 참조가 null입니다.");
-            return;
-        }
-
-        // GameManager의 UpdatePlayer 메서드 호출
-        GameManager.Instance.UpdatePlayer(newPlayer);
-
-        Debug.Log($"[SkillManager] 플레이어 참조가 업데이트되었습니다: {newPlayer.name}");
-    }
-    
+    }    
     private void LoadSkillPrefabs()
     {
         foreach (Element element in System.Enum.GetValues(typeof(Element)))
@@ -233,12 +220,31 @@ public class SkillManager : MonoBehaviour, IManager
         }
     }
 
-    public void UpgradeSkill(SkillType skillType, Element element)
+    public List<SkillData> GetUpgradeableSkills()
+    {
+        List<SkillData> upgradeableSkills = new List<SkillData>();
+
+        foreach (var skillType in unlockedSkills)
+        {
+            SkillData skillData = skillDatabase.GetSkillData(skillType, currentElement);
+            if (skillData != null && skillLevels[skillType] < skillData.maxLevel)
+            {
+                upgradeableSkills.Add(skillData);
+                Debug.Log($"[SkillManager] 업그레이드 가능한 스킬: {skillData.skillName}");
+            }
+        }
+
+        return upgradeableSkills;
+    }
+
+    // 스킬 업그레이드
+    // 스킬 업그레이드 메서드
+    public void UpgradeSkill(SkillManager.SkillType skillType, SkillManager.Element element)
     {
         SkillData skillData = skillDatabase.GetSkillData(skillType, element);
         if (skillData == null)
         {
-            Debug.LogError($"[SkillManager] {element} 속성의 {skillType} 스킬 데이터를 찾을 수 없습니다.");
+            Debug.LogError($"[SkillManager] {element} 속성의 {skillType} 스킬 데이터가 없습니다.");
             return;
         }
 
@@ -249,26 +255,28 @@ public class SkillManager : MonoBehaviour, IManager
             return;
         }
 
+        // 레벨 업
         currentLevel++;
         skillLevels[skillType] = currentLevel;
-
-        SkillData.LevelUpStats stats = skillData.levelUpStats[currentLevel - 1];
-        Debug.Log($"[SkillManager] {skillData.skillName} 업그레이드 완료! 레벨: {currentLevel}, 데미지: {stats.damage}, 쿨다운: {stats.cooldown}, 범위: {stats.range}");
+        Debug.Log($"[SkillManager] {skillData.skillName} 업그레이드 완료! 현재 레벨: {currentLevel}");
     }
+
 
     public List<SkillData> GetLevelUpOptions()
     {
         List<SkillData> options = new List<SkillData>();
 
+        // 이미 해금된 스킬 중 업그레이드 가능한 스킬 추가
         foreach (var skillType in unlockedSkills)
         {
             SkillData skillData = skillDatabase.GetSkillData(skillType, currentElement);
-            if (skillData != null && skillData.level < skillData.maxLevel)
+            if (skillData != null && skillLevels[skillType] < skillData.maxLevel)
             {
                 options.Add(skillData);
             }
         }
 
+        // 아직 해금되지 않은 스킬 추가
         foreach (SkillData skill in skillDatabase.GetAllSkills())
         {
             if (!unlockedSkills.Contains(skill.skillType))
@@ -277,14 +285,28 @@ public class SkillManager : MonoBehaviour, IManager
             }
         }
 
-        Debug.Log($"[SkillManager] 강화 가능한 스킬 옵션: {options.Count}");
+        Debug.Log($"[SkillManager] LevelUp Options Count: {options.Count}");
         return options;
     }
 
+
+    public void UpgradeOrUnlockSkill(SkillData skillData)
+    {
+        if (unlockedSkills.Contains(skillData.skillType))
+        {
+            Debug.Log($"[SkillManager] {skillData.skillName} 업그레이드 진행 중...");
+            UpgradeSkill(skillData.skillType, skillData.element);
+        }
+        else
+        {
+            Debug.Log($"[SkillManager] {skillData.skillName} 해금 진행 중...");
+            UnlockSkill(skillData.skillType);
+        }
+    }
     public HashSet<SkillType> GetUnlockedSkills()
     {
+        // 현재 해금된 스킬 목록을 반환
         return new HashSet<SkillType>(unlockedSkills);
     }
-
     public void release() { }
 }
