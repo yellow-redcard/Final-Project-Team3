@@ -11,12 +11,12 @@ public class SlimeManager : MonoBehaviour, IManager
     private List<GameObject> inactiveSlimes = new List<GameObject>();
 
     // 슬라임 이름에 따라 속성을 매핑합니다.
-    private Dictionary<string, SkillManager.Element> slimeToElementMap = new Dictionary<string, SkillManager.Element>
+    private Dictionary<string, ElementType> slimeToElementMap = new Dictionary<string, ElementType>
     {
-        { "DarkSlime", SkillManager.Element.Dark },
-        { "FireSlime", SkillManager.Element.Flame },
-        { "WaterSlime", SkillManager.Element.Water },
-        { "ElectricSlime", SkillManager.Element.Electricity }
+        { "DarkSlime", ElementType.Dark },
+        { "FireSlime", ElementType.Flame },
+        { "WaterSlime", ElementType.Water },
+        { "ElectricSlime", ElementType.Electricity }
     };
 
     public void init()
@@ -53,7 +53,7 @@ public class SlimeManager : MonoBehaviour, IManager
         // 이름에서 "(Clone)" 제거
         string cleanName = slimeName.Replace("(Clone)", "").Trim();
 
-        if (slimeToElementMap.TryGetValue(cleanName, out SkillManager.Element element))
+        if (slimeToElementMap.TryGetValue(cleanName, out ElementType element))
         {
             // SkillManager의 현재 속성을 설정
             GameManager.Instance.skillManager.SetCurrentElement(element);

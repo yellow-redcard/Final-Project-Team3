@@ -12,8 +12,8 @@ public class ElementSystem : MonoBehaviour
     {
         { ElementType.Water, ElementType.Flame },
         { ElementType.Flame, ElementType.Dark },
-        { ElementType.Dark, ElementType.Electric },
-        { ElementType.Electric, ElementType.Water }
+        { ElementType.Dark, ElementType.Electricity },
+        { ElementType.Electricity, ElementType.Water }
     };
 
     public void DetermineOutcome(ElementType element1, ElementType element2, ref float damage)

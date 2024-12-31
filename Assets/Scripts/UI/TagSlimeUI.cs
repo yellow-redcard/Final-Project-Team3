@@ -3,13 +3,7 @@ using UnityEngine.UI;
 
 public class TagSlimeUI : UIBase
 {
-    public int tagSlimeIndex;
-
-    void Start()
-    {
-        // SlimeManager 찾기
-        GameManager.Instance.slimeManager = FindObjectOfType<SlimeManager>();
-    }
+    private int tagSlimeIndex;
 
     void OnTagDarkSlime()
     {
@@ -17,6 +11,7 @@ public class TagSlimeUI : UIBase
         if(tagSlimeIndex == GameManager.Instance.slimeManager.currentIndex)
         {
             Debug.Log("같은 슬라임 입니다!");
+            return;
         }
         else
         {
@@ -29,6 +24,7 @@ public class TagSlimeUI : UIBase
         if (tagSlimeIndex == GameManager.Instance.slimeManager.currentIndex)
         {
             Debug.Log("같은 슬라임 입니다!");
+            return;
         }
         else
         {
@@ -41,6 +37,7 @@ public class TagSlimeUI : UIBase
         if (tagSlimeIndex == GameManager.Instance.slimeManager.currentIndex)
         {
             Debug.Log("같은 슬라임 입니다!");
+            return;
         }
         else
         {
@@ -53,6 +50,7 @@ public class TagSlimeUI : UIBase
         if (tagSlimeIndex == GameManager.Instance.slimeManager.currentIndex)
         {
             Debug.Log("같은 슬라임 입니다!");
+            return;
         }
         else
         {
@@ -68,7 +66,7 @@ public class TagSlimeUI : UIBase
         GameManager.Instance.slimeManager.currentIndex = index;
 
         // 새로운 슬라임 생성
-        GameManager.Instance.slimeManager.CreateSlime(currentPosition);
+        GameManager.Instance.slimeManager.ChangeSlime(currentPosition);
 
         // GameManager의 player 참조 업데이트
         GameManager.Instance.player = GameManager.Instance.slimeManager.currentSlime.transform;

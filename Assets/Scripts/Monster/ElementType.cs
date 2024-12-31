@@ -1,1 +1,1 @@
-﻿public enum ElementType { None, Dark, Electric, Flame, Water }
+﻿public enum ElementType { None, Dark, Electricity, Flame, Water }

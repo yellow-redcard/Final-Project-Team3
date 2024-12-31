@@ -9884,6 +9884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: 3
+  currentElement: 1
   baseDamage: 10
   baseRange: 5
   duration: 2
