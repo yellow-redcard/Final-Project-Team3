@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour, IManager
 {
-    public enum Element { None, Dark, Electricity, Flame, Water }
     public enum SkillType { Single, Cone, Line, Area }
 
     private Dictionary<SkillType, HashSet<string>> skillUpgrades = new Dictionary<SkillType, HashSet<string>>()
@@ -15,18 +14,18 @@ public class SkillManager : MonoBehaviour, IManager
         { SkillType.Area, new HashSet<string> { "Damage", "Range" } }
     };
 
-    private Dictionary<Element, Dictionary<SkillType, int>> skillPrefabIndices;
+    private Dictionary<ElementType, Dictionary<SkillType, int>> skillPrefabIndices;
     private HashSet<SkillType> unlockedSkills = new HashSet<SkillType> { SkillType.Single }; // 기본 스킬 포함
     private Dictionary<SkillType, float> skillCooldownTimers = new Dictionary<SkillType, float>(); // 쿨다운 타이머
     private Dictionary<SkillType, int> skillLevels = new Dictionary<SkillType, int>();
-    private Element currentElement = Element.None;
+    public ElementType currentElement;
 
     public SkillDatabase skillDatabase;
     private bool isFiring = false;
 
     public void init()
     {
-        skillPrefabIndices = new Dictionary<Element, Dictionary<SkillType, int>>();
+        skillPrefabIndices = new Dictionary<ElementType, Dictionary<SkillType, int>>();
 
         foreach (SkillType skillType in System.Enum.GetValues(typeof(SkillType)))
         {
@@ -72,7 +71,7 @@ public class SkillManager : MonoBehaviour, IManager
     
     private void LoadSkillPrefabs()
     {
-        foreach (Element element in System.Enum.GetValues(typeof(Element)))
+        foreach (ElementType element in System.Enum.GetValues(typeof(ElementType)))
         {
             Dictionary<SkillType, int> elementSkills = new Dictionary<SkillType, int>();
 
@@ -136,7 +135,7 @@ public class SkillManager : MonoBehaviour, IManager
         }
     }
 
-    public void SetCurrentElement(Element element)
+    public void SetCurrentElement(ElementType element)
     {
         currentElement = element;
     }
@@ -244,7 +243,7 @@ public class SkillManager : MonoBehaviour, IManager
         }
     }
 
-    public void UpgradeSkill(SkillType skillType, Element element)
+    public void UpgradeSkill(SkillType skillType, ElementType element)
     {
         SkillData skillData = skillDatabase.GetSkillData(skillType, element);
         if (skillData == null)

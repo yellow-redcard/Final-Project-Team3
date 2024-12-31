@@ -6,6 +6,12 @@ public class Monster : MonoBehaviour
     public int maxHp = 10; // 몬스터 최대 체력
     private int currentHp;
     public static event EventHandler OnMonsterDie;
+    [SerializeField] private ElementType monsterElementType;
+    private ElementSystem elementSystem;
+    private void Start()
+    {
+        monsterElementType = (ElementType)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(ElementType)).Length);
+    }
 
     private void OnEnable()
     {
@@ -26,7 +32,9 @@ public class Monster : MonoBehaviour
             Skill skill = collision.GetComponent<Skill>();
             if (skill != null)
             {
-                TakeDamage(skill.baseDamage);
+                float damage = skill.baseDamage;
+                elementSystem.DetermineOutcome(skill.currentElement, monsterElementType, ref damage); // 스킬과 몬스터의 속성 타입 비교
+                TakeDamage(damage);
             }
         }
         // 슬라임과 충돌 처리

@@ -9,7 +9,7 @@ public class SkillDatabase : MonoBehaviour
     /// <summary>
     /// 특정 SkillType과 Element에 해당하는 SkillData를 반환합니다.
     /// </summary>
-    public SkillData GetSkillData(SkillManager.SkillType type, SkillManager.Element element)
+    public SkillData GetSkillData(SkillManager.SkillType type, ElementType element)
     {
         return skillDataList.Find(skill => skill.skillType == type && skill.element == element);
     }
