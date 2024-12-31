@@ -5,7 +5,8 @@ using UnityEngine.UIElements;
 
 public class SlimeManager : MonoBehaviour, IManager
 {
-    public List<GameObject> slimePrefabs;
+    public GameObject slime;
+    public List<GameObject> slimeBodies;
     public GameObject currentSlime;
     public int currentIndex;
     private List<GameObject> inactiveSlimes = new List<GameObject>();
@@ -21,24 +22,22 @@ public class SlimeManager : MonoBehaviour, IManager
 
     public void init()
     {
-        currentIndex = Random.Range(0, slimePrefabs.Count);
-        if (slimePrefabs.Count > 0)
-        {
-            CreateSlime((Vector2)transform.position);
-        }
+        currentSlime = Instantiate(slime, new Vector3() , Quaternion.identity);
+        currentIndex = Random.Range(0, slimeBodies.Count);
+        slimeBodies[currentIndex].SetActive(true);
     }
     public void release()
     {
         Destroy(currentSlime);
     }
 
-    public void CreateSlime(Vector2 position)
+    public void ChangeSlime(Vector2 position)
     {
         if (currentSlime != null)
         {
-            Destroy(currentSlime);
+            currentSlime.SetActive(false);
         }
-        currentSlime = Instantiate(slimePrefabs[currentIndex], new Vector3(position.x, position.y, 0f), Quaternion.identity);
+        slimeBodies[currentIndex].SetActive(true); 
         
 
         // 생성된 슬라임 이름으로 속성을 설정
