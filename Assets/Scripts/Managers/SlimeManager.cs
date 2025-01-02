@@ -14,17 +14,18 @@ public class SlimeManager : MonoBehaviour, IManager
     private List<GameObject> inactiveSlimes = new List<GameObject>();
 
     // 슬라임 이름에 따라 속성을 매핑합니다.
-    private Dictionary<string, ElementType> slimeToElementMap = new Dictionary<string, ElementType>
-    {
-        { "DarkSlime", ElementType.Dark },
-        { "FireSlime", ElementType.Flame },
-        { "WaterSlime", ElementType.Water },
-        { "ElectricSlime", ElementType.Electricity }
-    };
+    private Dictionary<string, ElementType> slimeBodyToElementMap = new Dictionary<string, ElementType>
+{
+    { "DarkSlimeBody", ElementType.Dark },
+    { "ElectricSlimeBody", ElementType.Electricity },
+    { "FlameSlimeBody", ElementType.Flame },
+    { "WaterSlimeBody", ElementType.Water }
+};
+
 
     public void init()
     {
-        currentSlime = Instantiate(slime, new Vector3() , Quaternion.identity);
+        currentSlime = Instantiate(slime, new Vector3(), Quaternion.identity);
         Transform slimeBodiesTransform = currentSlime.transform.Find("SlimeBodies");
         if (slimeBodiesTransform != null)
         {
@@ -36,6 +37,7 @@ public class SlimeManager : MonoBehaviour, IManager
         }
         currentIndex = Random.Range(0, slimeBodies.Count);
         slimeBodies[currentIndex].SetActive(true);
+        InitializeSlime(); // 슬라임 초기화
     }
     public void release()
     {
@@ -44,20 +46,28 @@ public class SlimeManager : MonoBehaviour, IManager
 
     public void ChangeSlime(Vector2 position)
     {
-        slimeBodies[currentIndex].SetActive(true); 
-        
+        // 현재 슬라임 위치 및 상태 변경
+        currentSlime.transform.position = position;
 
-        // 생성된 슬라임 이름으로 속성을 설정
-        if (currentSlime != null)
+        // 기존 슬라임 비활성화
+        foreach (var body in slimeBodies)
         {
-            SetElementBySlime(currentSlime.name);
+            body.SetActive(false);
         }
+
+        // 새 슬라임 활성화
+        slimeBodies[currentIndex].SetActive(true);
+
+        // 활성화된 슬라임 바디 기반으로 속성 설정
+        SetElementBySlime();
     }
+
     void AddSlimeBody(Transform parent, string bodyName)
     {
         Transform bodyTransform = parent.Find(bodyName);
         if (bodyTransform != null)
         {
+            bodyTransform.name = bodyName; // 이름을 명확히 설정
             slimeBodies.Add(bodyTransform.gameObject);
         }
         else
@@ -65,21 +75,54 @@ public class SlimeManager : MonoBehaviour, IManager
             Debug.LogWarning($"{bodyName} 오브젝트를 찾을 수 없습니다.");
         }
     }
-
-    private void SetElementBySlime(string slimeName)
+    private void InitializeSlime()
     {
-        // 이름에서 "(Clone)" 제거
-        string cleanName = slimeName.Replace("(Clone)", "").Trim();
-
-        if (slimeToElementMap.TryGetValue(cleanName, out ElementType element))
+        // 처음 활성화된 슬라임 바디 찾기
+        GameObject activeBody = slimeBodies[currentIndex];
+        if (activeBody == null)
         {
-            // SkillManager의 현재 속성을 설정
-            GameManager.Instance.skillManager.SetCurrentElement(element);
-            Debug.Log($"슬라임 '{cleanName}'에 따라 속성을 '{element}'로 설정했습니다.");
+            Debug.LogWarning("[InitializeSlime] 활성화된 슬라임 바디가 없습니다.");
+            GameManager.Instance.skillManager.SetCurrentElement(ElementType.None);
+            return;
+        }
+
+        // 슬라임 속성 설정
+        SetElementBySlime();
+        Debug.Log($"[InitializeSlime] 초기 슬라임 속성 설정: {GameManager.Instance.skillManager.currentElement}");
+    }
+    private void SetElementBySlime()
+    {
+        GameObject activeBody = slimeBodies[currentIndex];
+
+        if (activeBody == null)
+        {
+            Debug.LogWarning("[SetElementBySlime] 활성화된 슬라임 바디가 없습니다.");
+            GameManager.Instance.skillManager.SetCurrentElement(ElementType.None);
+            return;
+        }
+
+        string bodyName = activeBody.name.Replace("(Clone)", "").Trim();
+
+        if (bodyName.Contains("DarkSlimeBody"))
+        {
+            GameManager.Instance.skillManager.SetCurrentElement(ElementType.Dark);
+        }
+        else if (bodyName.Contains("FlameSlimeBody"))
+        {
+            GameManager.Instance.skillManager.SetCurrentElement(ElementType.Flame);
+        }
+        else if (bodyName.Contains("WaterSlimeBody"))
+        {
+            GameManager.Instance.skillManager.SetCurrentElement(ElementType.Water);
+        }
+        else if (bodyName.Contains("ElectricSlimeBody"))
+        {
+            GameManager.Instance.skillManager.SetCurrentElement(ElementType.Electricity);
         }
         else
         {
-            Debug.LogWarning($"'{cleanName}'에 해당하는 속성을 찾을 수 없습니다.");
+            Debug.LogWarning($"[SetElementBySlime] '{bodyName}'에 해당하는 속성을 찾을 수 없습니다.");
+            GameManager.Instance.skillManager.SetCurrentElement(ElementType.None);
         }
     }
 }

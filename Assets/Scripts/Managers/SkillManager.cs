@@ -43,9 +43,10 @@ public class SkillManager : MonoBehaviour, IManager
         }
 
         Debug.Log("[SkillManager] SkillDatabase 초기화 성공");
+        StartCoroutine(AutoFireSkills());
         LoadSkillPrefabs();
         UnlockSkill(SkillType.Single); // 기본 스킬 해금
-    }    
+    }
     private void LoadSkillPrefabs()
     {
         foreach (ElementType element in System.Enum.GetValues(typeof(ElementType)))
@@ -83,7 +84,7 @@ public class SkillManager : MonoBehaviour, IManager
         {
             List<Transform> enemies = monsterPoolManager.GetActiveMonsters();
 
-            // 삭제된 오브젝트 제거
+            //삭제된 오브젝트 제거
             enemies.RemoveAll(enemy => enemy == null || !enemy.gameObject.activeSelf);
 
             foreach (SkillType skillType in unlockedSkills)
@@ -95,7 +96,7 @@ public class SkillManager : MonoBehaviour, IManager
                 }
             }
 
-            // 쿨다운 타이머 업데이트
+            //쿨다운 타이머 업데이트
             UpdateCooldownTimers();
             yield return null;
         }
@@ -114,7 +115,7 @@ public class SkillManager : MonoBehaviour, IManager
 
     public void SetCurrentElement(ElementType element)
     {
-        currentElement = element;
+        currentElement = element; // 현재 속성 업데이트
     }
 
     private void ResetSkillCooldown(SkillType skillType)
@@ -129,14 +130,28 @@ public class SkillManager : MonoBehaviour, IManager
 
     public void FireSkill(SkillType skillType, Vector3 playerPosition, List<Transform> enemies)
     {
-        if (!unlockedSkills.Contains(skillType)) return;
+        if (!unlockedSkills.Contains(skillType))
+        {
+            Debug.LogWarning($"[SkillManager] {skillType} 스킬이 해금되지 않았습니다.");
+            return;
+        }
 
         SkillData skillData = skillDatabase.GetSkillData(skillType, currentElement);
         if (skillData == null)
         {
-            Debug.LogWarning($"[SkillManager] {currentElement} {skillType} 스킬 데이터가 없습니다.");
+            Debug.LogError($"[SkillManager] {currentElement} {skillType} 스킬 데이터가 없습니다!");
             return;
         }
+        if (enemies == null || enemies.Count == 0)
+        {
+            Debug.LogWarning($"[SkillManager] {skillType} 스킬 대상 적 없음");
+            return;
+        }
+
+        Debug.Log($"[SkillManager] {currentElement} {skillType} 스킬 발동 성공");
+        SpawnSkill(skillType, playerPosition, skillData);
+    
+    Debug.Log($"[SkillManager] {currentElement} {skillType} 스킬 데이터 로드 완료: {skillData.skillName}");
 
         // 삭제된 적 체크 및 제거
         enemies.RemoveAll(enemy => enemy == null || !enemy.gameObject.activeSelf);
@@ -150,7 +165,12 @@ public class SkillManager : MonoBehaviour, IManager
             Transform targetEnemy = GetSingleTarget(enemies);
             if (targetEnemy != null)
             {
+                Debug.Log($"[SkillManager] {skillType} 스킬 대상: {targetEnemy.name}");
                 SpawnSkill(skillType, targetEnemy.position, skillData);
+            }
+            else
+            {
+                Debug.LogWarning($"[SkillManager] {skillType} 스킬 대상 적 없음");
             }
         }
     }
@@ -181,28 +201,39 @@ public class SkillManager : MonoBehaviour, IManager
         {
             int prefabIndex = skillPrefabIndices[currentElement][skillType];
             GameObject skillInstance = GameManager.Instance.skillPool.Get(prefabIndex);
-            skillInstance.transform.position = position;
-            skillInstance.SetActive(true);
 
-            Skill skill = skillInstance.GetComponent<Skill>();
-            if (skill != null)
+            if (skillInstance != null)
             {
-                skill.baseDamage = skillData.baseDamage;
-                skill.cooldown = skillData.cooldown;
-                skill.baseRange = skillData.baseRange;
-                skill.duration = skillData.duration;
-                skill.projectileCount = skillData.projectileCount;
+                skillInstance.transform.position = position;
+                skillInstance.SetActive(true);
+                Debug.Log($"[SkillManager] {skillType} 스킬 활성화 성공: {skillInstance.name}");
 
-                skill.UseSkill();
-
-                StartCoroutine(ReturnToPoolAfterUse(skillInstance, prefabIndex, skill.duration));
+                Skill skill = skillInstance.GetComponent<Skill>();
+                if (skill != null)
+                {
+                    skill.baseDamage = skillData.baseDamage;
+                    skill.cooldown = skillData.cooldown;
+                    skill.baseRange = skillData.baseRange;
+                    skill.duration = skillData.duration;
+                    skill.projectileCount = skillData.projectileCount;
+                    skill.UseSkill();
+                }
+                else
+                {
+                    Debug.LogError($"[SkillManager] {skillInstance.name}에 Skill 컴포넌트가 없습니다!");
+                }
+            }
+            else
+            {
+                Debug.LogError($"[SkillManager] 스킬 프리팹 인스턴스를 가져오지 못했습니다.");
             }
         }
         else
         {
-            Debug.LogError($"[SkillManager] {currentElement} 속성 또는 {skillType} 스킬의 프리팹이 존재하지 않습니다.");
+            Debug.LogError($"[SkillManager] {currentElement} 속성의 {skillType} 스킬 프리팹이 없습니다.");
         }
     }
+
     private IEnumerator ReturnToPoolAfterUse(GameObject skillInstance, int prefabIndex, float duration)
     {
         yield return new WaitForSeconds(duration);
@@ -215,8 +246,8 @@ public class SkillManager : MonoBehaviour, IManager
         if (!unlockedSkills.Contains(skillType))
         {
             unlockedSkills.Add(skillType);
-            skillLevels[skillType] = 1;
-            Debug.Log($"스킬 {skillType} 해금!");
+            skillLevels[skillType] = 1; // 기본 레벨
+            Debug.Log($"[SkillManager] {skillType} 스킬 해금 완료");
         }
     }
 
