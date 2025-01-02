@@ -60,7 +60,7 @@ public class TagSlimeUI : UIBase
     public void TagSlime(int index)
     {
         Vector2 currentPosition = GameManager.Instance.slimeManager.currentSlime.transform.position;
-        GameManager.Instance.slimeManager.currentSlime.SetActive(false);
+        GameManager.Instance.slimeManager.slimeBodies[GameManager.Instance.slimeManager.currentIndex].SetActive(false);
 
         // 새로운 슬라임 인덱스 설정
         GameManager.Instance.slimeManager.currentIndex = index;
