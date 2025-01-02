@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class SlimeHPUI : UIBase
 {
-    [SerializeField] private GameObject getHealthSystem;
+     private GameObject getHealthSystem;
     [SerializeField] private Slider slider;
 
     private HealthSystem currentHealthSystem;
     private void Start()
     {
+        getHealthSystem = GameManager.Instance.slimeManager.currentSlime;
         if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem healthSystem))
         {
             Debug.Log("HealthSystem:"+ healthSystem);
@@ -18,7 +19,6 @@ public class SlimeHPUI : UIBase
         }
         SetHealthSystem(healthSystem);
     }
-    
     public void SetHealthSystem(HealthSystem healthSystem)
     {
         if (this.currentHealthSystem != null)

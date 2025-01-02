@@ -253,8 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  getHealthSystem: {fileID: 0}
-  previousHealthSystem: {fileID: 0}
+  getHealthSystem: {fileID: 3902346518666332834, guid: 41cdfe307a6796b4790e44adb75166a7, type: 3}
   slider: {fileID: 5065662127453542092}
 --- !u!1 &6766248891924937273
 GameObject:
