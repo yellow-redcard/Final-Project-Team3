@@ -93,7 +93,14 @@ public class UIManager : MonoBehaviour, IManager
         uiList.Remove(go);
         Destroy(go.canvas.gameObject);
     }
-
+    public void CloseUI()
+    {
+        foreach (UIBase ui in uiList)
+        {
+            Destroy(ui.canvas.gameObject);
+        }
+        uiList.Clear();
+    }
     public void ShowLevelUpUI(List<SkillData> upgradeableSkills)
     {
         if (levelUpUIInstance == null)
@@ -113,4 +120,3 @@ public class UIManager : MonoBehaviour, IManager
         Debug.Log($"[UIManager] LevelUpUI 활성화. 버튼 개수: {upgradeableSkills.Count}");
     }
 }
-
