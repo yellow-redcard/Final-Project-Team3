@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeData : MonoBehaviour
+public class SlimeData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float darkHpValue;
+    public float darkExpValue;
+    public int darkLevel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float electricHpValue;
+    public float electricExpValue;
+    public int electricLevel;
+
+    public float flameHpValue;
+    public float flameExpValue;
+    public int flameLevel;
+
+    public float waterHpValue;
+    public float waterExpValue;
+    public int waterLevel;
 }

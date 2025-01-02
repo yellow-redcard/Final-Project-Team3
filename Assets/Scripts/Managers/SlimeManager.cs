@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class SlimeManager : MonoBehaviour, IManager
 {
+    [SerializeField] private SlimeData slimeData;
     public GameObject slime;
     public List<GameObject> slimeBodies;
     public GameObject currentSlime;
@@ -23,6 +25,15 @@ public class SlimeManager : MonoBehaviour, IManager
     public void init()
     {
         currentSlime = Instantiate(slime, new Vector3() , Quaternion.identity);
+        Transform slimeBodiesTransform = currentSlime.transform.Find("SlimeBodies");
+        if (slimeBodiesTransform != null)
+        {
+            // 각각의 SlimeBody 타입 오브젝트를 리스트에 추가합니다.
+            AddSlimeBody(slimeBodiesTransform, "DarkSlimeBody");
+            AddSlimeBody(slimeBodiesTransform, "ElectricSlimeBody");
+            AddSlimeBody(slimeBodiesTransform, "FlameSlimeBody");
+            AddSlimeBody(slimeBodiesTransform, "WaterSlimeBody");
+        }
         currentIndex = Random.Range(0, slimeBodies.Count);
         slimeBodies[currentIndex].SetActive(true);
     }
@@ -33,10 +44,6 @@ public class SlimeManager : MonoBehaviour, IManager
 
     public void ChangeSlime(Vector2 position)
     {
-        if (currentSlime != null)
-        {
-            currentSlime.SetActive(false);
-        }
         slimeBodies[currentIndex].SetActive(true); 
         
 
@@ -44,6 +51,18 @@ public class SlimeManager : MonoBehaviour, IManager
         if (currentSlime != null)
         {
             SetElementBySlime(currentSlime.name);
+        }
+    }
+    void AddSlimeBody(Transform parent, string bodyName)
+    {
+        Transform bodyTransform = parent.Find(bodyName);
+        if (bodyTransform != null)
+        {
+            slimeBodies.Add(bodyTransform.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning($"{bodyName} 오브젝트를 찾을 수 없습니다.");
         }
     }
 

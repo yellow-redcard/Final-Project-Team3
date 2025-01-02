@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 public class SlimeInputController : TopDownController
 {
     public Animator moveAnimator;
+    public int AnimationIndex;
+    private void Update()
+    {
+        AnimationIndex = GameManager.Instance.slimeManager.currentIndex;
+        moveAnimator = GameManager.Instance.slimeManager.slimeBodies[AnimationIndex].GetComponent<Animator>();
+    }
     public void OnMove(InputValue value)
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;

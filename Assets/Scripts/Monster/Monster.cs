@@ -10,7 +10,7 @@ public class Monster : MonoBehaviour
     private ElementSystem elementSystem;
     private void Start()
     {
-        monsterElementType = (ElementType)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(ElementType)).Length);
+        monsterElementType = (ElementType)UnityEngine.Random.Range(1, System.Enum.GetValues(typeof(ElementType)).Length);
     }
 
     private void OnEnable()
