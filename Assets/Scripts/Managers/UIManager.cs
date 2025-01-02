@@ -108,9 +108,14 @@ public class UIManager : MonoBehaviour, IManager
             return;
         }
 
-        levelUpUIInstance.ConfigureButtons(upgradeableSkills);
-        levelUpUIInstance.gameObject.SetActive(true);
-        Debug.Log($"[UIManager] LevelUpUI 활성화. 버튼 개수: {upgradeableSkills.Count}");
+        levelUpUIInstance.ConfigureButtons(upgradeableSkills); // 버튼 데이터 설정
+        levelUpUIInstance.gameObject.SetActive(true); // UI 활성화
+        Debug.Log($"[UIManager] LevelUpUI 활성화. 버튼 개수: {upgradeableSkills.Count}"); 
+        if (levelUpUIInstance == null)
+        {
+            Debug.LogError("[UIManager] LevelUpUI 프리팹이 로드되지 않았습니다!");
+        }
+        Debug.Log($"LevelUpUI 활성화 상태: {levelUpUIInstance.gameObject.activeSelf}");
     }
 }
 

@@ -4947,7 +4947,7 @@ MonoBehaviour:
   currentElement: 2
   baseDamage: 10
   baseRange: 5
-  duration: 0.5
+  duration: 1
   cooldown: 2
   projectileCount: 1
 --- !u!58 &-3705019969689780094

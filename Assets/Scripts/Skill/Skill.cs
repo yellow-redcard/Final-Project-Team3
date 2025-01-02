@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Skill : MonoBehaviour
 {
@@ -17,65 +18,76 @@ public class Skill : MonoBehaviour
 
     private void Awake()
     {
-        // GameManager.Instance 초기화가 보장된 시점에 currentElement 설정
         if (GameManager.Instance != null && GameManager.Instance.skillManager != null)
         {
             currentElement = GameManager.Instance.skillManager.currentElement;
         }
         else
         {
-            Debug.LogError("[Skill] GameManager 또는 SkillManager가 초기화되지 않았습니다.");
+            Debug.LogError("[Skill] GameManager 또는 SkillManager 초기화 실패.");
         }
     }
-
-    private void Update()
+    public void Configure(SkillData skillData, Transform playerTransform)
     {
-        if (skillType == SkillManager.SkillType.Area && isActive)
-        {
-            FollowPlayer(); // Area 스킬은 플레이어를 따라다님
-        }
-    }
+        baseDamage = skillData.baseDamage;
+        baseRange = skillData.baseRange;
+        cooldown = skillData.cooldown;
+        duration = skillData.duration;
+        projectileCount = skillData.projectileCount;
 
+        player = playerTransform; // 플레이어 위치 설정
+        currentElement = skillData.element;
+    }
     public void UseSkill()
     {
-        if (!isReady) return;
-
-        isReady = false;
-        isActive = true;
-
         if (skillType == SkillManager.SkillType.Area)
         {
             StartCoroutine(AreaSkillRoutine());
         }
         else
         {
-            StartCoroutine(CooldownRoutine());
-            StartCoroutine(DeactivateAfterDuration());
+            StartCoroutine(TargetedSkillRoutine());
         }
     }
 
-    private void FollowPlayer()
+    private IEnumerator TargetedSkillRoutine()
     {
-        if (player != null)
+        DealDamageToEnemies();
+
+        var particleSystem = GetComponent<ParticleSystem>();
+        if (particleSystem != null)
         {
-            transform.position = player.position;
+            particleSystem.Play();
         }
+
+        yield return new WaitForSeconds(duration); // duration 동안 대기
+
+        if (particleSystem != null)
+        {
+            particleSystem.Stop();
+        }
+
+        gameObject.SetActive(false); // 스킬 종료 후 비활성화
     }
+
 
     private IEnumerator AreaSkillRoutine()
     {
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
+        var particleSystem = GetComponent<ParticleSystem>();
+        if (particleSystem != null)
         {
-            DealDamageToEnemies(); // 데미지 계산
-            elapsedTime += 1f; // 데미지 주기 (1초)
-            yield return new WaitForSeconds(1f);
+            particleSystem.Play();
         }
 
-        isActive = false;
-        StartCoroutine(CooldownRoutine());
-        gameObject.SetActive(false); // 스킬 비활성화
+        DealDamageToEnemies();
+        yield return new WaitForSeconds(duration); // duration 동안 대기
+
+        if (particleSystem != null)
+        {
+            particleSystem.Stop();
+        }
+
+        gameObject.SetActive(false); // 스킬 종료 후 비활성화
     }
 
     private void DealDamageToEnemies()
@@ -93,21 +105,32 @@ public class Skill : MonoBehaviour
             }
         }
     }
-
+    private void FollowPlayer()
+    {
+        if (player != null)
+        {
+            transform.position = player.position;
+        }
+    }
     private IEnumerator CooldownRoutine()
     {
         yield return new WaitForSeconds(cooldown);
         isReady = true;
     }
 
-    private IEnumerator DeactivateAfterDuration()
+    private IEnumerator DeactivateAfterDuration(GameObject skillInstance, float duration)
     {
         yield return new WaitForSeconds(duration);
-        gameObject.SetActive(false);
-    }
 
+        var particleSystem = skillInstance.GetComponent<ParticleSystem>();
+        if (particleSystem != null)
+        {
+            particleSystem.Stop();
+        }
+        skillInstance.SetActive(false); // 오브젝트 비활성화
+    }
     public void Initialize(Transform playerTransform)
     {
-        player = playerTransform; // 플레이어 참조 설정
+        player = playerTransform;
     }
 }

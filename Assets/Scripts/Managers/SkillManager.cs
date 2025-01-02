@@ -42,10 +42,10 @@ public class SkillManager : MonoBehaviour, IManager
             return;
         }
 
-        Debug.Log("[SkillManager] SkillDatabase 초기화 성공");
-        StartCoroutine(AutoFireSkills());
         LoadSkillPrefabs();
         UnlockSkill(SkillType.Single); // 기본 스킬 해금
+
+        
     }
     private void LoadSkillPrefabs()
     {
@@ -83,9 +83,7 @@ public class SkillManager : MonoBehaviour, IManager
         while (true)
         {
             List<Transform> enemies = monsterPoolManager.GetActiveMonsters();
-
-            //삭제된 오브젝트 제거
-            enemies.RemoveAll(enemy => enemy == null || !enemy.gameObject.activeSelf);
+            enemies.RemoveAll(enemy => enemy == null || !enemy.gameObject.activeSelf); // 삭제된 적 제거
 
             foreach (SkillType skillType in unlockedSkills)
             {
@@ -96,19 +94,17 @@ public class SkillManager : MonoBehaviour, IManager
                 }
             }
 
-            //쿨다운 타이머 업데이트
-            UpdateCooldownTimers();
+            UpdateCooldownTimers(); // 쿨다운 업데이트
             yield return null;
         }
     }
-
     private void UpdateCooldownTimers()
     {
-        foreach (SkillType skillType in unlockedSkills)
+        foreach (var key in skillCooldownTimers.Keys.ToArray()) // 배열로 복사하여 순회
         {
-            if (skillCooldownTimers[skillType] > 0)
+            if (skillCooldownTimers.TryGetValue(key, out float cooldown) && cooldown > 0)
             {
-                skillCooldownTimers[skillType] -= Time.deltaTime;
+                skillCooldownTimers[key] = cooldown - Time.deltaTime;
             }
         }
     }
@@ -125,66 +121,34 @@ public class SkillManager : MonoBehaviour, IManager
         {
             int currentLevel = skillLevels[skillType];
             skillCooldownTimers[skillType] = skillData.levelUpStats[currentLevel - 1].cooldown;
+            Debug.Log($"[SkillManager] {skillType} 스킬 쿨타임 초기화: {skillCooldownTimers[skillType]}초");
         }
     }
 
     public void FireSkill(SkillType skillType, Vector3 playerPosition, List<Transform> enemies)
     {
-        if (!unlockedSkills.Contains(skillType))
-        {
-            Debug.LogWarning($"[SkillManager] {skillType} 스킬이 해금되지 않았습니다.");
-            return;
-        }
-
         SkillData skillData = skillDatabase.GetSkillData(skillType, currentElement);
         if (skillData == null)
         {
             Debug.LogError($"[SkillManager] {currentElement} {skillType} 스킬 데이터가 없습니다!");
             return;
         }
-        if (enemies == null || enemies.Count == 0)
-        {
-            Debug.LogWarning($"[SkillManager] {skillType} 스킬 대상 적 없음");
-            return;
-        }
 
-        Debug.Log($"[SkillManager] {currentElement} {skillType} 스킬 발동 성공");
-        SpawnSkill(skillType, playerPosition, skillData);
-    
-    Debug.Log($"[SkillManager] {currentElement} {skillType} 스킬 데이터 로드 완료: {skillData.skillName}");
+        Vector3 spawnPosition = skillType == SkillType.Area ? playerPosition : GetTargetPosition(enemies, playerPosition);
 
-        // 삭제된 적 체크 및 제거
-        enemies.RemoveAll(enemy => enemy == null || !enemy.gameObject.activeSelf);
-
-        if (skillType == SkillType.Area)
-        {
-            SpawnSkill(skillType, playerPosition, skillData);
-        }
-        else
-        {
-            Transform targetEnemy = GetSingleTarget(enemies);
-            if (targetEnemy != null)
-            {
-                Debug.Log($"[SkillManager] {skillType} 스킬 대상: {targetEnemy.name}");
-                SpawnSkill(skillType, targetEnemy.position, skillData);
-            }
-            else
-            {
-                Debug.LogWarning($"[SkillManager] {skillType} 스킬 대상 적 없음");
-            }
-        }
+        SpawnSkill(skillType, spawnPosition, skillData);
     }
 
-    private Transform GetSingleTarget(List<Transform> enemies)
+    private Vector3 GetTargetPosition(List<Transform> enemies, Vector3 playerPosition)
     {
-        if (enemies == null || enemies.Count == 0) return null;
+        if (enemies == null || enemies.Count == 0) return playerPosition;
 
         Transform closestEnemy = enemies[0];
-        float closestDistance = Vector3.Distance(GameManager.Instance.player.position, closestEnemy.position);
+        float closestDistance = Vector3.Distance(playerPosition, closestEnemy.position);
 
         foreach (var enemy in enemies)
         {
-            float distance = Vector3.Distance(GameManager.Instance.player.position, enemy.position);
+            float distance = Vector3.Distance(playerPosition, enemy.position);
             if (distance < closestDistance)
             {
                 closestEnemy = enemy;
@@ -192,7 +156,7 @@ public class SkillManager : MonoBehaviour, IManager
             }
         }
 
-        return closestEnemy;
+        return closestEnemy.position;
     }
 
     private void SpawnSkill(SkillType skillType, Vector3 position, SkillData skillData)
@@ -206,38 +170,28 @@ public class SkillManager : MonoBehaviour, IManager
             {
                 skillInstance.transform.position = position;
                 skillInstance.SetActive(true);
-                Debug.Log($"[SkillManager] {skillType} 스킬 활성화 성공: {skillInstance.name}");
 
                 Skill skill = skillInstance.GetComponent<Skill>();
                 if (skill != null)
                 {
+                    skill.Initialize(GameManager.Instance.player); // 플레이어 기준
                     skill.baseDamage = skillData.baseDamage;
                     skill.cooldown = skillData.cooldown;
                     skill.baseRange = skillData.baseRange;
                     skill.duration = skillData.duration;
                     skill.projectileCount = skillData.projectileCount;
+
                     skill.UseSkill();
-                }
-                else
-                {
-                    Debug.LogError($"[SkillManager] {skillInstance.name}에 Skill 컴포넌트가 없습니다!");
+                    StartCoroutine(ReturnToPool(skillInstance, prefabIndex, skillData.duration));
                 }
             }
-            else
-            {
-                Debug.LogError($"[SkillManager] 스킬 프리팹 인스턴스를 가져오지 못했습니다.");
-            }
-        }
-        else
-        {
-            Debug.LogError($"[SkillManager] {currentElement} 속성의 {skillType} 스킬 프리팹이 없습니다.");
         }
     }
 
-    private IEnumerator ReturnToPoolAfterUse(GameObject skillInstance, int prefabIndex, float duration)
+    private IEnumerator ReturnToPool(GameObject skillInstance, int prefabIndex, float duration)
     {
-        yield return new WaitForSeconds(duration);
-        skillInstance.SetActive(false);
+        yield return new WaitForSeconds(duration); // 스킬 지속 시간만큼 대기
+        skillInstance.SetActive(false); // 스킬 비활성화
         GameManager.Instance.skillPool.ReturnToPool(skillInstance, prefabIndex);
     }
 
@@ -296,6 +250,9 @@ public class SkillManager : MonoBehaviour, IManager
     {
         List<SkillData> options = new List<SkillData>();
 
+        // 현재 슬라임 속성을 기준으로 스킬 데이터 필터링
+        ElementType currentElement = GameManager.Instance.skillManager.currentElement;
+
         // 이미 해금된 스킬 중 업그레이드 가능한 스킬 추가
         foreach (var skillType in unlockedSkills)
         {
@@ -309,13 +266,13 @@ public class SkillManager : MonoBehaviour, IManager
         // 아직 해금되지 않은 스킬 추가
         foreach (SkillData skill in skillDatabase.GetAllSkills())
         {
-            if (!unlockedSkills.Contains(skill.skillType))
+            if (!unlockedSkills.Contains(skill.skillType) && skill.element == currentElement)
             {
                 options.Add(skill);
             }
         }
 
-        Debug.Log($"[SkillManager] LevelUp Options Count: {options.Count}");
+        Debug.Log($"[SkillManager] {currentElement} 속성 기준 LevelUp Options Count: {options.Count}");
         return options;
     }
 
@@ -324,13 +281,15 @@ public class SkillManager : MonoBehaviour, IManager
     {
         if (unlockedSkills.Contains(skillData.skillType))
         {
-            Debug.Log($"[SkillManager] {skillData.skillName} 업그레이드 진행 중...");
+            // 스킬 업그레이드
             UpgradeSkill(skillData.skillType, skillData.element);
+            Debug.Log($"[SkillManager] '{skillData.skillName}' 업그레이드 완료!");
         }
         else
         {
-            Debug.Log($"[SkillManager] {skillData.skillName} 해금 진행 중...");
+            // 스킬 해금
             UnlockSkill(skillData.skillType);
+            Debug.Log($"[SkillManager] '{skillData.skillName}' 해금 완료!");
         }
     }
     public HashSet<SkillType> GetUnlockedSkills()

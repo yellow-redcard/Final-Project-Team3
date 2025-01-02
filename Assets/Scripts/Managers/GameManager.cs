@@ -34,6 +34,7 @@ public class GameManager : MonoSingleton<GameManager>
         skillManager.init();
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
         uiManager.Show<KillUI>();
+        StartCoroutine(skillManager.AutoFireSkills());
     }
 
 
@@ -65,9 +66,11 @@ public class GameManager : MonoSingleton<GameManager>
             return;
         }
 
+        // 업그레이드 또는 해금 가능한 스킬 데이터 가져오기
         List<SkillData> upgradeableSkills = skillManager.GetLevelUpOptions();
         if (upgradeableSkills.Count > 0)
         {
+            // UIManager를 통해 LevelUp UI 호출
             uiManager.ShowLevelUpUI(upgradeableSkills);
             Time.timeScale = 0f; // 게임 일시 정지
             Debug.Log($"[GameManager] 레벨업 UI 호출. 가능한 스킬 개수: {upgradeableSkills.Count}");

@@ -12,8 +12,7 @@ public class SkillDataComponent : MonoBehaviour
             Debug.LogError($"[SkillDataComponent] {gameObject.name}에 SkillData가 연결되지 않았습니다!");
         }
     }
-
-    public SkillData GetSkillData()
+public SkillData GetSkillData()
     {
         return skillData;
     }

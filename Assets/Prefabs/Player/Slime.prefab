@@ -591,9 +591,9 @@ GameObject:
   - component: {fileID: 5971044347595284230}
   - component: {fileID: 4992538641457180727}
   - component: {fileID: 7123030581057751200}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1047,7 +1047,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4530263858655365845}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SlimeBodies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1742,9 +1742,25 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 714372088647844796, guid: deede9d0e136d734286fed7572db1170, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437474108997294685, guid: deede9d0e136d734286fed7572db1170, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3532496702469859143, guid: deede9d0e136d734286fed7572db1170, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4199796890323773073, guid: deede9d0e136d734286fed7572db1170, type: 3}
       propertyPath: m_Name
       value: ExpUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199796890323773073, guid: deede9d0e136d734286fed7572db1170, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6028313988594669021, guid: deede9d0e136d734286fed7572db1170, type: 3}
       propertyPath: m_Pivot.x
@@ -1844,6 +1860,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4389553770937648242}
     m_Modifications:
+    - target: {fileID: 483128147828771232, guid: bc85f6ea70167804a918c3abcb47316d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 933682922797388966, guid: bc85f6ea70167804a918c3abcb47316d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1924,6 +1944,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1083371089458796519, guid: bc85f6ea70167804a918c3abcb47316d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2177958490910228186, guid: bc85f6ea70167804a918c3abcb47316d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1936,10 +1960,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeHPUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4952868228926286763, guid: bc85f6ea70167804a918c3abcb47316d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6638061597294741102, guid: bc85f6ea70167804a918c3abcb47316d, type: 3}
       propertyPath: getHealthSystem
       value: 
       objectReference: {fileID: 8759118441607631390}
+    - target: {fileID: 6766248891924937273, guid: bc85f6ea70167804a918c3abcb47316d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2041,6 +2073,10 @@ PrefabInstance:
     - target: {fileID: 6649998338493037886, guid: 1c0237eecc5c870479d5547611f92964, type: 3}
       propertyPath: m_Name
       value: LevelUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649998338493037886, guid: 1c0237eecc5c870479d5547611f92964, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
