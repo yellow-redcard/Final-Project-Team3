@@ -4,29 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameScene : MonoBehaviour
+public class GameOverUI : UIBase
 {
-    [Header("Button")]
+    public GameObject gameOverPanel;
+
     public Button retryButtonYes;
     public Button retryButtonNo;
-    public Button mainButton;
-
-    [Header("Panel")]
-    public GameObject gameOverPanel;
-    public GameObject gameClearPanel;
 
     private void Start()
     {
         retryButtonYes.onClick.AddListener(Retry);
         retryButtonNo.onClick.AddListener(BackToMenu);
-        mainButton.onClick.AddListener(BackToMenu);
 
         Invoke("GameClear", GameManager.Instance.maxGameTime);
     }
     private void Retry()
     {
-        gameOverPanel.SetActive(false);
-        gameClearPanel.SetActive(false);
+        GameManager.Instance.uiManager.Hide<GameOverUI>();
 
         Time.timeScale = 1.0f;
 
@@ -41,11 +35,5 @@ public class GameScene : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         GameManager.Instance.uiManager.Show<GameOverUI>();
-    }
-
-    public void GameClear()
-    {
-        Time.timeScale = 0.0f;
-        gameClearPanel.SetActive(true);
     }
 }
