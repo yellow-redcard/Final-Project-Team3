@@ -20,6 +20,8 @@ public class GameManager : MonoSingleton<GameManager>
     public int Level = 1;
     public Transform player { get; set; }
     [SerializeField] private string playerTag = "Player";
+    public GameObject gameOverPanel;
+    public GameObject gameClearPanel;
 
     private void Start()
     {
