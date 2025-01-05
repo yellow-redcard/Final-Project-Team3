@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Slime : MonoBehaviour, IHealth
 {
     [SerializeField] private float healthMax;
 
     private HealthSystem healthSystem;
-
+    private int AnimationIndex;
     public Animator deadAnimator;
 
     private void Awake()
@@ -24,13 +25,20 @@ public class Slime : MonoBehaviour, IHealth
     }
     void OnDead()
     {
-        deadAnimator.Play("Dead");
+        AnimationIndex = GameManager.Instance.slimeManager.currentIndex;
+        deadAnimator = GameManager.Instance.slimeManager.slimeBodies[AnimationIndex].GetComponent<Animator>();
+        StartCoroutine(OnDeadComplete());
     }
-    void OnDeadComplete()
+    private IEnumerator OnDeadComplete()
     {
+        deadAnimator.Play("Dead");
+        yield return new WaitForSeconds(deadAnimator.GetCurrentAnimatorStateInfo(0).length);
         Time.timeScale = 0f;
+        GameManager.Instance.uiManager.CloseUI();
         Destroy(gameObject);
+        //scene 전환
     }
+   
     public HealthSystem GetHealthSystem()
     {
         return healthSystem;
