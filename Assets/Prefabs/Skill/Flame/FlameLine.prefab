@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 9.960829, y: -0.9703392, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -4924,9 +4924,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.0427358, y: -1557786}
+  m_Offset: {x: -0.14388275, y: -702734}
   serializedVersion: 2
-  m_Radius: 2.148019
+  m_Radius: 2.8746815
 --- !u!114 &-263465336970058585
 MonoBehaviour:
   m_ObjectHideFlags: 0

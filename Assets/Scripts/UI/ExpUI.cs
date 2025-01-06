@@ -26,7 +26,6 @@ public class ExpUI : UIBase
         if(curExp >= maxExp)
         {
             SetLevelUpExp();
-            GameManager.Instance.uiManager.Show<LevelUpUI>();
             GameManager.Instance.ShowLevelUpUI();
         }
         GetMonsterExp();

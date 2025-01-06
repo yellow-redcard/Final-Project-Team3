@@ -168,7 +168,16 @@ public class SkillManager : MonoBehaviour, IManager
 
             if (skillInstance != null)
             {
-                skillInstance.transform.position = position;
+                // 직선 스킬만 플레이어 기준으로 위치 설정
+                if (skillType == SkillType.Line)
+                {
+                    skillInstance.transform.position = GameManager.Instance.player.position;
+                }
+                else
+                {
+                    skillInstance.transform.position = position;
+                }
+
                 skillInstance.SetActive(true);
 
                 Skill skill = skillInstance.GetComponent<Skill>();

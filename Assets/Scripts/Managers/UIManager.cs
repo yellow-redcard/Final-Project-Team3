@@ -21,6 +21,23 @@ public class UIManager : MonoBehaviour, IManager
         {
             levelUpUIInstance = Instantiate(uiPrefab).GetComponent<LevelUpUI>();
             levelUpUIInstance.gameObject.SetActive(false); // 처음에는 비활성화
+
+            // LevelUpUI 캔버스 생성
+            GameObject levelUpUICanvas = new GameObject("LevelUpUI");
+            Canvas canvas = levelUpUICanvas.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
+            // GraphicRaycaster 추가
+            GraphicRaycaster graphicRaycaster = levelUpUICanvas.AddComponent<GraphicRaycaster>();
+
+            //캔버스 화면 중앙
+            CanvasScaler canvasScaler = levelUpUICanvas.AddComponent<CanvasScaler>();
+            canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            canvasScaler.referenceResolution = new Vector2(1920f, 1080f); // 기준 해상도 설정
+            canvasScaler.matchWidthOrHeight = 0.5f; // 화면 비율 유지
+            levelUpUIInstance.transform.SetParent(levelUpUICanvas.transform);
+            levelUpUICanvas.layer = LayerMask.NameToLayer("UI");
+
         }
         else
         {

@@ -32,22 +32,4 @@ public class SkillDatabase : MonoBehaviour
     {
         return skillDataList;
     }
-
-    /// <summary>
-    /// 디버그용: 모든 스킬 정보를 출력합니다.
-    /// </summary>
-    public void ValidateSkillDatabase()
-    {
-        foreach (var skill in skillDataList)
-        {
-            if (skill.levelUpStats.Length != skill.maxLevel)
-            {
-                Debug.Log($"[SkillDatabase] Loaded Skill: {skill.skillName}, Element: {skill.element}");
-            }
-            else
-            {
-                Debug.Log($"[SkillDatabase] 스킬 '{skill.skillName}' 검증 완료.");
-            }
-        }
-    }
 }

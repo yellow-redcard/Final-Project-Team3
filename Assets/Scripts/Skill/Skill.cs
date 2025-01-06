@@ -15,7 +15,10 @@ public class Skill : MonoBehaviour
     private Transform player; // 플레이어 참조
     private bool isReady = true;
     private bool isActive = false;
-
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     private void Awake()
     {
         if (GameManager.Instance != null && GameManager.Instance.skillManager != null)
@@ -79,8 +82,15 @@ public class Skill : MonoBehaviour
             particleSystem.Play();
         }
 
-        DealDamageToEnemies();
-        yield return new WaitForSeconds(duration); // duration 동안 대기
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            DealDamageToEnemies();
+            FollowPlayer(); // 플레이어를 따라감
+            elapsedTime += Time.deltaTime;
+            yield return null; // 다음 프레임까지 대기
+        }
 
         if (particleSystem != null)
         {

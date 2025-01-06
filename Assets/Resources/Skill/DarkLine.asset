@@ -16,19 +16,31 @@ MonoBehaviour:
   skillType: 2
   element: 1
   baseDamage: 5
-  baseRange: 5
+  baseRange: 4
   cooldown: 8
   duration: 0.5
   level: 1
-  maxLevel: 3
+  maxLevel: 5
   projectileCount: 1
   upgradeDescription: "\uC9C1\uC120 \uACF5\uACA9 \uAC15\uD654"
   levelUpStats:
   - damage: 10
-    cooldown: 4.5
-    range: 6
+    cooldown: 7
+    range: 4
     projectileCount: 1
   - damage: 15
-    cooldown: 4
+    cooldown: 6.6
+    range: 5
+    projectileCount: 1
+  - damage: 20
+    cooldown: 6.2
+    range: 6
+    projectileCount: 1
+  - damage: 25
+    cooldown: 5.7
     range: 7
+    projectileCount: 1
+  - damage: 30
+    cooldown: 5
+    range: 8
     projectileCount: 1
