@@ -7,6 +7,7 @@ public class Monster : MonoBehaviour
     private int currentHp;
     public static event EventHandler OnMonsterDie;
     [SerializeField] private ElementType monsterElementType;
+    [SerializeField] private GameObject[] dropItems; // 드롭 아이템 배열 추가
     private ElementSystem elementSystem;
     private void Start()
     {
@@ -60,8 +61,26 @@ public class Monster : MonoBehaviour
         GameManager.Instance.monsterKill += 1;
         // 파괴 효과 (필요 시)
         Debug.Log("몬스터 사망");
+        DropItem();
         GameManager.Instance.monsterPool.ReturnToPool(gameObject, GetMonsterIndex());
 
+    }
+
+    private void DropItem()
+    {
+        if (dropItems.Length > 0)
+        {
+            // 랜덤 아이템 선택
+            GameObject drop = dropItems[UnityEngine.Random.Range(0, dropItems.Length)];
+
+            // 드롭 아이템 인스턴스 생성
+            Instantiate(drop, transform.position, Quaternion.identity); // 현재 위치에 드롭
+            Debug.Log($"드롭 아이템: {drop.name}");
+        }
+        else
+        {
+            Debug.LogWarning("드롭 아이템이 설정되지 않았습니다.");
+        }
     }
 
     private int GetMonsterIndex()
