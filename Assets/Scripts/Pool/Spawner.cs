@@ -2,55 +2,72 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public Transform[] spawnPoint; //유니티에서 몬스터를 생성할 위치
+    public Transform[] spawnPoint; // 소환 위치
+    private float timer;
+    private float bossTimer;
+    private float mimicTimer;
 
-    int level;
-    float timer;
-    float bossTimer;
+    private int level;
 
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        timer += Time.deltaTime; // 시간을 흐르게 만들어 줌
-        bossTimer += Time.deltaTime;
+        timer += Time.deltaTime;
+        bossTimer += Time.deltaTime; // 보스 타이머
+        mimicTimer += Time.deltaTime; // Mimic 타이머
 
-        level = Mathf.FloorToInt(GameManager.Instance.gameTime / 20f);
+        level = Mathf.FloorToInt(GameManager.Instance.gameTime / 10f); // 레벨 계산
 
+        // 일반 몬스터 소환
         if (timer > 1f)
         {
-            SpawnMonsters();
-            timer = 0f; // 시간 초기화
+            SpawnMonsters(level);
+            timer = 0f;
         }
-        if (bossTimer > 20f)
+
+        // 보스 몬스터 3분(180초) 주기 소환
+        if (bossTimer > 180f)
         {
-            SpawnBossMonster();
+            SpawnBoss();
             bossTimer = 0f;
         }
+
+        // Mimic 몬스터 1분(60초) 주기 소환
+        if (mimicTimer > 60f)
+        {
+            SpawnMimic();
+            mimicTimer = 0f;
+        }
     }
 
-    private void SpawnBossMonster()
+    private void SpawnMonsters(int level)
     {
         MonsterPoolManager poolManager = GameManager.Instance.monsterPool;
 
-        // 보스 몬스터 소환
-        GameObject boss = poolManager.GetNextBossPrefab();
-        boss.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
-    }
-
-    void SpawnMonsters()
-    {
-        MonsterPoolManager poolManager = GameManager.Instance.monsterPool;
-
-        // 3개의 몬스터를 레벨에 따라 소환
         for (int i = 0; i < 3; i++)
         {
             GameObject enemy = poolManager.GetNextPrefab(level);
             enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         }
+    }
+
+    private void SpawnBoss()
+    {
+        MonsterPoolManager poolManager = GameManager.Instance.monsterPool;
+
+        GameObject boss = poolManager.GetNextBossPrefab();
+        boss.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+    }
+
+    private void SpawnMimic()
+    {
+        MonsterPoolManager poolManager = GameManager.Instance.monsterPool;
+
+        GameObject mimic = poolManager.GetNextMimicPrefab();
+        mimic.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
     }
 }

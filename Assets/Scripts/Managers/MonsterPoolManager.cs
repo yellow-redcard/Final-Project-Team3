@@ -7,11 +7,15 @@ public class MonsterPoolManager : MonoBehaviour, IManager
 {
     public GameObject[] prefabs;
     public GameObject[] bossPrefabs;
+    public GameObject[] mimicPrefabs;
 
     List<GameObject>[] bossPools;
     List<GameObject>[] pools;
+    List<GameObject>[] mimicPools;
+
     private int currentPrefabIndex = 0;
     private int currentBossIndex = 0;
+    private int currentMimicIndex = 0;
 
     public GameObject Get(int index)
     {
@@ -60,6 +64,30 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         return select;
     }
 
+    public GameObject GetMimic(int index)
+    {
+        GameObject select = null;
+
+        // 비활성화된 보스 몬스터 찾기
+        foreach (GameObject item in mimicPools[index])
+        {
+            if (!item.activeSelf)
+            {
+                select = item;
+                select.SetActive(true);
+                break;
+            }
+        }
+
+        if (select == null)
+        {
+            select = Instantiate(mimicPrefabs[index], transform);
+            mimicPools[index].Add(select);
+        }
+
+        return select;
+    }
+
     private void Awake()
     {
         pools = new List<GameObject>[prefabs.Length]; // 풀과 프리팹의 길이 동일하게
@@ -73,6 +101,12 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         for (int i = 0; i < bossPrefabs.Length; i++)
         {
             bossPools[i] = new List<GameObject>(); // 각 보스 풀 리스트 생성
+        }
+
+        mimicPools = new List<GameObject>[mimicPrefabs.Length];
+        for (int i = 0; i < mimicPools.Length; i++)
+        {
+            mimicPools[i] = new List<GameObject>();
         }
     }
 
@@ -95,6 +129,13 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         int index = currentBossIndex;
         currentBossIndex = (currentBossIndex + 1) % bossPrefabs.Length;
         return GetBoss(index);
+    }
+
+    public GameObject GetNextMimicPrefab()
+    {
+        int index = currentMimicIndex;
+        currentMimicIndex = (currentMimicIndex + 1) % mimicPrefabs.Length;
+        return GetMimic(index);
     }
 
     public void init()
