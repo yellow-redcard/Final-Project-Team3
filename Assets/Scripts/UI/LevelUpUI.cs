@@ -7,10 +7,6 @@ public class LevelUpUI : UIBase
     [SerializeField] private Text levelUpText; // 상단 레벨업 안내 텍스트
     [SerializeField] private Button[] skillButtons; // 버튼 배열
 
-    /// <summary>
-    /// 레벨업 UI 버튼과 데이터를 초기화합니다.
-    /// </summary>
-    /// <param name="skills">업그레이드 가능한 스킬 데이터 리스트</param>
     public void ConfigureButtons(List<SkillData> skills)
     {
         for (int i = 0; i < skillButtons.Length; i++)
@@ -49,7 +45,7 @@ public class LevelUpUI : UIBase
             }
         }
 
-        gameObject.SetActive(true);
+        gameObject.SetActive(true); // UI 활성화
     }
 
     /// <summary>
