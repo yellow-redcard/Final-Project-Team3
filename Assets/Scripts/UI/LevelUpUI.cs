@@ -20,32 +20,26 @@ public class LevelUpUI : UIBase
                     : $"{skillData.skillName}\n[새로운 스킬 해금]";
 
                 var buttonTextComponent = skillButtons[i].GetComponentInChildren<Text>();
-                if (buttonTextComponent != null)
+                if (buttonTextComponent == null)
                 {
-                    buttonTextComponent.text = buttonText;
+                    Debug.LogError($"[LevelUpUI] 버튼 {i}에 Text 컴포넌트가 없습니다! Text 컴포넌트를 추가하세요.");
                 }
                 else
                 {
-                    Debug.LogError($"[LevelUpUI] 버튼 {i}에 Text 컴포넌트가 없습니다!");
+                    buttonTextComponent.text = buttonText;
                 }
 
-                skillButtons[i].onClick.RemoveAllListeners();
-                skillButtons[i].onClick.AddListener(() =>
+                // 버튼 활성화
+                if (!skillButtons[i].gameObject.activeSelf)
                 {
-                    Debug.Log($"Button {i} clicked, Skill: {skillData.skillName}");
-                    OnSkillSelected(skillData);
-                });
-
-                skillButtons[i].interactable = true;
-                skillButtons[i].gameObject.SetActive(true);
+                    skillButtons[i].gameObject.SetActive(true);
+                }
             }
             else
             {
-                skillButtons[i].gameObject.SetActive(false);
+                skillButtons[i].gameObject.SetActive(false); // 스킬 데이터가 없으면 버튼 비활성화
             }
         }
-
-        gameObject.SetActive(true); // UI 활성화
     }
 
     /// <summary>
