@@ -34,6 +34,9 @@ public class GameManager : MonoSingleton<GameManager>
         skillManager.init();
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
         uiManager.Show<KillUI>();
+        uiManager.Show<ExpUI>();
+        uiManager.Show<SlimeHPUI>();
+        uiManager.Show<LevelUI>();
         StartCoroutine(skillManager.AutoFireSkills());
     }
 
