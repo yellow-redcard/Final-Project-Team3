@@ -17,7 +17,9 @@ public class GameManager : MonoSingleton<GameManager>
     public float gameTime;
     public float maxGameTime = 30 * 60f;
     public int monsterKill = 0;
-    public int Level = 1;
+    public int Level { get; set; } = 1;
+    public float hpValue { get; set; }
+    public float expValue { get; set; }
     public Transform player { get; set; }
     [SerializeField] private string playerTag = "Player";
 

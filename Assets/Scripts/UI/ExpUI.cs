@@ -23,6 +23,7 @@ public class ExpUI : UIBase
 
     void Update()
     {
+        expBar.value = GameManager.Instance.expValue;
         if(curExp >= maxExp)
         {
             SetLevelUpExp();
@@ -48,6 +49,7 @@ public class ExpUI : UIBase
     {
         Debug.Log($"{curExp} {maxExp}");
         expBar.value = curExp / maxExp;
+        GameManager.Instance.expValue = expBar.value;
     }
     private void OnEnable()
     {

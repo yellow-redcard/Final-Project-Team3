@@ -714,7 +714,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  tagSlimeIndex: 0
+  slimeDatas:
+  - hpValue: 1
+    expValue: 0
+    level: 1
+  - hpValue: 1
+    expValue: 0
+    level: 1
+  - hpValue: 1
+    expValue: 0
+    level: 1
+  - hpValue: 1
+    expValue: 0
+    level: 1
 --- !u!1 &7506311589529555457
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,8 +928,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -5641298258542547359}
         m_TargetAssemblyTypeName: TagSlimeUI, Assembly-CSharp
-        m_MethodName: TagSlime
-        m_Mode: 3
+        m_MethodName: OnTagDarkSlime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1048,8 +1060,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -5641298258542547359}
         m_TargetAssemblyTypeName: TagSlimeUI, Assembly-CSharp
-        m_MethodName: TagSlime
-        m_Mode: 3
+        m_MethodName: OnTagFireSlime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1180,8 +1192,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -5641298258542547359}
         m_TargetAssemblyTypeName: TagSlimeUI, Assembly-CSharp
-        m_MethodName: TagSlime
-        m_Mode: 3
+        m_MethodName: OnTagWaterSlime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1312,8 +1324,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -5641298258542547359}
         m_TargetAssemblyTypeName: TagSlimeUI, Assembly-CSharp
-        m_MethodName: TagSlime
-        m_Mode: 3
+        m_MethodName: OnTagElectricSlime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

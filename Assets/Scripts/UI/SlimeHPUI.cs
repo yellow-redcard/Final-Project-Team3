@@ -8,6 +8,7 @@ public class SlimeHPUI : UIBase
      private GameObject getHealthSystem;
     [SerializeField] private Slider slider;
 
+
     private HealthSystem currentHealthSystem;
     private void Start()
     {
@@ -18,6 +19,10 @@ public class SlimeHPUI : UIBase
             SetHealthSystem(healthSystem);
         }
         SetHealthSystem(healthSystem);
+    }
+    private void Update()
+    {
+        slider.value = GameManager.Instance.hpValue;
     }
     public void SetHealthSystem(HealthSystem healthSystem)
     {
@@ -39,5 +44,6 @@ public class SlimeHPUI : UIBase
     private void UpdateHealthBar()
     {
         slider.value = currentHealthSystem.GetHealthNormalized();
+        GameManager.Instance.hpValue = slider.value;
     }
 }

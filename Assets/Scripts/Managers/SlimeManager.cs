@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 
 public class SlimeManager : MonoBehaviour, IManager
 {
-    [SerializeField] private SlimeData slimeData;
     public GameObject slime;
     public List<GameObject> slimeBodies;
     public GameObject currentSlime;
