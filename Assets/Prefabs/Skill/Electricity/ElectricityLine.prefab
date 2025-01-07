@@ -4943,7 +4943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
+  skillType: 2
   currentElement: 2
   baseDamage: 10
   baseRange: 5
@@ -4982,9 +4982,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.22696829, y: 3634806}
+  m_Offset: {x: -0.021504879, y: 3634806}
   serializedVersion: 2
-  m_Radius: 2.1892312
+  m_Radius: 2.4600694
 --- !u!114 &634810472943459163
 MonoBehaviour:
   m_ObjectHideFlags: 0

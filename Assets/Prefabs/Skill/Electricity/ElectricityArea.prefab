@@ -14621,7 +14621,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2541821235267112009}
@@ -19535,11 +19535,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147c51be2eb3cd741973cd398796e5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
+  skillType: 3
   currentElement: 2
   baseDamage: 10
   baseRange: 5
-  duration: 0
+  duration: 2
   cooldown: 3
   projectileCount: 1
 --- !u!70 &6324949840218802995
