@@ -83,10 +83,16 @@ public class Skill : MonoBehaviour
         }
 
         float elapsedTime = 0f;
+        float damageInterval = 1f; // 1초마다 데미지 주기
 
         while (elapsedTime < duration)
         {
-            DealDamageToEnemies();
+            // 1초마다 데미지 주기
+            if (elapsedTime % damageInterval < Time.deltaTime)
+            {
+                DealDamageToEnemies();
+            }
+
             FollowPlayer(); // 플레이어를 따라감
             elapsedTime += Time.deltaTime;
             yield return null; // 다음 프레임까지 대기

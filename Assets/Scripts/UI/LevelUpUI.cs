@@ -13,11 +13,9 @@ public class LevelUpUI : UIBase
     {
         // 업그레이드 가능한 스킬과 새로 해금 가능한 스킬을 분리
         var upgradableSkills = skills.Where(s => s.level < s.maxLevel).ToList();
-        var unlockableSkills = skills.Where(s => s.level == s.maxLevel).ToList();
 
-        // 업그레이드 가능한 스킬과 새로 해금 가능한 스킬을 섞어서 버튼에 표시
-        allSkills = upgradableSkills.Concat(unlockableSkills).ToList();
-        allSkills = allSkills.OrderBy(x => Random.value).ToList(); // 랜덤 순서로 정렬
+        // 업그레이드 가능한 스킬만 사용
+        allSkills = upgradableSkills.OrderBy(x => Random.value).ToList(); // 랜덤 순서로 정렬
 
         for (int i = 0; i < skillButtons.Length; i++)
         {
@@ -28,17 +26,8 @@ public class LevelUpUI : UIBase
             {
                 SkillData skillData = allSkills[i];
 
-                string buttonText;
-                if (skillData.level < skillData.maxLevel)
-                {
-                    // 업그레이드 가능한 스킬
-                    buttonText = $"{skillData.skillName}\nLv {skillData.level}/{skillData.maxLevel}";
-                }
-                else
-                {
-                    // 새로 해금 가능한 스킬
-                    buttonText = $"{skillData.skillName}\n[스킬 해금]";
-                }
+                // 업그레이드 가능한 스킬
+                string buttonText = $"{skillData.skillName}\nLv {skillData.level}/{skillData.maxLevel}";
 
                 var buttonTextComponent = skillButtons[i].GetComponentInChildren<Text>();
 
@@ -82,8 +71,25 @@ public class LevelUpUI : UIBase
         // 스킬 업그레이드 또는 해금 처리
         GameManager.Instance.skillManager.UpgradeOrUnlockSkill(selectedSkill);
 
+        // 선택된 스킬의 레벨 정보 업데이트
+        UpdateSelectedSkillLevel(selectedSkill);
+
         // UI 닫기
         CloseUI();
+    }
+    private void UpdateSelectedSkillLevel(SkillData selectedSkill)
+    {
+        for (int i = 0; i < allSkills.Count; i++)
+        {
+            if (allSkills[i] == selectedSkill)
+            {
+                string buttonText = $"{selectedSkill.skillName}\nLv {selectedSkill.level}/{selectedSkill.maxLevel}";
+
+                var buttonTextComponent = skillButtons[i].GetComponentInChildren<Text>();
+                buttonTextComponent.text = buttonText;
+                break;
+            }
+        }
     }
 
     /// <summary>

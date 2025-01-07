@@ -16,6 +16,7 @@ public class SkillData : ScriptableObject
     public int maxLevel;                    // 최대 레벨
     public int projectileCount;             // 투사체 개수
     public string upgradeDescription;       // 업그레이드 설명
+    public AudioClip skillSound;        // 스킬 사운드 클립 추가
     public LevelUpStats[] levelUpStats; // 레벨별 데이터 배열
     public LevelUpStats GetStatsForLevel(int level)
     {
