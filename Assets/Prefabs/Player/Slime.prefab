@@ -591,9 +591,9 @@ GameObject:
   - component: {fileID: 5971044347595284230}
   - component: {fileID: 4992538641457180727}
   - component: {fileID: 7123030581057751200}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1046,7 +1046,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4530263858655365845}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SlimeBodies
   m_TagString: Untagged
   m_Icon: {fileID: 0}

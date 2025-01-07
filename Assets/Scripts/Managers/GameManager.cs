@@ -38,6 +38,7 @@ public class GameManager : MonoSingleton<GameManager>
         uiManager.Show<SlimeHPUI>();
         uiManager.Show<LevelUI>();
         StartCoroutine(skillManager.AutoFireSkills());
+        UpdatePlayer(player);
     }
 
 
