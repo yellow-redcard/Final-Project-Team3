@@ -5,7 +5,6 @@ using static ElementSystem;
 public class SkillManager : MonoBehaviour, IManager
 {
     public enum SkillType { Single, Cone, Line, Area }
-
     private Dictionary<SkillType, HashSet<string>> skillUpgrades = new Dictionary<SkillType, HashSet<string>>()
     {
         { SkillType.Single, new HashSet<string> { "Cooldown", "Damage", "Projectile" } },
@@ -13,7 +12,7 @@ public class SkillManager : MonoBehaviour, IManager
         { SkillType.Line, new HashSet<string> { "Cooldown", "Damage", "Range" } },
         { SkillType.Area, new HashSet<string> { "Damage", "Range" } }
     };
-
+    private SoundManager soundManager;
     private Dictionary<ElementType, Dictionary<SkillType, int>> skillPrefabIndices;
     private HashSet<SkillType> unlockedSkills = new HashSet<SkillType> { SkillType.Single }; // 기본 스킬 포함
     private Dictionary<SkillType, float> skillCooldownTimers = new Dictionary<SkillType, float>(); // 쿨다운 타이머
@@ -40,7 +39,11 @@ public class SkillManager : MonoBehaviour, IManager
             Debug.LogError("[SkillManager] SkillDatabase가 설정되지 않았습니다.");
             return;
         }
-
+        soundManager = FindObjectOfType<SoundManager>();
+        if (soundManager == null)
+        {
+            Debug.LogError("[SkillManager] SoundManager를 찾을 수 없습니다.");
+        }
         LoadSkillPrefabs();
         UnlockSkill(SkillType.Single); // 기본 스킬 해금
 
@@ -134,7 +137,10 @@ public class SkillManager : MonoBehaviour, IManager
         }
 
         Vector3 spawnPosition = skillType == SkillType.Area ? playerPosition : GetTargetPosition(enemies, playerPosition);
-
+        //if (soundManager != null && skillData.skillSound != null)
+        //{
+        //    soundManager.PlayOneShot(skillData.skillSound);
+        //}
         SpawnSkill(skillType, spawnPosition, skillData);
     }
 
