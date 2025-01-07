@@ -4,7 +4,6 @@ using UnityEngine;using System.Linq; // For Random OrderBy
 using static ElementSystem;
 public class SkillManager : MonoBehaviour, IManager
 {
-    
     public enum SkillType { Single, Cone, Line, Area }
 
     private Dictionary<SkillType, HashSet<string>> skillUpgrades = new Dictionary<SkillType, HashSet<string>>()
@@ -79,7 +78,7 @@ public class SkillManager : MonoBehaviour, IManager
             Debug.LogError("[SkillManager] MonsterPoolManager를 찾을 수 없습니다.");
             yield break;
         }
-
+       
         while (true)
         {
             List<Transform> enemies = monsterPoolManager.GetActiveMonsters();
@@ -233,7 +232,7 @@ public class SkillManager : MonoBehaviour, IManager
 
     // 스킬 업그레이드
     // 스킬 업그레이드 메서드
-    public void UpgradeSkill(SkillManager.SkillType skillType, ElementType element)
+    public void UpgradeSkill(SkillType skillType, ElementType element)
     {
         SkillData skillData = skillDatabase.GetSkillData(skillType, element);
         if (skillData == null)
@@ -250,11 +249,9 @@ public class SkillManager : MonoBehaviour, IManager
         }
 
         // 레벨 업
-        currentLevel++;
-        skillLevels[skillType] = currentLevel;
-        Debug.Log($"[SkillManager] {skillData.skillName} 업그레이드 완료! 현재 레벨: {currentLevel}");
+        skillLevels[skillType]++;
+        Debug.Log($"[SkillManager] {skillData.skillName} 업그레이드 완료! 현재 레벨: {skillLevels[skillType]}");
     }
-
     public List<SkillData> GetLevelUpOptions()
     {
         List<SkillData> options = new List<SkillData>();
@@ -286,19 +283,41 @@ public class SkillManager : MonoBehaviour, IManager
     }
 
 
-    public void UpgradeOrUnlockSkill(SkillData skillData)
+    public void UpgradeOrUnlockSkill(SkillData selectedSkill)
     {
-        if (unlockedSkills.Contains(skillData.skillType))
+        if (unlockedSkills.Contains(selectedSkill.skillType))
         {
             // 스킬 업그레이드
-            UpgradeSkill(skillData.skillType, skillData.element);
-            Debug.Log($"[SkillManager] '{skillData.skillName}' 업그레이드 완료!");
+            UpgradeSkill(selectedSkill.skillType, selectedSkill.element);
+            selectedSkill.level++; // 선택된 스킬 레벨 업데이트
+
+            // 다른 스킬들의 레벨도 함께 업데이트
+            foreach (var skill in skillDatabase.GetAllSkills())
+            {
+                if (skill.skillType == selectedSkill.skillType && skill.element == selectedSkill.element)
+                {
+                    skill.level = selectedSkill.level;
+                }
+            }
+
+            Debug.Log($"[SkillManager] '{selectedSkill.skillName}' 업그레이드 완료!");
         }
         else
         {
             // 스킬 해금
-            UnlockSkill(skillData.skillType);
-            Debug.Log($"[SkillManager] '{skillData.skillName}' 해금 완료!");
+            UnlockSkill(selectedSkill.skillType);
+            selectedSkill.level = 1; // 새로 해금된 스킬의 레벨을 1로 설정
+
+            // 다른 스킬들의 레벨도 함께 업데이트
+            foreach (var skill in skillDatabase.GetAllSkills())
+            {
+                if (skill.skillType == selectedSkill.skillType && skill.element == selectedSkill.element)
+                {
+                    skill.level = 1;
+                }
+            }
+
+            Debug.Log($"[SkillManager] '{selectedSkill.skillName}' 해금 완료!");
         }
     }
     public HashSet<SkillType> GetUnlockedSkills()

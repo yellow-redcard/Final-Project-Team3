@@ -15,10 +15,10 @@ MonoBehaviour:
   skillName: "\uBD88 \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
   skillType: 1
   element: 3
-  baseDamage: 10
+  baseDamage: 5
   baseRange: 5
   cooldown: 8
-  duration: 1.5
+  duration: 1
   level: 1
   maxLevel: 5
   projectileCount: 1

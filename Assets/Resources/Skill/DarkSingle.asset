@@ -18,7 +18,7 @@ MonoBehaviour:
   baseDamage: 10
   baseRange: 3
   cooldown: 5
-  duration: 0.7
+  duration: 1
   level: 1
   maxLevel: 5
   projectileCount: 1
@@ -29,18 +29,18 @@ MonoBehaviour:
     range: 3
     projectileCount: 1
   - damage: 20
-    cooldown: 4.1
+    cooldown: 4
     range: 4
     projectileCount: 2
   - damage: 25
-    cooldown: 3.7
+    cooldown: 3.4
     range: 5
     projectileCount: 2
   - damage: 30
-    cooldown: 3.2
+    cooldown: 2.7
     range: 6
     projectileCount: 3
   - damage: 35
-    cooldown: 2.7
+    cooldown: 2
     range: 7
     projectileCount: 4
