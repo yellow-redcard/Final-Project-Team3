@@ -68,18 +68,21 @@ public class Monster : MonoBehaviour
 
     private void DropItem()
     {
-        if (dropItems.Length > 0)
+        if (CompareTag("Mimic"))
         {
-            // 랜덤 아이템 선택
-            GameObject drop = dropItems[UnityEngine.Random.Range(0, dropItems.Length)];
+            if (dropItems.Length > 0)
+            {
+                // 랜덤 아이템 선택
+                GameObject drop = dropItems[UnityEngine.Random.Range(0, dropItems.Length)];
 
-            // 드롭 아이템 인스턴스 생성
-            Instantiate(drop, transform.position, Quaternion.identity); // 현재 위치에 드롭
-            Debug.Log($"드롭 아이템: {drop.name}");
-        }
-        else
-        {
-            Debug.LogWarning("드롭 아이템이 설정되지 않았습니다.");
+                // 드롭 아이템 인스턴스 생성
+                Instantiate(drop, transform.position, Quaternion.identity); // 현재 위치에 드롭
+                Debug.Log($"드롭 아이템: {drop.name}");
+            }
+            else
+            {
+                Debug.LogWarning("드롭 아이템이 설정되지 않았습니다.");
+            }
         }
     }
 
