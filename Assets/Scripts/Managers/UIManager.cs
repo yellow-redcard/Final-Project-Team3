@@ -40,15 +40,11 @@ public class UIManager : MonoBehaviour, IManager
             canvas.sortingOrder = 2;
 
         }
-        else
-        {
-            Debug.LogError("[UIManager] LevelUpUI 프리팹을 찾을 수 없습니다!");
-        }
     }
 
     public void release()
     {
-        Debug.Log("[UIManager] 해제 완료");
+
     }
 
     public T Show<T>(params object[] param) where T : UIBase
@@ -68,7 +64,6 @@ public class UIManager : MonoBehaviour, IManager
         UIBase prefab = Resources.Load<UIBase>("UI/" + uiName);
         if (prefab == null)
         {
-            Debug.LogError($"[UIManager] Resources/UI/{uiName}을(를) 찾을 수 없습니다.");
             return null;
         }
 
@@ -123,23 +118,15 @@ public class UIManager : MonoBehaviour, IManager
     {
         if (levelUpUIInstance == null)
         {
-            Debug.LogError("[UIManager] LevelUpUI 인스턴스가 생성되지 않았습니다!");
             return;
         }
 
         if (upgradeableSkills == null || upgradeableSkills.Count == 0)
         {
-            Debug.LogError("[UIManager] 업그레이드 가능한 스킬이 없습니다.");
             return;
         }
 
         levelUpUIInstance.ConfigureButtons(upgradeableSkills); // 버튼 데이터 설정
         levelUpUIInstance.gameObject.SetActive(true); // UI 활성화
-        Debug.Log($"[UIManager] LevelUpUI 활성화. 버튼 개수: {upgradeableSkills.Count}"); 
-        if (levelUpUIInstance == null)
-        {
-            Debug.LogError("[UIManager] LevelUpUI 프리팹이 로드되지 않았습니다!");
-        }
-        Debug.Log($"LevelUpUI 활성화 상태: {levelUpUIInstance.gameObject.activeSelf}");
     }
 }

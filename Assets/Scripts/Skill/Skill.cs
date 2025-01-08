@@ -25,10 +25,6 @@ public class Skill : MonoBehaviour
         {
             currentElement = GameManager.Instance.skillManager.currentElement;
         }
-        else
-        {
-            Debug.LogError("[Skill] GameManager 또는 SkillManager 초기화 실패.");
-        }
     }
     public void Configure(SkillData skillData, Transform playerTransform)
     {
