@@ -129,7 +129,7 @@ public class SkillManager : MonoBehaviour, IManager
 
     public void FireSkill(SkillType skillType, Vector3 playerPosition, List<Transform> enemies)
     {
-        SkillData skillData = skillDatabase.GetSkillData(skillType, currentElement);
+        SkillData skillData = skillDatabase.GetSkillData(skillType, GameManager.Instance.skillManager.currentElement);
         if (skillData == null)
         {
             Debug.LogError($"[SkillManager] {currentElement} {skillType} 스킬 데이터가 없습니다!");
@@ -137,10 +137,7 @@ public class SkillManager : MonoBehaviour, IManager
         }
 
         Vector3 spawnPosition = skillType == SkillType.Area ? playerPosition : GetTargetPosition(enemies, playerPosition);
-        //if (soundManager != null && skillData.skillSound != null)
-        //{
-        //    soundManager.PlayOneShot(skillData.skillSound);
-        //}
+        soundManager.PlaySkillSound(skillData);
         SpawnSkill(skillType, spawnPosition, skillData);
     }
 
