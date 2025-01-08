@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour, IManager
             canvasScaler.matchWidthOrHeight = 0.5f; // 화면 비율 유지
             levelUpUIInstance.transform.SetParent(levelUpUICanvas.transform);
             levelUpUICanvas.layer = LayerMask.NameToLayer("UI");
+            canvas.sortingOrder = 2;
 
         }
         else

@@ -12,6 +12,7 @@ public class SlimeManager : MonoBehaviour, IManager
     public GameObject currentSlime;
     public int currentIndex;
     private List<GameObject> inactiveSlimes = new List<GameObject>();
+    private SoundManager soundManager;
 
     // 슬라임 이름에 따라 속성을 매핑합니다.
     private Dictionary<string, ElementType> slimeBodyToElementMap = new Dictionary<string, ElementType>
@@ -38,6 +39,11 @@ public class SlimeManager : MonoBehaviour, IManager
         currentIndex = Random.Range(0, slimeBodies.Count);
         slimeBodies[currentIndex].SetActive(true);
         InitializeSlime(); // 슬라임 초기화
+        soundManager = FindObjectOfType<SoundManager>();
+        if (soundManager == null)
+        {
+            Debug.LogError("[SlimeManager] SoundManager를 찾을 수 없습니다.");
+        }
     }
     public void release()
     {
@@ -60,6 +66,8 @@ public class SlimeManager : MonoBehaviour, IManager
 
         // 활성화된 슬라임 바디 기반으로 속성 설정
         SetElementBySlime();
+
+        soundManager.PlaySlimeSound(GameManager.Instance.skillManager.currentElement);
     }
 
     void AddSlimeBody(Transform parent, string bodyName)
