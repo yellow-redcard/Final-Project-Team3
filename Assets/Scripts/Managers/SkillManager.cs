@@ -36,14 +36,10 @@ public class SkillManager : MonoBehaviour, IManager
         skillDatabase = FindObjectOfType<SkillDatabase>();
         if (skillDatabase == null)
         {
-            Debug.LogError("[SkillManager] SkillDatabase가 설정되지 않았습니다.");
             return;
         }
         soundManager = FindObjectOfType<SoundManager>();
-        if (soundManager == null)
-        {
-            Debug.LogError("[SkillManager] SoundManager를 찾을 수 없습니다.");
-        }
+        
         LoadSkillPrefabs();
         UnlockSkill(SkillType.Single); // 기본 스킬 해금
 
@@ -78,7 +74,6 @@ public class SkillManager : MonoBehaviour, IManager
         MonsterPoolManager monsterPoolManager = FindObjectOfType<MonsterPoolManager>();
         if (monsterPoolManager == null)
         {
-            Debug.LogError("[SkillManager] MonsterPoolManager를 찾을 수 없습니다.");
             yield break;
         }
        
@@ -123,19 +118,12 @@ public class SkillManager : MonoBehaviour, IManager
         {
             int currentLevel = skillLevels[skillType];
             skillCooldownTimers[skillType] = skillData.levelUpStats[currentLevel - 1].cooldown;
-            Debug.Log($"[SkillManager] {skillType} 스킬 쿨타임 초기화: {skillCooldownTimers[skillType]}초");
         }
     }
 
     public void FireSkill(SkillType skillType, Vector3 playerPosition, List<Transform> enemies)
     {
         SkillData skillData = skillDatabase.GetSkillData(skillType, GameManager.Instance.skillManager.currentElement);
-        if (skillData == null)
-        {
-            Debug.LogError($"[SkillManager] {currentElement} {skillType} 스킬 데이터가 없습니다!");
-            return;
-        }
-
         Vector3 spawnPosition = skillType == SkillType.Area ? playerPosition : GetTargetPosition(enemies, playerPosition);
         soundManager.PlaySkillSound(skillData);
         SpawnSkill(skillType, spawnPosition, skillData);
@@ -212,7 +200,6 @@ public class SkillManager : MonoBehaviour, IManager
         {
             unlockedSkills.Add(skillType);
             skillLevels[skillType] = 1; // 기본 레벨
-            Debug.Log($"[SkillManager] {skillType} 스킬 해금 완료");
         }
     }
 
@@ -226,7 +213,6 @@ public class SkillManager : MonoBehaviour, IManager
             if (skillData != null && skillLevels[skillType] < skillData.maxLevel)
             {
                 upgradeableSkills.Add(skillData);
-                Debug.Log($"[SkillManager] 업그레이드 가능한 스킬: {skillData.skillName}");
             }
         }
 
@@ -240,20 +226,17 @@ public class SkillManager : MonoBehaviour, IManager
         SkillData skillData = skillDatabase.GetSkillData(skillType, element);
         if (skillData == null)
         {
-            Debug.LogError($"[SkillManager] {element} 속성의 {skillType} 스킬 데이터가 없습니다.");
             return;
         }
 
         int currentLevel = skillLevels[skillType];
         if (currentLevel >= skillData.maxLevel)
         {
-            Debug.LogWarning($"[SkillManager] {skillData.skillName}은(는) 이미 최대 레벨입니다.");
             return;
         }
 
         // 레벨 업
         skillLevels[skillType]++;
-        Debug.Log($"[SkillManager] {skillData.skillName} 업그레이드 완료! 현재 레벨: {skillLevels[skillType]}");
     }
     public List<SkillData> GetLevelUpOptions()
     {
@@ -281,7 +264,6 @@ public class SkillManager : MonoBehaviour, IManager
             }
         }
 
-        Debug.Log($"[SkillManager] {currentElement} 속성 기준 LevelUp Options Count: {options.Count}");
         return options;
     }
 
@@ -302,8 +284,6 @@ public class SkillManager : MonoBehaviour, IManager
                     skill.level = selectedSkill.level;
                 }
             }
-
-            Debug.Log($"[SkillManager] '{selectedSkill.skillName}' 업그레이드 완료!");
         }
         else
         {
@@ -319,8 +299,6 @@ public class SkillManager : MonoBehaviour, IManager
                     skill.level = 1;
                 }
             }
-
-            Debug.Log($"[SkillManager] '{selectedSkill.skillName}' 해금 완료!");
         }
     }
     public HashSet<SkillType> GetUnlockedSkills()

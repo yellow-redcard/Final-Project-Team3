@@ -66,11 +66,7 @@ public class GameManager : MonoSingleton<GameManager>
     }
     public void ShowLevelUpUI()
     {
-        if (uiManager == null)
-        {
-            Debug.LogError("[GameManager] UIManager가 초기화되지 않았습니다.");
-            return;
-        }
+        
 
         // 업그레이드 또는 해금 가능한 스킬 데이터 가져오기
         List<SkillData> upgradeableSkills = skillManager.GetLevelUpOptions();
@@ -79,11 +75,6 @@ public class GameManager : MonoSingleton<GameManager>
             // UIManager를 통해 LevelUp UI 호출
             uiManager.ShowLevelUpUI(upgradeableSkills);
             Time.timeScale = 0f; // 게임 일시 정지
-            Debug.Log($"[GameManager] 레벨업 UI 호출. 가능한 스킬 개수: {upgradeableSkills.Count}");
-        }
-        else
-        {
-            Debug.LogWarning("[GameManager] 업그레이드 가능한 스킬이 없습니다.");
         }
     }
 }
