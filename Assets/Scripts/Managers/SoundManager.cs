@@ -17,10 +17,6 @@ public class SoundManager : MonoBehaviour
         {
             audioSource.PlayOneShot(skillData.skillSound);
         }
-        else
-        {
-            Debug.LogWarning($"[SoundManager] '{skillData.skillName}' 스킬 사운드가 설정되지 않았습니다.");
-        }
     }
 
     public void PlaySlimeSound(ElementType element)
