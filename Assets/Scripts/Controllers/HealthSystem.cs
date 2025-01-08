@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem : MonoBehaviour 
 {
     public event EventHandler OnHealthChanged;
     public event EventHandler OnHealthMaxChanged;
@@ -12,7 +12,12 @@ public class HealthSystem : MonoBehaviour
     public float healthMax;
     public float health;
 
-    public HealthSystem(float healthMax)
+    //public HealthSystem(float healthMax)
+    //{
+    //    this.healthMax = healthMax;
+    //    health = healthMax;
+    //}
+    public void Initialize(float healthMax)
     {
         this.healthMax = healthMax;
         health = healthMax;
@@ -72,6 +77,7 @@ public class HealthSystem : MonoBehaviour
             Die();
         }
     }
+    
     public static bool TryGetHealthSystem(GameObject getHealthSystemGameObject, out HealthSystem healthSystem, bool logErrors = false)
     {
         healthSystem = null;

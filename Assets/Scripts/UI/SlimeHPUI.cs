@@ -5,17 +5,22 @@ using UnityEngine.UI;
 
 public class SlimeHPUI : UIBase
 {
-    private GameObject getHealthSystem;
+    //private GameObject getHealthSystem;
     [SerializeField] private Slider slider;
+    private HealthSystem healthUI;
     private void Start()
     {
-        getHealthSystem = GameManager.Instance.slimeManager.currentSlime;
+        //getHealthSystem = GameManager.Instance.slimeManager.currentSlime;
+        /*
         if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem healthSystem))
         {
             Debug.Log("HealthSystem:"+ healthSystem);
             SetHealthSystem(healthSystem);
         }
-        SetHealthSystem(healthSystem);
+        */
+        //sethealthsystem(gam);
+        healthUI = GameManager.Instance.currentHealthSystem;
+        //SetHealthSystem(healthUI);
     }
     private void Update()
     {

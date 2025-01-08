@@ -27,7 +27,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
-
         uiManager.init();
         slimeManager.init();
         monsterManager.init();

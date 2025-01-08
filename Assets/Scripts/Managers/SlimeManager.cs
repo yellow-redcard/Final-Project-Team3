@@ -6,12 +6,12 @@ using UnityEngine.UIElements;
 
 public class SlimeManager : MonoBehaviour, IManager
 {
-    [SerializeField] private SlimeData slimeData;
     public GameObject slime;
     public List<GameObject> slimeBodies;
     public GameObject currentSlime;
     public int currentIndex;
     private List<GameObject> inactiveSlimes = new List<GameObject>();
+    public List<SlimeData> slimeDatas;
     private SoundManager soundManager;
 
     // 슬라임 이름에 따라 속성을 매핑합니다.

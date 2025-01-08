@@ -9,10 +9,12 @@ public class Slime : MonoBehaviour, IHealth
     private int AnimationIndex;
     public Animator deadAnimator;
 
-    private void Awake()
+    private void Start()
     {
-        healthSystem = new HealthSystem(healthMax);
+        healthSystem = gameObject.GetComponent<HealthSystem>();
+        healthSystem.Initialize(healthMax);
         GameManager.Instance.currentHealthSystem = healthSystem;
+        Debug.Log("최대체력 확인" + GameManager.Instance.currentHealthSystem.health);
         healthSystem.OnDead += HealthSystem_OnDead;
     }
     private void HealthSystem_OnDead(object sender, System.EventArgs e)
