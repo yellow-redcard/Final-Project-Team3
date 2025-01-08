@@ -47,7 +47,6 @@ public class ExpUI : UIBase
 
     public void GetMonsterExp()
     {
-        Debug.Log($"{curExp} {maxExp}");
         expBar.value = curExp / maxExp;
         GameManager.Instance.expValue = expBar.value;
     }
