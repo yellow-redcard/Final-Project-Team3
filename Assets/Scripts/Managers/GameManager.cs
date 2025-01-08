@@ -17,6 +17,8 @@ public class GameManager : MonoSingleton<GameManager>
     public float gameTime;
     public float maxGameTime = 30 * 60f;
     public int monsterKill = 0;
+    public HealthSystem currentHealthSystem;
+    public float currentHealth { get; set; }
     public int Level { get; set; } = 1;
     public float hpValue { get; set; }
     public float expValue { get; set; }

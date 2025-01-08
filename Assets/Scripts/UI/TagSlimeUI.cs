@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 public class TagSlimeUI : UIBase
 {
     private int tagSlimeIndex;
-    public List<SlimeData> slimeDatas;
 
     private void OnTagSlime(int tagSlimeIndex, SlimeData slimeData)
     {
@@ -17,34 +16,29 @@ public class TagSlimeUI : UIBase
         }
         SaveSlimeSO();
         TagSlime(tagSlimeIndex);
-        foreach (SlimeData slime in slimeDatas)
-        {
-            Debug.Log("슬라임 태그 레벨: " + slime.level);
-        }
         GameManager.Instance.expValue = slimeData.expValue;
-        GameManager.Instance.hpValue = slimeData.hpValue;
+        GameManager.Instance.currentHealth = slimeData.health;
         GameManager.Instance.Level = slimeData.level;
-        Debug.Log("슬라임 태그 레벨 확인" + slimeData.level);
     }
 
     public void OnTagDarkSlime()
     {
-        OnTagSlime(0, slimeDatas[0]);
+        OnTagSlime(0, GameManager.Instance.slimeManager.slimeDatas[0]);
     }
 
     public void OnTagElectricSlime()
     {
-        OnTagSlime(1, slimeDatas[1]);
+        OnTagSlime(1, GameManager.Instance.slimeManager.slimeDatas[1]);
     }
 
     public void OnTagFireSlime()
     {
-        OnTagSlime(2, slimeDatas[2]);
+        OnTagSlime(2, GameManager.Instance.slimeManager.slimeDatas[2]);
     }
 
     public void OnTagWaterSlime()
     {
-        OnTagSlime(3, slimeDatas[3]);
+        OnTagSlime(3, GameManager.Instance.slimeManager.slimeDatas[3]);
     }
     private void TagSlime(int index)
     {
@@ -74,14 +68,13 @@ public class TagSlimeUI : UIBase
 
     private SlimeData GetCurrentSlimeData(int currentIndex)
     {
-        return slimeDatas[currentIndex];
+        return GameManager.Instance.slimeManager.slimeDatas[currentIndex];
     }
 
     private void UpdateSlimeData(SlimeData slimeData)
     {
         slimeData.level = GameManager.Instance.Level;
-        Debug.Log("슬라임 태그 레벨" + slimeData.level);
-        slimeData.hpValue = GameManager.Instance.hpValue;
+        slimeData.health = GameManager.Instance.currentHealth;
         slimeData.expValue = GameManager.Instance.expValue;
     }
 }

@@ -9,8 +9,8 @@ public class HealthSystem : MonoBehaviour
     public event EventHandler OnHealed;
     public event EventHandler OnDead;
 
-    private float healthMax;
-    private float health;
+    public float healthMax;
+    public float health;
 
     public HealthSystem(float healthMax)
     {

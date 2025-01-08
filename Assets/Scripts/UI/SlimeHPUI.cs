@@ -5,11 +5,8 @@ using UnityEngine.UI;
 
 public class SlimeHPUI : UIBase
 {
-     private GameObject getHealthSystem;
+    private GameObject getHealthSystem;
     [SerializeField] private Slider slider;
-
-
-    private HealthSystem currentHealthSystem;
     private void Start()
     {
         getHealthSystem = GameManager.Instance.slimeManager.currentSlime;
@@ -26,11 +23,11 @@ public class SlimeHPUI : UIBase
     }
     public void SetHealthSystem(HealthSystem healthSystem)
     {
-        if (this.currentHealthSystem != null)
+        if (GameManager.Instance.currentHealthSystem != null)
         {
-            this.currentHealthSystem.OnHealthChanged -= HealthSystem_OnHealthChanged;
+            GameManager.Instance.currentHealthSystem.OnHealthChanged -= HealthSystem_OnHealthChanged;
         }
-        this.currentHealthSystem = healthSystem;
+        GameManager.Instance.currentHealthSystem = healthSystem;
 
         UpdateHealthBar();
 
@@ -38,12 +35,13 @@ public class SlimeHPUI : UIBase
     }
     private void HealthSystem_OnHealthChanged(object sender, System.EventArgs e)
     {
-        Debug.Log($"슬라임 체력바 {slider.value}");
         UpdateHealthBar();
     }
     private void UpdateHealthBar()
     {
-        slider.value = currentHealthSystem.GetHealthNormalized();
-        GameManager.Instance.hpValue = slider.value;
+        //GameManager.Instance.currentHealthSystem.SetHealth(GameManager.Instance.currentHealth);
+        slider.value = GameManager.Instance.currentHealthSystem.GetHealthNormalized();
+        GameManager.Instance.currentHealth = GameManager.Instance.currentHealthSystem.health;
+        GameManager.Instance.slimeManager.slimeDatas[GameManager.Instance.slimeManager.currentIndex].health = GameManager.Instance.currentHealth;
     }
 }

@@ -12,6 +12,7 @@ public class Slime : MonoBehaviour, IHealth
     private void Awake()
     {
         healthSystem = new HealthSystem(healthMax);
+        GameManager.Instance.currentHealthSystem = healthSystem;
         healthSystem.OnDead += HealthSystem_OnDead;
     }
     private void HealthSystem_OnDead(object sender, System.EventArgs e)
