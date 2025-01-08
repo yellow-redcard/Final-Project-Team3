@@ -17,7 +17,7 @@ public class TagSlimeUI : UIBase
         SaveSlimeSO();
         TagSlime(tagSlimeIndex);
         GameManager.Instance.expValue = slimeData.expValue;
-        GameManager.Instance.currentHealth = slimeData.health;
+        GameManager.Instance.currentHealthSystem.health = slimeData.health;
         GameManager.Instance.Level = slimeData.level;
     }
 
@@ -74,7 +74,7 @@ public class TagSlimeUI : UIBase
     private void UpdateSlimeData(SlimeData slimeData)
     {
         slimeData.level = GameManager.Instance.Level;
-        slimeData.health = GameManager.Instance.currentHealth;
+        slimeData.health = GameManager.Instance.currentHealthSystem.health;
         slimeData.expValue = GameManager.Instance.expValue;
     }
 }

@@ -10,21 +10,12 @@ public class SlimeHPUI : UIBase
     private HealthSystem healthUI;
     private void Start()
     {
-        //getHealthSystem = GameManager.Instance.slimeManager.currentSlime;
-        /*
-        if (HealthSystem.TryGetHealthSystem(getHealthSystem, out HealthSystem healthSystem))
-        {
-            Debug.Log("HealthSystem:"+ healthSystem);
-            SetHealthSystem(healthSystem);
-        }
-        */
-        //sethealthsystem(gam);
         healthUI = GameManager.Instance.currentHealthSystem;
-        //SetHealthSystem(healthUI);
+        SetHealthSystem(healthUI);
     }
     private void Update()
     {
-        slider.value = GameManager.Instance.hpValue;
+        slider.value = GameManager.Instance.currentHealthSystem.GetHealthNormalized();
     }
     public void SetHealthSystem(HealthSystem healthSystem)
     {
@@ -45,8 +36,7 @@ public class SlimeHPUI : UIBase
     private void UpdateHealthBar()
     {
         //GameManager.Instance.currentHealthSystem.SetHealth(GameManager.Instance.currentHealth);
-        slider.value = GameManager.Instance.currentHealthSystem.GetHealthNormalized();
-        GameManager.Instance.currentHealth = GameManager.Instance.currentHealthSystem.health;
-        GameManager.Instance.slimeManager.slimeDatas[GameManager.Instance.slimeManager.currentIndex].health = GameManager.Instance.currentHealth;
+        GameManager.Instance.currentHealthSystem.health = GameManager.Instance.currentHealthSystem.health;
+        GameManager.Instance.slimeManager.slimeDatas[GameManager.Instance.slimeManager.currentIndex].health = GameManager.Instance.currentHealthSystem.health;
     }
 }
