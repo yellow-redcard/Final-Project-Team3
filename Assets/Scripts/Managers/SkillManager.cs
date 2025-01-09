@@ -184,17 +184,34 @@ public class SkillManager : MonoBehaviour, IManager
                     skill.duration = skillData.duration;
                     skill.projectileCount = skillData.projectileCount;
 
+                    AudioSource skillAudioSource = skillInstance.GetComponent<AudioSource>();
+                    if (skillAudioSource == null)
+                    {
+                        skillAudioSource = skillInstance.AddComponent<AudioSource>();
+                    }
+                    skillAudioSource.clip = skillData.skillSound;
+                    skillAudioSource.loop = false; // 반복 재생 안 함
+                    skillAudioSource.Play();
+
                     skill.UseSkill();
-                    StartCoroutine(ReturnToPool(skillInstance, prefabIndex, skillData.duration));
+                    StartCoroutine(ReturnToPool(skillInstance, prefabIndex, skillData.duration, skillAudioSource));
                 }
             }
         }
     }
 
-    private IEnumerator ReturnToPool(GameObject skillInstance, int prefabIndex, float duration)
+    private IEnumerator ReturnToPool(GameObject skillInstance, int prefabIndex, float duration, AudioSource audioSource)
     {
-        yield return new WaitForSeconds(duration); // 스킬 지속 시간만큼 대기
-        skillInstance.SetActive(false); // 스킬 비활성화
+        yield return new WaitForSeconds(duration);
+
+        // 사운드 정지
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+
+        // 스킬 오브젝트 비활성화 및 반환
+        skillInstance.SetActive(false);
         GameManager.Instance.skillPool.ReturnToPool(skillInstance, prefabIndex);
     }
 

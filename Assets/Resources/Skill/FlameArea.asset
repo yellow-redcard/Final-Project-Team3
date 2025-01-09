@@ -15,14 +15,16 @@ MonoBehaviour:
   skillName: "\uBD88 \uC7A5\uD310"
   skillType: 3
   element: 3
+  index: 0
   baseDamage: 5
   baseRange: 2
   cooldown: 15
   duration: 5
-  level: 1
+  level: 2
   maxLevel: 5
   projectileCount: 1
   upgradeDescription: "\uC7A5\uD310 \uAC15\uD654"
+  skillSound: {fileID: 8300000, guid: bcad651e0bab15b4bbcda07fb9368255, type: 3}
   levelUpStats:
   - damage: 10
     cooldown: 15
