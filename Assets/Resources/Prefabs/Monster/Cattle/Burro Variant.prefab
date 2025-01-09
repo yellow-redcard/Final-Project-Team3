@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970cf4948aa08bf4f8125c1a1ec815af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveDirection: {x: 0, y: 0}
 --- !u!114 &6175248621594493431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +219,7 @@ MonoBehaviour:
   baseStat:
     statsChangeType: 2
     maxHealth: 3
-    speed: 2
+    speed: 300
     attackSO: {fileID: 11400000, guid: ed05b32823adaf34fa355995a1e5dad4, type: 2}
   statModifiers: []
 --- !u!114 &6089766415950720975
@@ -234,6 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 10
+  monsterElementType: 0
+  dropItems: []
 --- !u!4 &5431045692491374873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 117150395161187362, guid: 7444c8d70b86fd84c8b6956b3e130bfa, type: 3}

@@ -4948,7 +4948,7 @@ MonoBehaviour:
   baseDamage: 10
   baseRange: 5
   duration: 1
-  cooldown: 2
+  cooldown: 0.5
   projectileCount: 1
 --- !u!58 &1342041442600728002
 CircleCollider2D:

@@ -36,8 +36,9 @@ public class Slime : MonoBehaviour, IHealth
         deadAnimator.Play("Dead");
         yield return new WaitForSeconds(deadAnimator.GetCurrentAnimatorStateInfo(0).length);
         Time.timeScale = 0f;
-        GameManager.Instance.uiManager.CloseUI();
+        //GameManager.Instance.uiManager.CloseUI();
         Destroy(gameObject);
+        GameManager.Instance.uiManager.Show<GameOverUI>();
         //scene 전환
     }
    

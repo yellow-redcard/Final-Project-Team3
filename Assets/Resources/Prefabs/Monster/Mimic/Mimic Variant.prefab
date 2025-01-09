@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mimic Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1139983357279802312, guid: 2b05bf5a785c389449bbfc9dca2bbcd5, type: 3}
+      propertyPath: baseStat.speed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8440062949481559485, guid: 2b05bf5a785c389449bbfc9dca2bbcd5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
