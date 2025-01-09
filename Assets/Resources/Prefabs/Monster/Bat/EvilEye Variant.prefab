@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7212622397151506016, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
+      propertyPath: baseStat.speed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 7516070502677669983, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
       propertyPath: m_BodyType
       value: 1
@@ -140,4 +144,3 @@ MonoBehaviour:
   maxHp: 10
   monsterElementType: 0
   dropItems: []
-  dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}

@@ -24,7 +24,7 @@ public class GameOverUI : UIBase
 
         Time.timeScale = 1.0f;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void BackToMenu()
     {

@@ -223,7 +223,7 @@ MonoBehaviour:
   baseStat:
     statsChangeType: 2
     maxHealth: 3
-    speed: 2
+    speed: 200
     attackSO: {fileID: 11400000, guid: c09bd3ee97ca1134c9b55bbd7f254717, type: 2}
   statModifiers: []
 --- !u!114 &7260886079696892134
@@ -241,7 +241,6 @@ MonoBehaviour:
   maxHp: 200
   monsterElementType: 0
   dropItems: []
-  dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
 --- !u!4 &2991237692459010263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 117150395161187362, guid: 8a4bb90ee871d4f46ab03692b617c9ce, type: 3}

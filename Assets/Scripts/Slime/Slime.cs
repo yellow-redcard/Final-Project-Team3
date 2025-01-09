@@ -14,7 +14,6 @@ public class Slime : MonoBehaviour, IHealth
         healthSystem = gameObject.GetComponent<HealthSystem>();
         healthSystem.Initialize(healthMax);
         GameManager.Instance.currentHealthSystem = healthSystem;
-        Debug.Log("최대체력 확인" + GameManager.Instance.currentHealthSystem.health);
         healthSystem.OnDead += HealthSystem_OnDead;
     }
     private void HealthSystem_OnDead(object sender, System.EventArgs e)
@@ -37,8 +36,9 @@ public class Slime : MonoBehaviour, IHealth
         deadAnimator.Play("Dead");
         yield return new WaitForSeconds(deadAnimator.GetCurrentAnimatorStateInfo(0).length);
         Time.timeScale = 0f;
-        GameManager.Instance.uiManager.CloseUI();
+        //GameManager.Instance.uiManager.CloseUI();
         Destroy(gameObject);
+        GameManager.Instance.uiManager.Show<GameOverUI>();
         //scene 전환
     }
    

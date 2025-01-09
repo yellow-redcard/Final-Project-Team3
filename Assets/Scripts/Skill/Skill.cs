@@ -25,10 +25,6 @@ public class Skill : MonoBehaviour
         {
             currentElement = GameManager.Instance.skillManager.currentElement;
         }
-        else
-        {
-            Debug.LogError("[Skill] GameManager 또는 SkillManager 초기화 실패.");
-        }
     }
     public void Configure(SkillData skillData, Transform playerTransform)
     {
@@ -53,34 +49,39 @@ public class Skill : MonoBehaviour
         }
     }
 
-    private IEnumerator TargetedSkillRoutine()
+    private void ActivateParticleSystem()
     {
-        DealDamageToEnemies();
-
         var particleSystem = GetComponent<ParticleSystem>();
         if (particleSystem != null)
         {
             particleSystem.Play();
         }
+    }
 
-        yield return new WaitForSeconds(duration); // duration 동안 대기
-
+    private void DeactivateParticleSystem()
+    {
+        var particleSystem = GetComponent<ParticleSystem>();
         if (particleSystem != null)
         {
             particleSystem.Stop();
         }
+    }
 
+    private IEnumerator TargetedSkillRoutine()
+    {
+        DealDamageToEnemies();
+        ActivateParticleSystem();
+
+        yield return new WaitForSeconds(duration);
+
+        DeactivateParticleSystem();
         gameObject.SetActive(false); // 스킬 종료 후 비활성화
     }
 
 
     private IEnumerator AreaSkillRoutine()
     {
-        var particleSystem = GetComponent<ParticleSystem>();
-        if (particleSystem != null)
-        {
-            particleSystem.Play();
-        }
+        ActivateParticleSystem();
 
         float elapsedTime = 0f;
         float damageInterval = 1f; // 1초마다 데미지 주기
@@ -98,11 +99,7 @@ public class Skill : MonoBehaviour
             yield return null; // 다음 프레임까지 대기
         }
 
-        if (particleSystem != null)
-        {
-            particleSystem.Stop();
-        }
-
+        DeactivateParticleSystem();
         gameObject.SetActive(false); // 스킬 종료 후 비활성화
     }
 
@@ -127,23 +124,6 @@ public class Skill : MonoBehaviour
         {
             transform.position = player.position;
         }
-    }
-    private IEnumerator CooldownRoutine()
-    {
-        yield return new WaitForSeconds(cooldown);
-        isReady = true;
-    }
-
-    private IEnumerator DeactivateAfterDuration(GameObject skillInstance, float duration)
-    {
-        yield return new WaitForSeconds(duration);
-
-        var particleSystem = skillInstance.GetComponent<ParticleSystem>();
-        if (particleSystem != null)
-        {
-            particleSystem.Stop();
-        }
-        skillInstance.SetActive(false); // 오브젝트 비활성화
     }
     public void Initialize(Transform playerTransform)
     {

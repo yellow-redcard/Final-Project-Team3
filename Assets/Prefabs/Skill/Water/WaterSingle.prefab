@@ -4948,7 +4948,7 @@ MonoBehaviour:
   baseDamage: 10
   baseRange: 5
   duration: 1
-  cooldown: 1
+  cooldown: 0.5
   projectileCount: 1
 --- !u!70 &2762036690037625480
 CapsuleCollider2D:

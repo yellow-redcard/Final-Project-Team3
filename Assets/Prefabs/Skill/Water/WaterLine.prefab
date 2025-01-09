@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2185627846520943350}
   - component: {fileID: 5342155165723928120}
   - component: {fileID: -3778186424064793569}
-  - component: {fileID: 4903016950237720725}
   - component: {fileID: 6962308245449426885}
+  - component: {fileID: 764638992680114091}
   m_Layer: 0
   m_Name: WaterLine
   m_TagString: Skill
@@ -4950,8 +4950,21 @@ MonoBehaviour:
   duration: 0
   cooldown: 3
   projectileCount: 1
---- !u!58 &4903016950237720725
-CircleCollider2D:
+--- !u!114 &6962308245449426885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818661725725257430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 11400000, guid: bc0469f1a537be8489270f060f048447, type: 2}
+--- !u!70 &764638992680114091
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4979,22 +4992,9 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16053295, y: 173088}
-  serializedVersion: 2
-  m_Radius: 4.922555
---- !u!114 &6962308245449426885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5818661725725257430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f6278a9545b9254fa7397b8e6099d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillData: {fileID: 11400000, guid: bc0469f1a537be8489270f060f048447, type: 2}
+  m_Offset: {x: -0.056568623, y: 0}
+  m_Size: {x: 8.272649, y: 0.0001}
+  m_Direction: 0

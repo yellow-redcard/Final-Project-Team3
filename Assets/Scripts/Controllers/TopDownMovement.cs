@@ -31,7 +31,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * characterStatsHandler.CurrentStat.speed;
+        direction = direction * characterStatsHandler.CurrentStat.speed * Time.deltaTime;
         move_rb.velocity = direction;
     }
     public void AdjustSpeed(float rate)

@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 503409683433379194, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}
+      propertyPath: baseStat.speed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 829216604940609365, guid: ff3197dfbdd49e1478902b7756ef4b18, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -140,4 +144,3 @@ MonoBehaviour:
   maxHp: 10
   monsterElementType: 0
   dropItems: []
-  dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
