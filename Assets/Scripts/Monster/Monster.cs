@@ -14,6 +14,7 @@ public class Monster : MonoBehaviour
     private void Start()
     {
         monsterElementType = (ElementType)UnityEngine.Random.Range(1, System.Enum.GetValues(typeof(ElementType)).Length);
+        elementSystem = gameObject.AddComponent<ElementSystem>();
     }
 
     private void OnEnable()
