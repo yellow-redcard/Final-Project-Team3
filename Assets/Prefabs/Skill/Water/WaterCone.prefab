@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8519906609553216760}
   - component: {fileID: 6289135340071183449}
   - component: {fileID: 6329564148927687126}
-  - component: {fileID: -2937972790515919738}
+  - component: {fileID: 9179140835887334310}
   m_Layer: 0
   m_Name: WaterCone
   m_TagString: Skill
@@ -4963,7 +4963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillData: {fileID: 11400000, guid: 9347a27d17266c042bb0b8dcc977067f, type: 2}
---- !u!70 &-2937972790515919738
+--- !u!70 &9179140835887334310
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4995,6 +4995,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.072731376, y: -76259.99}
-  m_Size: {x: 8.609042, y: 0.0001}
+  m_Offset: {x: -0.16061306, y: 0}
+  m_Size: {x: 9.943699, y: 0.0001}
   m_Direction: 0
