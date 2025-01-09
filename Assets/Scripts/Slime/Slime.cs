@@ -25,6 +25,10 @@ public class Slime : MonoBehaviour, IHealth
     {
         healthSystem.Damage(20);
     }
+    public void BossDamage()
+    {
+        healthSystem.Damage(50);
+    }
     void OnDead()
     {
         AnimationIndex = GameManager.Instance.slimeManager.currentIndex;

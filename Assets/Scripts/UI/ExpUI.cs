@@ -18,13 +18,14 @@ public class ExpUI : UIBase
     }
     private void Start()
     {
+        GameManager.Instance.currentMaxExp = maxExp;
         expBar.value = 0;
     }
 
     void Update()
     {
-        expBar.value = GameManager.Instance.expValue;
-        if(curExp >= maxExp)
+        maxExp = GameManager.Instance.currentMaxExp;
+        if (curExp >= maxExp)
         {
             SetLevelUpExp();
             GameManager.Instance.ShowLevelUpUI();
@@ -42,13 +43,13 @@ public class ExpUI : UIBase
         GameManager.Instance.Level += 1;
         curExp = curExp - maxExp;
         maxExp = maxExp * 1.4f;
+        GameManager.Instance.currentMaxExp = maxExp;
     }
 
 
     public void GetMonsterExp()
     {
         expBar.value = curExp / maxExp;
-        GameManager.Instance.expValue = expBar.value;
     }
     private void OnEnable()
     {

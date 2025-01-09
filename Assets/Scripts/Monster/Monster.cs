@@ -10,6 +10,7 @@ public class Monster : MonoBehaviour
     [SerializeField] private GameObject[] dropItems; // 드롭 아이템 배열 추가
     [SerializeField] private GameObject dropGold;
     private ElementSystem elementSystem;
+
     private void Start()
     {
         monsterElementType = (ElementType)UnityEngine.Random.Range(1, System.Enum.GetValues(typeof(ElementType)).Length);
@@ -39,11 +40,15 @@ public class Monster : MonoBehaviour
                 TakeDamage(damage);
             }
         }
-        // 슬라임과 충돌 처리
+        //데미지 처리
         if (collision.TryGetComponent(out Slime slime))
         {
             Debug.Log("슬라임 데미지");
             slime.Damage();
+            //if ()
+            //{
+                    //slime.BossDamage();
+            //}
         }
     }
 
