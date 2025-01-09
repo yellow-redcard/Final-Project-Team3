@@ -26,13 +26,11 @@ public class LevelUpUI : UIBase
             {
                 SkillData skillData = allSkills[i];
 
-                // 업그레이드 가능한 스킬
+                // 스킬 이름과 레벨 정보를 버튼 텍스트에 표시
                 string buttonText = $"{skillData.skillName}\nLv {skillData.level}/{skillData.maxLevel}";
-
                 var buttonTextComponent = skillButtons[i].GetComponentInChildren<Text>();
 
-                if (buttonTextComponent == null)
-               
+                if (buttonTextComponent != null)
                 {
                     buttonTextComponent.text = buttonText;
                 }
