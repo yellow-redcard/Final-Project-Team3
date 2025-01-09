@@ -18,13 +18,13 @@ MonoBehaviour:
   index: 0
   baseDamage: 10
   baseRange: 2
-  cooldown: 5
+  cooldown: 1
   duration: 1
   level: 1
   maxLevel: 5
   projectileCount: 1
   upgradeDescription: "\uB2E8\uC77C\uAE30 \uAC15\uD654"
-  skillSound: {fileID: 8300000, guid: 9e80c989444836d4f96de27bba73fd00, type: 3}
+  skillSound: {fileID: 0}
   levelUpStats:
   - damage: 15
     cooldown: 4.5

@@ -8,7 +8,9 @@ public class Monster : MonoBehaviour
     public static event EventHandler OnMonsterDie;
     [SerializeField] private ElementType monsterElementType;
     [SerializeField] private GameObject[] dropItems; // 드롭 아이템 배열 추가
+    [SerializeField] private GameObject dropGold;
     private ElementSystem elementSystem;
+
     private void Start()
     {
         monsterElementType = (ElementType)UnityEngine.Random.Range(1, System.Enum.GetValues(typeof(ElementType)).Length);
@@ -38,11 +40,15 @@ public class Monster : MonoBehaviour
                 TakeDamage(damage);
             }
         }
-        // 슬라임과 충돌 처리
+        //데미지 처리
         if (collision.TryGetComponent(out Slime slime))
         {
             Debug.Log("슬라임 데미지");
             slime.Damage();
+            //if ()
+            //{
+                    //slime.BossDamage();
+            //}
         }
     }
 
@@ -61,6 +67,7 @@ public class Monster : MonoBehaviour
         GameManager.Instance.monsterKill += 1;
         // 파괴 효과 (필요 시)
         Debug.Log("몬스터 사망");
+        DropGold();
         DropItem();
         GameManager.Instance.monsterPool.ReturnToPool(gameObject, GetMonsterIndex());
 
@@ -77,11 +84,6 @@ public class Monster : MonoBehaviour
 
                 // 드롭 아이템 인스턴스 생성
                 Instantiate(drop, transform.position, Quaternion.identity); // 현재 위치에 드롭
-                Debug.Log($"드롭 아이템: {drop.name}");
-            }
-            else
-            {
-                Debug.LogWarning("드롭 아이템이 설정되지 않았습니다.");
             }
         }
     }
@@ -96,5 +98,10 @@ public class Monster : MonoBehaviour
             }
         }
         return 0; // 기본값 반환
+    }
+
+    private void DropGold()
+    {
+        Instantiate(dropGold, transform.position, Quaternion.identity);
     }
 }

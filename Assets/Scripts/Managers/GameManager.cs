@@ -20,7 +20,7 @@ public class GameManager : MonoSingleton<GameManager>
     public HealthSystem currentHealthSystem;
     public int Level { get; set; } = 1;
     public float hpValue { get; set; }
-    public float expValue { get; set; }
+    public float currentMaxExp { get; set; }
     public Transform player { get; set; }
     [SerializeField] private string playerTag = "Player";
 

@@ -20,24 +20,24 @@ public class Spawner : MonoBehaviour
         bossTimer += Time.deltaTime; // 보스 타이머
         mimicTimer += Time.deltaTime; // Mimic 타이머
 
-        level = Mathf.FloorToInt(GameManager.Instance.gameTime / 10f); // 레벨 계산
+        level = Mathf.FloorToInt(GameManager.Instance.gameTime / 30f); // 레벨 계산
 
-        // 일반 몬스터 소환
+        // 일반 몬스터 소환 30초 주기 소환
         if (timer > 1f)
         {
             SpawnMonsters(level);
             timer = 0f;
         }
 
-        // 보스 몬스터 3분(180초) 주기 소환
-        if (bossTimer > 180f)
+        // 보스 몬스터 1분(60초) 주기 소환
+        if (bossTimer > 60f)
         {
             SpawnBoss();
             bossTimer = 0f;
         }
 
-        // Mimic 몬스터 1분(60초) 주기 소환
-        if (mimicTimer > 60f)
+        // Mimic 몬스터 30초 주기 소환
+        if (mimicTimer > 30f)
         {
             SpawnMimic();
             mimicTimer = 0f;

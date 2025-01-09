@@ -82,6 +82,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: 2b5371ce0e89b0544941743176d63e14, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6537420495015136172}
+    - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: 2b5371ce0e89b0544941743176d63e14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1093792595116217769}
   m_SourcePrefab: {fileID: 100100000, guid: 2b5371ce0e89b0544941743176d63e14, type: 3}
 --- !u!4 &6777810825222705362 stripped
 Transform:
@@ -239,3 +242,19 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   maxMonsters: 10
   spawnInterval: 2
+--- !u!114 &-1093792595116217769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777810825222705363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b73872f3f11d14cb031f30843e664e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 10
+  monsterElementType: 0
+  dropItems: []
+  dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
