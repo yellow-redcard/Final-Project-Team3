@@ -7,7 +7,7 @@ public class SkillData : ScriptableObject
     public string skillName;                // 스킬 이름
     public SkillManager.SkillType skillType; // 스킬 타입 (Single, Cone 등)
     public ElementType element;    // 스킬 속성 (Fire, Water 등)
-
+    public int index; // 새로 추가된 속성
     public float baseDamage;                // 기본 데미지
     public float baseRange;                 // 기본 사거리
     public float cooldown;                  // 기본 쿨다운

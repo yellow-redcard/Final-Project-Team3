@@ -32,10 +32,7 @@ public class LevelUpUI : UIBase
                 var buttonTextComponent = skillButtons[i].GetComponentInChildren<Text>();
 
                 if (buttonTextComponent == null)
-                {
-                    Debug.LogError($"[LevelUpUI] 버튼 {i}에 Text 컴포넌트가 없습니다! Text 컴포넌트를 추가하세요.");
-                }
-                else
+               
                 {
                     buttonTextComponent.text = buttonText;
                 }
@@ -64,7 +61,6 @@ public class LevelUpUI : UIBase
     {
         if (selectedSkill == null)
         {
-            Debug.LogError("[LevelUpUI] 선택된 스킬 데이터가 null입니다!");
             return;
         }
 
