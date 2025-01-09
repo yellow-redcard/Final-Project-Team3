@@ -341,7 +341,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: slimeDatas.Array.data[0].MaxExp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
       propertyPath: slimeDatas.Array.data[0].health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: slimeDatas.Array.data[1].MaxExp
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
@@ -349,7 +357,15 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: slimeDatas.Array.data[2].MaxExp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
       propertyPath: slimeDatas.Array.data[2].health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: slimeDatas.Array.data[3].MaxExp
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2567184685954987846, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
