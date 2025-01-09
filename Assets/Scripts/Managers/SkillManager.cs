@@ -124,12 +124,16 @@ public class SkillManager : MonoBehaviour, IManager
     public void FireSkill(SkillType skillType, Vector3 playerPosition, List<Transform> enemies)
     {
         SkillData skillData = skillDatabase.GetSkillData(skillType, GameManager.Instance.skillManager.currentElement);
-        Vector3 spawnPosition = skillType == SkillType.Area ? playerPosition : GetTargetPosition(enemies, playerPosition);
-        soundManager.PlaySkillSound(skillData);
-        SpawnSkill(skillType, spawnPosition, skillData);
+        if (skillData != null && enemies.Count > 0 && skillCooldownTimers[skillType] <= 0)
+        {
+            Vector3 spawnPosition = skillType == SkillType.Area ? playerPosition : GetTargetPosition(enemies, playerPosition);
+            soundManager.PlaySkillSound(skillData);
+            SpawnSkill(skillType, spawnPosition, skillData);
+            ResetSkillCooldown(skillType);
+        }
     }
 
-    private Vector3 GetTargetPosition(List<Transform> enemies, Vector3 playerPosition)
+        private Vector3 GetTargetPosition(List<Transform> enemies, Vector3 playerPosition)
     {
         if (enemies == null || enemies.Count == 0) return playerPosition;
 
