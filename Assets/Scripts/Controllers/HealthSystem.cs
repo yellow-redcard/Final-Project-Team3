@@ -12,11 +12,6 @@ public class HealthSystem : MonoBehaviour
     public float healthMax;
     public float health;
 
-    //public HealthSystem(float healthMax)
-    //{
-    //    this.healthMax = healthMax;
-    //    health = healthMax;
-    //}
     public void Initialize(float healthMax)
     {
         this.healthMax = healthMax;

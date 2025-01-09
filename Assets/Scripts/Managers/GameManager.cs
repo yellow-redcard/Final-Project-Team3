@@ -19,8 +19,8 @@ public class GameManager : MonoSingleton<GameManager>
     public int monsterKill = 0;
     public HealthSystem currentHealthSystem;
     public int Level { get; set; } = 1;
-    public float hpValue { get; set; }
     public float currentMaxExp { get; set; }
+    public float currentExp { get; set; }
     public Transform player { get; set; }
     [SerializeField] private string playerTag = "Player";
 
