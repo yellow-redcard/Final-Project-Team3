@@ -6,4 +6,5 @@ public class SlimeData
     public float expValue;
     public int level;
     public float health;
+    public float MaxExp;
 }
