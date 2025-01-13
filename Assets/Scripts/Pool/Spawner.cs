@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     private float finalBossTimer;
 
     private int level;
+    private float levelTimer;
 
     private void Awake()
     {
@@ -22,7 +23,16 @@ public class Spawner : MonoBehaviour
         mimicTimer += Time.deltaTime; // Mimic 타이머
         finalBossTimer += Time.deltaTime;
 
-        level = Mathf.FloorToInt(GameManager.Instance.gameTime / 30f); // 레벨 계산
+        // 레벨 증가 타이머
+        levelTimer += Time.deltaTime;
+
+        // 30초마다 레벨 증가
+        if (levelTimer >= 30f)
+        {
+            level++; // 레벨 증가
+            levelTimer = 0f; // 타이머 초기화
+            Debug.Log($"Level Up! Current Level: {level}");
+        }
 
         // 일반 몬스터 소환 30초 주기 소환
         if (timer > 1f)
