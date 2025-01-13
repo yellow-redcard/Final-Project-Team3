@@ -17,47 +17,70 @@ public class LevelUpUI : UIBase
         // 업그레이드 가능한 스킬만 사용
         allSkills = upgradableSkills.OrderBy(x => Random.value).ToList(); // 랜덤 순서로 정렬
 
-        if (allSkills.Count == 0)
+        if (allSkills.Count == 0) // 모든 스킬이 업그레이드 되었을 경우
         {
-            // 모든 스킬이 최대 레벨인 경우
-            levelUpText.text = "모든 스킬이 최대로 강화되었습니다!";
-            return; // 더 이상 버튼을 설정하지 않음
-        }
-
-        // 버튼 개수에 맞게 모든 버튼을 설정
-        int buttonCount = Mathf.Min(skillButtons.Length, allSkills.Count); // 최대 버튼 수와 스킬 수에 맞춰 설정
-
-        for (int i = 0; i < buttonCount; i++)
-        {
-            SkillData skillData = allSkills[i];
-
-            // 스킬 이름과 레벨 정보를 버튼 텍스트에 표시
-            string buttonText = $"{skillData.skillName}\nLv {skillData.level}/{skillData.maxLevel}";
-            var buttonTextComponent = skillButtons[i].GetComponentInChildren<Text>();
-
+            // 5골드 선택지 항상 추가
+            skillButtons[0].gameObject.SetActive(true);
+            var buttonTextComponent = skillButtons[0].GetComponentInChildren<Text>();
             if (buttonTextComponent != null)
             {
-                buttonTextComponent.text = buttonText;
+                buttonTextComponent.text = "5 Gold"; // 5골드 선택지 텍스트
             }
 
-            // 버튼 클릭 이벤트 등록
-            skillButtons[i].onClick.RemoveAllListeners(); // 이전 이벤트 리스너 제거
-            skillButtons[i].onClick.AddListener(() =>
+            // 5골드 버튼 클릭 이벤트 등록
+            skillButtons[0].onClick.RemoveAllListeners();
+            skillButtons[0].onClick.AddListener(() =>
             {
-                OnSkillSelected(skillData); // 스킬 처리
+                OnGoldSelected(); // 5골드 획득 처리
                 CloseUI(); // UI 닫기
             });
-
-            // 버튼 활성화
-            skillButtons[i].gameObject.SetActive(true);
         }
-
-        // 남은 버튼들은 비활성화
-        for (int i = buttonCount; i < skillButtons.Length; i++)
+        else
         {
-            skillButtons[i].gameObject.SetActive(false);
+            // 업그레이드 가능한 스킬 버튼 설정
+            for (int i = 0; i < skillButtons.Length; i++)
+            {
+                // 모든 이전 이벤트 리스너 제거
+                skillButtons[i].onClick.RemoveAllListeners();
+
+                if (i < allSkills.Count)
+                {
+                    SkillData skillData = allSkills[i];
+
+                    // 스킬 이름과 레벨 정보를 버튼 텍스트에 표시
+                    string buttonText = $"{skillData.skillName}\nLv {skillData.level}/{skillData.maxLevel}";
+                    var buttonTextComponent = skillButtons[i].GetComponentInChildren<Text>();
+
+                    if (buttonTextComponent != null)
+                    {
+                        buttonTextComponent.text = buttonText;
+                    }
+
+                    // 버튼 클릭 이벤트 등록
+                    skillButtons[i].onClick.AddListener(() =>
+                    {
+                        OnSkillSelected(skillData); // 스킬 처리
+                        CloseUI(); // UI 닫기
+                    });
+
+                    // 버튼 활성화
+                    skillButtons[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    skillButtons[i].gameObject.SetActive(false); // 스킬 데이터가 없으면 버튼 비활성화
+                }
+            }
         }
     }
+
+    public void OnGoldSelected()
+    {
+        // 5골드를 획득합니다.
+        Gold.goldCount += 5;
+        Debug.Log("5골드를 획득했습니다! 현재 골드: " + Gold.goldCount);
+    }  
+
     /// <summary>
     /// 버튼 클릭 시 호출되는 메서드. 선택된 스킬을 처리합니다.
     /// </summary>
