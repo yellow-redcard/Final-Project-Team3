@@ -20,7 +20,7 @@ MonoBehaviour:
   baseRange: 5
   cooldown: 8
   duration: 1
-  level: 2
+  level: 1
   maxLevel: 5
   projectileCount: 1
   upgradeDescription: "\uC6D0 \uAD11\uC5ED\uAE30 \uAC15\uD654"

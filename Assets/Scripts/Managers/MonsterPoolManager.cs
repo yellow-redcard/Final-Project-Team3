@@ -208,7 +208,36 @@ public class MonsterPoolManager : MonoBehaviour, IManager
                 }
             }
         }
-
+        foreach (var bossPool in bossPools)
+        {
+            foreach (var boss in bossPool)
+            {
+                if (boss != null && boss.activeSelf)
+                {
+                    activeMonsters.Add(boss.transform);
+                }
+            }
+        }
+        foreach (var mimicPool in mimicPools)
+        {
+            foreach (var mimic in mimicPool)
+            {
+                if (mimic != null && mimic.activeSelf)
+                {
+                    activeMonsters.Add(mimic.transform);
+                }
+            }
+        }
+        foreach (var finalBossPool in finalBossPools)
+        {
+            foreach (var finalBoss in finalBossPool)
+            {
+                if (finalBoss != null && finalBoss.activeSelf)
+                {
+                    activeMonsters.Add(finalBoss.transform);
+                }
+            }
+        }
         return activeMonsters;
     }
 

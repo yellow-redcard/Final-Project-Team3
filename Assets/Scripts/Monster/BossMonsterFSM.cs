@@ -49,24 +49,31 @@ public class BossMonsterFSM : MonoBehaviour
     // Idle 상태: 플레이어와 거리 확인
     void UpdateIdleState()
     {
-        if (Vector3.Distance(transform.position, GameManager.Instance.player.position) < chargeDistance)
+        if(GameManager.Instance.slimeManager.currentSlime != null)
         {
-            // 돌진 준비 상태로 전환
-            ChangeState(BossState.ChargeReady);
+            if (Vector3.Distance(transform.position, GameManager.Instance.player.position) < chargeDistance)
+            {
+                // 돌진 준비 상태로 전환
+                ChangeState(BossState.ChargeReady);
+            }
         }
     }
 
     // 돌진 준비 상태
     void UpdateChargeReadyState()
     {
-        // 방향 설정
-        chargeDirection = (GameManager.Instance.player.position - transform.position).normalized;
+        if (!isCharging)
+        {
+            // 방향 설정
+            chargeDirection = (GameManager.Instance.player.position - transform.position).normalized;
 
-        // 애니메이션 트리거 또는 이펙트
-        Debug.Log("돌진 준비!");
+            // 애니메이션 트리거 또는 이펙트
+            Debug.Log("돌진 준비!");
 
-        // 잠깐의 준비 시간을 가진 후 공격으로 전환
-        StartCoroutine(WaitAndCharge(1.0f)); // 1초 후 돌진 시작
+            // 잠깐의 준비 시간을 가진 후 공격으로 전환
+            StartCoroutine(WaitAndCharge(1.0f)); // 1초 후 돌진 시작
+            isCharging = true;
+        }
     }
 
     // 돌진 상태
@@ -118,8 +125,8 @@ public class BossMonsterFSM : MonoBehaviour
     void StopCharge()
     {
         isCharging = false;
-        ChangeState(BossState.Cooldown); // 쿨다운 상태로 전환
         chargeDistance = 10f; // 거리 초기화
+        ChangeState(BossState.Cooldown); // 쿨다운 상태로 전환
     }
 
     // 충돌 처리: 플레이어와 충돌 시 추가 행동
