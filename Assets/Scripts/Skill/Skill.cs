@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -114,7 +115,9 @@ public class Skill : MonoBehaviour
                 var monster = enemy.GetComponent<Monster>();
                 if (monster != null)
                 {
-                    monster.TakeDamage(baseDamage);
+                    float damage = baseDamage;
+                    monster.elementSystem.DetermineOutcome(currentElement, monster.monsterElementType, ref damage); // 스킬과 몬스터의 속성 타입 비교
+                    monster.TakeDamage(damage);
                 }
             }
         }

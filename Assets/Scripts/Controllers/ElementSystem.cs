@@ -21,16 +21,17 @@ public class ElementSystem : MonoBehaviour
         if (winAgainst[element1] == element2)
         {
             damage *= 1.5f; // 이기는 상성 데미지 1.5배
-            onWin.Invoke(element1, element2);
+            onWin?.Invoke(element1, element2);
         }
         else if (winAgainst[element2] == element1)
         {
             damage *= 0.5f; // 지는 상성 데미지 0.5배
-            onLose.Invoke(element1, element2);
+            onLose?.Invoke(element1, element2);
         }
         else
         {
-            onDraw.Invoke(element1, element2);
+            damage *= 1f;
+            onDraw?.Invoke(element1, element2);
         }
     }
 }

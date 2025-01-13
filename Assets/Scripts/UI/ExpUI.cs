@@ -64,7 +64,6 @@ public class ExpUI : UIBase
     }
     private void Monster_OnMonsterDie(object sender, EventArgs e)
     {
-        Debug.Log("MonsterDie");
         if (sender is Monster monster)
         {
             GainExperience(monsterExp);
@@ -72,7 +71,6 @@ public class ExpUI : UIBase
     }
     public void GainExperience(float amount)
     {
-        Debug.Log("Gain");
         curExp += amount;
         GameManager.Instance.currentExp = curExp;
     }

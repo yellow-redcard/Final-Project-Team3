@@ -15,6 +15,7 @@ MonoBehaviour:
   skillName: "\uBB3C \uC7A5\uD310"
   skillType: 3
   element: 4
+  index: 0
   baseDamage: 5
   baseRange: 2
   cooldown: 15
@@ -23,6 +24,7 @@ MonoBehaviour:
   maxLevel: 5
   projectileCount: 1
   upgradeDescription: "\uC7A5\uD310 \uAC15\uD654"
+  skillSound: {fileID: 0}
   levelUpStats:
   - damage: 10
     cooldown: 15
