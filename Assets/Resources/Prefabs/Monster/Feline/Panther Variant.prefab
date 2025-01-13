@@ -236,7 +236,7 @@ MonoBehaviour:
   maxHp: 10
   monsterElementType: 0
   dropItems: []
-  dropGold: {fileID: 0}
+  dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
 --- !u!114 &-7159942361940851431
 MonoBehaviour:
   m_ObjectHideFlags: 0
