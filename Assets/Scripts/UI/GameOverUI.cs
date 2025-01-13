@@ -22,6 +22,8 @@ public class GameOverUI : UIBase
     {
         GameManager.Instance.uiManager.Hide<GameOverUI>();
 
+        GameManager.Instance.skillManager.ResetSkills();
+
         Time.timeScale = 1.0f;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

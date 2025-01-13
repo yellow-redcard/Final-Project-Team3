@@ -19,6 +19,7 @@ public class SkillManager : MonoBehaviour, IManager
     private Dictionary<SkillType, int> skillLevels = new Dictionary<SkillType, int>();
     public ElementType currentElement = ElementType.None;
     public List<GameObject> skillPrefabs;
+    private List<Skill> skills;  // 'skills' 리스트 선언
 
     public SkillDatabase skillDatabase;
     private bool isFiring = false;
@@ -327,5 +328,17 @@ public class SkillManager : MonoBehaviour, IManager
         // 현재 해금된 스킬 목록을 반환
         return new HashSet<SkillType>(unlockedSkills);
     }
+    public void ResetSkills()
+    {
+        foreach (var skill in skills)
+        {
+            if (skill != null && skill.skillData != null)
+            {
+                skill.skillData.level = 0; // 레벨 초기화
+                skill.skillData.upgradeDescription = ""; // 업그레이드 설명 초기화 (선택 사항)
+            }
+        }
+    }
+
     public void release() { }
 }

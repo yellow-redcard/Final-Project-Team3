@@ -11,6 +11,7 @@ public class Skill : MonoBehaviour
     public float duration;
     public float cooldown;
     public int projectileCount;
+    public SkillData skillData;
 
     private Transform player; // 플레이어 참조
     private bool isReady = true;

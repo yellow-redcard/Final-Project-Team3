@@ -22,8 +22,16 @@ public class SkillData : ScriptableObject
     {
         return levelUpStats[Mathf.Clamp(level - 1, 0, levelUpStats.Length - 1)];
     }
-    // 레벨별 데이터
-    [System.Serializable]
+    public void Upgrade()
+    {
+        if (level < maxLevel)
+        {
+            level++;
+        }
+    }
+
+// 레벨별 데이터
+[System.Serializable]
     public class LevelUpStats
     {
         public float damage;       // 레벨별 데미지
