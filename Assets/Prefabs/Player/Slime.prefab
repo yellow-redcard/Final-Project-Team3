@@ -738,7 +738,7 @@ MonoBehaviour:
   baseStat:
     statsChangeType: 0
     maxHealth: 3
-    speed: 500
+    speed: 300
     attackSO: {fileID: 0}
   statModifiers: []
 --- !u!114 &4992538641457180727

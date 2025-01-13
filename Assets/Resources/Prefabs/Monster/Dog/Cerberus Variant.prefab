@@ -8,34 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 117150393779553011, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 117150393939618069, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 117150394045550820, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 117150394333481498, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 117150394685297281, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 117150394741800176, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 117150394758302095, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 117150395161187362, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -81,28 +53,8 @@ PrefabInstance:
       value: Cerberus Variant
       objectReference: {fileID: 0}
     - target: {fileID: 117150395161187363, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 117150395161187363, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
       propertyPath: m_TagString
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 188064519148664878, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 423916942365942673, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2979070049428211235, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8656268792669019683, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
@@ -134,6 +86,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
       insertIndex: -1
       addedObject: {fileID: -9084421737340415462}
+    - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4094795270355731441}
   m_SourcePrefab: {fileID: 100100000, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}
 --- !u!1 &7142727188697703424 stripped
 GameObject:
@@ -267,7 +222,7 @@ MonoBehaviour:
   baseStat:
     statsChangeType: 2
     maxHealth: 3
-    speed: 300
+    speed: 100
     attackSO: {fileID: 11400000, guid: f3abbf6f40e8ae548af047cc33b1fe03, type: 2}
   statModifiers: []
 --- !u!114 &-9084421737340415462
@@ -286,6 +241,18 @@ MonoBehaviour:
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 0}
+--- !u!114 &4094795270355731441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7142727188697703424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e131ca64447a67d458a8c15cadd71a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7142727188697703425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 117150395161187362, guid: b4f6df04273dfca4e9fb12314709fcc6, type: 3}

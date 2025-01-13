@@ -20,11 +20,11 @@ MonoBehaviour:
   baseRange: 2
   cooldown: 1
   duration: 0.7
-  level: 1
+  level: 5
   maxLevel: 5
   projectileCount: 1
   upgradeDescription: "\uB2E8\uC77C\uAE30 \uAC15\uD654"
-  skillSound: {fileID: 0}
+  skillSound: {fileID: 8300000, guid: 630e5fa516e144d43970b2153b9fccaf, type: 3}
   levelUpStats:
   - damage: 15
     cooldown: 4.5

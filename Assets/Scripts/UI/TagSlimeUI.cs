@@ -19,6 +19,7 @@ public class TagSlimeUI : UIBase
         GameManager.Instance.currentMaxExp = slimeData.MaxExp;
         GameManager.Instance.currentHealthSystem.health = slimeData.health;
         GameManager.Instance.Level = slimeData.level;
+        GameManager.Instance.currentExp = slimeData.CurrentExp;
     }
 
     public void OnTagDarkSlime()
@@ -76,5 +77,6 @@ public class TagSlimeUI : UIBase
         slimeData.level = GameManager.Instance.Level;
         slimeData.health = GameManager.Instance.currentHealthSystem.health;
         slimeData.MaxExp = GameManager.Instance.currentMaxExp;
+        slimeData.CurrentExp = GameManager.Instance.currentExp;
     }
 }
