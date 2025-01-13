@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
     private float timer;
     private float bossTimer;
     private float mimicTimer;
+    private float finalBossTimer;
 
     private int level;
 
@@ -19,6 +20,7 @@ public class Spawner : MonoBehaviour
         timer += Time.deltaTime;
         bossTimer += Time.deltaTime; // 보스 타이머
         mimicTimer += Time.deltaTime; // Mimic 타이머
+        finalBossTimer += Time.deltaTime;
 
         level = Mathf.FloorToInt(GameManager.Instance.gameTime / 30f); // 레벨 계산
 
@@ -41,6 +43,12 @@ public class Spawner : MonoBehaviour
         {
             SpawnMimic();
             mimicTimer = 0f;
+        }
+
+        if (finalBossTimer > 30 * 60f)
+        {
+            SpawnFinalBoss();
+            finalBossTimer = 0f;
         }
     }
 
@@ -69,5 +77,13 @@ public class Spawner : MonoBehaviour
 
         GameObject mimic = poolManager.GetNextMimicPrefab();
         mimic.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+    }
+
+    public void SpawnFinalBoss()
+    {
+        MonsterPoolManager poolManager = GameManager.Instance.monsterPool;
+
+        GameObject finalBoss = poolManager.GetNextFinalBossPrefab();
+        finalBoss.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
     }
 }
