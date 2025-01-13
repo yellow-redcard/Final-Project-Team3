@@ -44,12 +44,17 @@ public class Monster : MonoBehaviour
         //데미지 처리
         if (collision.TryGetComponent(out Slime slime))
         {
-            Debug.Log("슬라임 데미지");
-            slime.Damage();
-            //if ()
-            //{
-                    //slime.BossDamage();
-            //}
+            int bossLayer = LayerMask.NameToLayer("Boss"); // 보스 레이어 이름
+            if (collision.gameObject.layer == bossLayer)
+            {
+                slime.BossDamage();
+                Debug.Log("슬라임 보스데미지");
+            }
+            else
+            {
+                slime.Damage();
+                Debug.Log("슬라임 일반데미지");
+            }
         }
     }
 
