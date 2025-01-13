@@ -16,10 +16,10 @@ public class TagSlimeUI : UIBase
         }
         SaveSlimeSO();
         TagSlime(tagSlimeIndex);
-        GameManager.Instance.currentMaxExp = slimeData.MaxExp;
+        //GameManager.Instance.currentMaxExp = slimeData.MaxExp;
         GameManager.Instance.currentHealthSystem.health = slimeData.health;
-        GameManager.Instance.Level = slimeData.level;
-        GameManager.Instance.currentExp = slimeData.CurrentExp;
+        //GameManager.Instance.Level = slimeData.level;
+        //GameManager.Instance.currentExp = slimeData.CurrentExp;
     }
 
     public void OnTagDarkSlime()
@@ -74,9 +74,9 @@ public class TagSlimeUI : UIBase
 
     private void UpdateSlimeData(SlimeData slimeData)
     {
-        slimeData.level = GameManager.Instance.Level;
+        //slimeData.level = GameManager.Instance.Level;
         slimeData.health = GameManager.Instance.currentHealthSystem.health;
-        slimeData.MaxExp = GameManager.Instance.currentMaxExp;
-        slimeData.CurrentExp = GameManager.Instance.currentExp;
+        //slimeData.MaxExp = GameManager.Instance.currentMaxExp;
+        //slimeData.CurrentExp = GameManager.Instance.currentExp;
     }
 }

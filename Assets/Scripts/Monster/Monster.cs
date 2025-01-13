@@ -6,10 +6,10 @@ public class Monster : MonoBehaviour
     public int maxHp = 10; // 몬스터 최대 체력
     private int currentHp;
     public static event EventHandler OnMonsterDie;
-    [SerializeField] private ElementType monsterElementType;
+    [SerializeField] public ElementType monsterElementType;
     [SerializeField] private GameObject[] dropItems; // 드롭 아이템 배열 추가
     [SerializeField] private GameObject dropGold;
-    private ElementSystem elementSystem;
+    public ElementSystem elementSystem;
 
     private void Start()
     {
@@ -36,9 +36,7 @@ public class Monster : MonoBehaviour
             Skill skill = collision.GetComponent<Skill>();
             if (skill != null)
             {
-                float damage = skill.baseDamage;
-                elementSystem.DetermineOutcome(skill.currentElement, monsterElementType, ref damage); // 스킬과 몬스터의 속성 타입 비교
-                TakeDamage(damage);
+
             }
         }
         //데미지 처리
@@ -72,7 +70,6 @@ public class Monster : MonoBehaviour
         OnMonsterDie?.Invoke(this, EventArgs.Empty);
         GameManager.Instance.monsterKill += 1;
         // 파괴 효과 (필요 시)
-        Debug.Log("몬스터 사망");
         DropGold();
         DropItem();
         GameManager.Instance.monsterPool.ReturnToPool(gameObject, GetMonsterIndex());

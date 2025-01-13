@@ -96,7 +96,6 @@ public class SlimeManager : MonoBehaviour, IManager
 
         // 슬라임 속성 설정
         SetElementBySlime();
-        Debug.Log($"[InitializeSlime] 초기 슬라임 속성 설정: {GameManager.Instance.skillManager.currentElement}");
     }
     private void SetElementBySlime()
     {
@@ -113,7 +112,6 @@ public class SlimeManager : MonoBehaviour, IManager
         if (slimeBodyToElementMap.TryGetValue(bodyName, out ElementType element))
         {
             GameManager.Instance.skillManager.SetCurrentElement(element);
-            Debug.Log($"[SlimeManager] 슬라임 속성 설정: {element}");
         }
         else
         {
