@@ -3,6 +3,7 @@ using UnityEngine;
 public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     static T instance;
+    public bool isGameScene;
 
     public static T Instance
     {
@@ -31,6 +32,13 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(instance.transform.root.gameObject);
+        if (isGameScene)
+        {
+            return;
+        }
+        else
+        {
+            DontDestroyOnLoad(instance.transform.root.gameObject);
+        }
     }
 }
