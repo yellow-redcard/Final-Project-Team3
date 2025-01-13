@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c33ea4aae0dac4f9969e32b1ef76c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 464af53a445801844b1a2b67ff3b3a26, type: 2}
 --- !u!4 &1769286110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4121076861802647501, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}

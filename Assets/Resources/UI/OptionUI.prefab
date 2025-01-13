@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3940531139034001254}
   - component: {fileID: 8245482255202534318}
   m_Layer: 5
-  m_Name: Effect sound
+  m_Name: EffectSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +124,7 @@ RectTransform:
   - {fileID: 3940531139034001254}
   - {fileID: 1528036040271113085}
   - {fileID: 7612615722800910252}
+  - {fileID: 5451580896773536344}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -725,6 +726,54 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3204135157011779441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5451580896773536344}
+  - component: {fileID: 4546488524143216049}
+  m_Layer: 0
+  m_Name: VolumeSliderController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5451580896773536344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204135157011779441}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -64.58972, y: 21.83258, z: 5.9792547}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3113772561640429306}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4546488524143216049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204135157011779441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a87ea26687fb744b9418e1f4989abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
+  masterSlider: {fileID: 6151662678808938616}
+  effectsSlider: {fileID: 8245482255202534318}
+  bgmSlider: {fileID: 3608335305858659867}
 --- !u!1 &4346032002358297447
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +1007,7 @@ GameObject:
   - component: {fileID: 9140806788898495828}
   - component: {fileID: 6151662678808938616}
   m_Layer: 5
-  m_Name: MainSound
+  m_Name: MasterSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,7 +1269,7 @@ GameObject:
   - component: {fileID: 1528036040271113085}
   - component: {fileID: 3608335305858659867}
   m_Layer: 5
-  m_Name: Background sound
+  m_Name: BGMSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
