@@ -21,12 +21,16 @@ public class SkillManager : MonoBehaviour, IManager
     public List<GameObject> skillPrefabs;
     private List<Skill> skills;  // 'skills' 리스트 선언
 
+    public List<SkillData> allSkills;  // 모든 스킬 데이터 목록 (SkillData 배열을 연결)
     public SkillDatabase skillDatabase;
     private bool isFiring = false;
 
+    private const string SKILL_LEVEL_PREFIX = "SkillLevel_";
     public void init()
     {
         skillPrefabIndices = new Dictionary<ElementType, Dictionary<SkillType, int>>();
+
+        ResetSkillLevels();
 
         foreach (SkillType skillType in System.Enum.GetValues(typeof(SkillType)))
         {
@@ -222,6 +226,7 @@ public class SkillManager : MonoBehaviour, IManager
         {
             unlockedSkills.Add(skillType);
             skillLevels[skillType] = 1; // 기본 레벨
+            PlayerPrefs.SetInt(SKILL_LEVEL_PREFIX + skillType.ToString(), 1); // PlayerPrefs에 저장
         }
     }
 
@@ -259,6 +264,7 @@ public class SkillManager : MonoBehaviour, IManager
 
         // 레벨 업
         skillLevels[skillType]++;
+        PlayerPrefs.SetInt(SKILL_LEVEL_PREFIX + skillType.ToString(), skillLevels[skillType]); // PlayerPrefs에 레벨 저장
     }
     public List<SkillData> GetLevelUpOptions()
     {
@@ -337,6 +343,20 @@ public class SkillManager : MonoBehaviour, IManager
                 skill.skillData.level = 0; // 레벨 초기화
                 skill.skillData.upgradeDescription = ""; // 업그레이드 설명 초기화 (선택 사항)
             }
+        }
+    }
+    private void ResetSkillLevels()
+    {
+        // 게임 시작 시 스킬 레벨을 1로 초기화 (SkillData의 level 값 초기화)
+        foreach (var skill in allSkills)
+        {
+            skill.level = 1; // 모든 스킬의 level을 1로 설정
+        }
+
+        // PlayerPrefs에 스킬 레벨 초기화
+        foreach (var skillType in skillLevels.Keys)
+        {
+            PlayerPrefs.SetInt(SKILL_LEVEL_PREFIX + skillType.ToString(), 1); // PlayerPrefs에서 레벨 초기화
         }
     }
 
