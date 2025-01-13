@@ -514,7 +514,7 @@ AnimationClip:
   - time: 1
     functionName: OnDeadComplete
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 3902346518666332834, guid: 41cdfe307a6796b4790e44adb75166a7, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
