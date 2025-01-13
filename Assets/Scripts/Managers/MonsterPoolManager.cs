@@ -221,7 +221,7 @@ public class MonsterPoolManager : MonoBehaviour, IManager
     private int GetEndIndexForLevel(int level)
     {
         // 레벨에 따른 끝 인덱스 정의
-        return Mathf.Clamp(level * 3 + 2, 0, prefabs.Length - 1); // 예: 레벨당 2개씩 활성화
+        return Mathf.Clamp((level + 1) * 3 - 1, 0, prefabs.Length - 1); // 예: 레벨당 2개씩 활성화
     }
 }
 
