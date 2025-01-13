@@ -5,6 +5,11 @@ public class SlimeInputController : TopDownController
 {
     public Animator moveAnimator;
     public int AnimationIndex;
+    private Slime slime;
+    private void Start()
+    {
+        slime = GetComponent<Slime>();
+    }
     private void Update()
     {
         AnimationIndex = GameManager.Instance.slimeManager.currentIndex;
@@ -18,26 +23,29 @@ public class SlimeInputController : TopDownController
     }
     private void MoveAnimation(InputValue value)
     {
-        Vector2 move = value.Get<Vector2>();
-        if (move.x > 0)
+        if(slime.isDead == false)
         {
-            moveAnimator.Play("MoveRight");
-        }
-        else if (move.x < 0)
-        {
-            moveAnimator.Play("MoveLeft");
-        }
-        else if (move.y > 0)
-        {
-            moveAnimator.Play("MoveUp");
-        }
-        else if (move.y < 0)
-        {
-            moveAnimator.Play("MoveDown");
-        }
-        else
-        {
-            moveAnimator.Play("Idle");
+            Vector2 move = value.Get<Vector2>();
+            if (move.x > 0)
+            {
+                moveAnimator.Play("MoveRight");
+            }
+            else if (move.x < 0)
+            {
+                moveAnimator.Play("MoveLeft");
+            }
+            else if (move.y > 0)
+            {
+                moveAnimator.Play("MoveUp");
+            }
+            else if (move.y < 0)
+            {
+                moveAnimator.Play("MoveDown");
+            }
+            else
+            {
+                moveAnimator.Play("Idle");
+            }
         }
     }
 }

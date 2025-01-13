@@ -8,6 +8,7 @@ public class Slime : MonoBehaviour, IHealth
     private HealthSystem healthSystem;
     private int AnimationIndex;
     public Animator deadAnimator;
+    public bool isDead;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class Slime : MonoBehaviour, IHealth
     }
     void OnDead()
     {
+        isDead = true;
         AnimationIndex = GameManager.Instance.slimeManager.currentIndex;
         deadAnimator = GameManager.Instance.slimeManager.slimeBodies[AnimationIndex].GetComponent<Animator>();
         OnDeadComplete();
