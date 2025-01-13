@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiger Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3393446993597103771, guid: e031565d9a5a1f1479cd8d5331c35920, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3300963118170059965, guid: e031565d9a5a1f1479cd8d5331c35920, type: 3}
     - {fileID: 3889488268402976157, guid: e031565d9a5a1f1479cd8d5331c35920, type: 3}
@@ -237,6 +241,7 @@ MonoBehaviour:
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}
 --- !u!114 &-1686047795420228754
 MonoBehaviour:
   m_ObjectHideFlags: 0

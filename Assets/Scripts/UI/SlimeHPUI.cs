@@ -36,7 +36,6 @@ public class SlimeHPUI : UIBase
     private void UpdateHealthBar()
     {
         //GameManager.Instance.currentHealthSystem.SetHealth(GameManager.Instance.currentHealth);
-        GameManager.Instance.currentHealthSystem.health = GameManager.Instance.currentHealthSystem.health;
         GameManager.Instance.slimeManager.slimeDatas[GameManager.Instance.slimeManager.currentIndex].health = GameManager.Instance.currentHealthSystem.health;
     }
 }

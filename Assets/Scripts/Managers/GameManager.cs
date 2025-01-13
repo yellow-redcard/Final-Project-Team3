@@ -41,6 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
         uiManager.Show<LevelUI>();
         StartCoroutine(skillManager.AutoFireSkills());
         UpdatePlayer(player);
+        Slime slime = GameObject.FindObjectOfType<Slime>();
     }
 
 
@@ -57,6 +58,7 @@ public class GameManager : MonoSingleton<GameManager>
             Time.timeScale = 0f;
             GameManager.Instance.uiManager.Show<TagSlimeUI>();
         }
+        player.position = slimeManager.currentSlime.transform.position;
     }
     public void UpdatePlayer(Transform newPlayer)
     {

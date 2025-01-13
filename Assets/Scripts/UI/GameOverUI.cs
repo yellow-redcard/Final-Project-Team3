@@ -28,6 +28,7 @@ public class GameOverUI : UIBase
     }
     private void BackToMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("TitleScene");
     }
 

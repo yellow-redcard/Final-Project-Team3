@@ -34,15 +34,15 @@ public class Spawner : MonoBehaviour
             Debug.Log($"Level Up! Current Level: {level}");
         }
 
-        // 일반 몬스터 소환 30초 주기 소환
-        if (timer > 1f)
-        {
-            SpawnMonsters(level);
-            timer = 0f;
-        }
+        //// 일반 몬스터 소환 30초 주기 소환
+        //if (timer > 1f)
+        //{
+        //    SpawnMonsters(level);
+        //    timer = 0f;
+        //}
 
         // 보스 몬스터 1분(60초) 주기 소환
-        if (bossTimer > 60f)
+        if (bossTimer > 10f)
         {
             SpawnBoss();
             bossTimer = 0f;

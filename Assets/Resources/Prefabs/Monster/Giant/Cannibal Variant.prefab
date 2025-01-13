@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannibal Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: e929733112a256249a575ed7ae32b6d7, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: e929733112a256249a575ed7ae32b6d7, type: 3}
     - {fileID: 3028706453810577491, guid: e929733112a256249a575ed7ae32b6d7, type: 3}
@@ -93,6 +97,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: e929733112a256249a575ed7ae32b6d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2348778103874097737}
+    - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: e929733112a256249a575ed7ae32b6d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5862428095886318577}
   m_SourcePrefab: {fileID: 100100000, guid: e929733112a256249a575ed7ae32b6d7, type: 3}
 --- !u!4 &2642834694561724108 stripped
 Transform:
@@ -250,6 +257,7 @@ MonoBehaviour:
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}
 --- !u!114 &-2348778103874097737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,3 +270,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e131ca64447a67d458a8c15cadd71a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5862428095886318577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642834694561724109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece80574258866e4094399fcab55e8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  chargeSpeed: 10
+  chargeDistance: 5
+  cooldownTime: 7

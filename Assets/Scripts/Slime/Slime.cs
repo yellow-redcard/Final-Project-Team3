@@ -10,7 +10,7 @@ public class Slime : MonoBehaviour, IHealth
     public Animator deadAnimator;
     public bool isDead;
 
-    private void Start()
+    private void Awake()
     {
         healthSystem = gameObject.GetComponent<HealthSystem>();
         healthSystem.Initialize(healthMax);
@@ -30,9 +30,13 @@ public class Slime : MonoBehaviour, IHealth
     {
         healthSystem.Damage(50);
     }
-    void OnDead()
+    public void CheckDead()
     {
         isDead = true;
+    }
+    void OnDead()
+    {
+        CheckDead();
         AnimationIndex = GameManager.Instance.slimeManager.currentIndex;
         deadAnimator = GameManager.Instance.slimeManager.slimeBodies[AnimationIndex].GetComponent<Animator>();
         OnDeadComplete();
