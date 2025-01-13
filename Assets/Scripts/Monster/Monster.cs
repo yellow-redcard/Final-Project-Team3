@@ -3,28 +3,29 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    public int maxHp = 10; // 몬스터 최대 체력
     private int currentHp;
     public static event EventHandler OnMonsterDie;
     [SerializeField] public ElementType monsterElementType;
     [SerializeField] private GameObject[] dropItems; // 드롭 아이템 배열 추가
     [SerializeField] private GameObject dropGold;
     public ElementSystem elementSystem;
+    private CharacterStatsHandler characterStatsHandler;
 
     private void Start()
     {
         monsterElementType = (ElementType)UnityEngine.Random.Range(1, System.Enum.GetValues(typeof(ElementType)).Length);
         elementSystem = gameObject.AddComponent<ElementSystem>();
+        characterStatsHandler = GetComponent<CharacterStatsHandler>();
     }
 
     private void OnEnable()
     {
-        currentHp = maxHp; // 활성화 시 체력 초기화
+        currentHp = characterStatsHandler.CurrentStat.maxHealth; // 활성화 시 체력 초기화
     }
 
     public void Initialize()
     {
-        currentHp = maxHp;
+        currentHp = characterStatsHandler.CurrentStat.maxHealth;
         // 필요하면 추가적인 초기화 코드 작성
     }
 
