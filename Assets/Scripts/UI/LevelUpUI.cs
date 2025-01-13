@@ -17,38 +17,45 @@ public class LevelUpUI : UIBase
         // 업그레이드 가능한 스킬만 사용
         allSkills = upgradableSkills.OrderBy(x => Random.value).ToList(); // 랜덤 순서로 정렬
 
-        for (int i = 0; i < skillButtons.Length; i++)
+        if (allSkills.Count == 0)
         {
-            // 모든 이전 이벤트 리스너 제거
-            skillButtons[i].onClick.RemoveAllListeners();
+            // 모든 스킬이 최대 레벨인 경우
+            levelUpText.text = "모든 스킬이 최대로 강화되었습니다!";
+            return; // 더 이상 버튼을 설정하지 않음
+        }
 
-            if (i < allSkills.Count)
+        // 버튼 개수에 맞게 모든 버튼을 설정
+        int buttonCount = Mathf.Min(skillButtons.Length, allSkills.Count); // 최대 버튼 수와 스킬 수에 맞춰 설정
+
+        for (int i = 0; i < buttonCount; i++)
+        {
+            SkillData skillData = allSkills[i];
+
+            // 스킬 이름과 레벨 정보를 버튼 텍스트에 표시
+            string buttonText = $"{skillData.skillName}\nLv {skillData.level}/{skillData.maxLevel}";
+            var buttonTextComponent = skillButtons[i].GetComponentInChildren<Text>();
+
+            if (buttonTextComponent != null)
             {
-                SkillData skillData = allSkills[i];
-
-                // 스킬 이름과 레벨 정보를 버튼 텍스트에 표시
-                string buttonText = $"{skillData.skillName}\nLv {skillData.level}/{skillData.maxLevel}";
-                var buttonTextComponent = skillButtons[i].GetComponentInChildren<Text>();
-
-                if (buttonTextComponent != null)
-                {
-                    buttonTextComponent.text = buttonText;
-                }
-
-                // 버튼 클릭 이벤트 등록
-                skillButtons[i].onClick.AddListener(() =>
-                {
-                    OnSkillSelected(skillData); // 스킬 처리
-                    CloseUI(); // UI 닫기
-                });
-
-                // 버튼 활성화
-                skillButtons[i].gameObject.SetActive(true);
+                buttonTextComponent.text = buttonText;
             }
-            else
+
+            // 버튼 클릭 이벤트 등록
+            skillButtons[i].onClick.RemoveAllListeners(); // 이전 이벤트 리스너 제거
+            skillButtons[i].onClick.AddListener(() =>
             {
-                skillButtons[i].gameObject.SetActive(false); // 스킬 데이터가 없으면 버튼 비활성화
-            }
+                OnSkillSelected(skillData); // 스킬 처리
+                CloseUI(); // UI 닫기
+            });
+
+            // 버튼 활성화
+            skillButtons[i].gameObject.SetActive(true);
+        }
+
+        // 남은 버튼들은 비활성화
+        for (int i = buttonCount; i < skillButtons.Length; i++)
+        {
+            skillButtons[i].gameObject.SetActive(false);
         }
     }
     /// <summary>
