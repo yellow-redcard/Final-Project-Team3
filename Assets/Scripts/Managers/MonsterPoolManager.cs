@@ -8,14 +8,17 @@ public class MonsterPoolManager : MonoBehaviour, IManager
     public GameObject[] prefabs;
     public GameObject[] bossPrefabs;
     public GameObject[] mimicPrefabs;
+    public GameObject[] finalBossPrefabs;
 
     List<GameObject>[] bossPools;
     List<GameObject>[] pools;
     List<GameObject>[] mimicPools;
+    List<GameObject>[] finalBossPools;
 
     private int currentPrefabIndex = 0;
     private int currentBossIndex = 0;
     private int currentMimicIndex = 0;
+    private int currentFinalBossIndex = 0;
 
     public GameObject Get(int index)
     {
@@ -88,6 +91,30 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         return select;
     }
 
+    public GameObject GetFinalBoss(int index)
+    {
+        GameObject select = null;
+
+        // 비활성화된 보스 몬스터 찾기
+        foreach (GameObject item in finalBossPools[index])
+        {
+            if (!item.activeSelf)
+            {
+                select = item;
+                select.SetActive(true);
+                break;
+            }
+        }
+
+        if (select == null)
+        {
+            select = Instantiate(finalBossPrefabs[index], transform);
+            finalBossPools[index].Add(select);
+        }
+
+        return select;
+    }
+
     private void Awake()
     {
         pools = new List<GameObject>[prefabs.Length]; // 풀과 프리팹의 길이 동일하게
@@ -98,7 +125,7 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         }
 
         bossPools = new List<GameObject>[bossPrefabs.Length];
-        for (int i = 0; i < bossPrefabs.Length; i++)
+        for (int i = 0; i < bossPools.Length; i++)
         {
             bossPools[i] = new List<GameObject>(); // 각 보스 풀 리스트 생성
         }
@@ -107,6 +134,12 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         for (int i = 0; i < mimicPools.Length; i++)
         {
             mimicPools[i] = new List<GameObject>();
+        }
+
+        finalBossPools = new List<GameObject>[finalBossPrefabs.Length];
+        for (int i = 0; i < finalBossPools.Length; i++)
+        {
+            finalBossPools[i] = new List<GameObject>();
         }
     }
 
@@ -136,6 +169,13 @@ public class MonsterPoolManager : MonoBehaviour, IManager
         int index = currentMimicIndex;
         currentMimicIndex = (currentMimicIndex + 1) % mimicPrefabs.Length;
         return GetMimic(index);
+    }
+
+    public GameObject GetNextFinalBossPrefab()
+    {
+        int index = currentFinalBossIndex;
+        currentFinalBossIndex = (currentFinalBossIndex + 1) % finalBossPrefabs.Length;
+        return GetFinalBoss(index);
     }
 
     public void init()

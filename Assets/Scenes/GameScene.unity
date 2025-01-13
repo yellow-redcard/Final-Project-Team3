@@ -821,6 +821,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5622273613721806263, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
+      propertyPath: isGameScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8145768516793066664, guid: 27ac5cefc38afb2499cc76d96dc81853, type: 3}
       propertyPath: levelUpUIPrefab
       value: 

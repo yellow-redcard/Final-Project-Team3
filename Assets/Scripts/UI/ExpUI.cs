@@ -8,7 +8,7 @@ public class ExpUI : UIBase
 {
     [SerializeField] private Slider expBar;
     private float _exp;
-    private float maxExp = 100f;
+    private float maxExp;
     private float monsterExp = 40f;
 
     public float curExp
@@ -18,13 +18,15 @@ public class ExpUI : UIBase
     }
     private void Start()
     {
+        SetExp();
         GameManager.Instance.currentMaxExp = maxExp;
-        expBar.value = 0;
+        GameManager.Instance.currentExp = curExp;
     }
 
     void Update()
     {
         maxExp = GameManager.Instance.currentMaxExp;
+        curExp = GameManager.Instance.currentExp;
         if (curExp >= maxExp)
         {
             SetLevelUpExp();
@@ -35,6 +37,7 @@ public class ExpUI : UIBase
     public void SetExp()
     {
         curExp = 0f;
+        maxExp = 100f;
     }
 
     public void SetLevelUpExp()
@@ -71,5 +74,6 @@ public class ExpUI : UIBase
     {
         Debug.Log("Gain");
         curExp += amount;
+        GameManager.Instance.currentExp = curExp;
     }
 }

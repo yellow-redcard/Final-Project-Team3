@@ -86,6 +86,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1423470163212545534, guid: f79cf179388609c4cb9eda26e18803d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2073474398636593460}
+    - targetCorrespondingSourceObject: {fileID: 1423470163212545534, guid: f79cf179388609c4cb9eda26e18803d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 72120525749145731}
   m_SourcePrefab: {fileID: 100100000, guid: f79cf179388609c4cb9eda26e18803d3, type: 3}
 --- !u!1 &6236453278175281789 stripped
 GameObject:
@@ -207,7 +210,7 @@ MonoBehaviour:
   baseStat:
     statsChangeType: 2
     maxHealth: 3
-    speed: 300
+    speed: 100
     attackSO: {fileID: 11400000, guid: 16b0b9ca5f3bb304d82577bb4fbe4386, type: 2}
   statModifiers: []
 --- !u!114 &-4129910430411917310
@@ -237,6 +240,19 @@ MonoBehaviour:
   maxHp: 10
   monsterElementType: 0
   dropItems: []
+  dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+--- !u!114 &72120525749145731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236453278175281789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e131ca64447a67d458a8c15cadd71a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7329850629239223468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2374989008031308591, guid: f79cf179388609c4cb9eda26e18803d3, type: 3}
