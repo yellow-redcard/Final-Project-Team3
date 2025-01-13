@@ -8,6 +8,7 @@ public class Slime : MonoBehaviour, IHealth
     private HealthSystem healthSystem;
     private int AnimationIndex;
     public Animator deadAnimator;
+    public bool isDead;
 
     private void Start()
     {
@@ -31,21 +32,25 @@ public class Slime : MonoBehaviour, IHealth
     }
     void OnDead()
     {
+        isDead = true;
         AnimationIndex = GameManager.Instance.slimeManager.currentIndex;
         deadAnimator = GameManager.Instance.slimeManager.slimeBodies[AnimationIndex].GetComponent<Animator>();
-        StartCoroutine(OnDeadComplete());
+        OnDeadComplete();
     }
-    private IEnumerator OnDeadComplete()
+    private IEnumerator OnDeadCoroutine()
     {
         deadAnimator.Play("Dead");
         yield return new WaitForSeconds(deadAnimator.GetCurrentAnimatorStateInfo(0).length);
         Time.timeScale = 0f;
-        //GameManager.Instance.uiManager.CloseUI();
         Destroy(gameObject);
+        //GameManager.Instance.uiManager.CloseUI();
         GameManager.Instance.uiManager.Show<GameOverUI>();
         //scene 전환
     }
-   
+    public void OnDeadComplete()
+    {
+        StartCoroutine(OnDeadCoroutine());
+    }
     public HealthSystem GetHealthSystem()
     {
         return healthSystem;
