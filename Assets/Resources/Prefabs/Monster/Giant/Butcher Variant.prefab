@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Butcher Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: 882efb70f3ba0194cad0695302ae5810, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: 882efb70f3ba0194cad0695302ae5810, type: 3}
     - {fileID: 3028706453810577491, guid: 882efb70f3ba0194cad0695302ae5810, type: 3}
@@ -249,10 +253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b73872f3f11d14cb031f30843e664e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 200
+  maxHp: 30
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}
 --- !u!114 &8835946182258120082
 MonoBehaviour:
   m_ObjectHideFlags: 0

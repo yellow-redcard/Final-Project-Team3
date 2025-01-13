@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeatBug Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5771025906570419322, guid: 619586f8135ac564a84506d20ca18a8c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5684636669627360493, guid: 619586f8135ac564a84506d20ca18a8c, type: 3}
     - {fileID: 4170462454433883350, guid: 619586f8135ac564a84506d20ca18a8c, type: 3}
@@ -242,6 +246,7 @@ MonoBehaviour:
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}
 --- !u!114 &2723619179555464468
 MonoBehaviour:
   m_ObjectHideFlags: 0

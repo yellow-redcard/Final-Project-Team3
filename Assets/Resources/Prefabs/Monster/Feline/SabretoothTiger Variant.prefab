@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SabretoothTiger Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3393446993597103771, guid: 88c1f3a6887070b44a43dda5ed7399b9, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3300963118170059965, guid: 88c1f3a6887070b44a43dda5ed7399b9, type: 3}
     - {fileID: 3889488268402976157, guid: 88c1f3a6887070b44a43dda5ed7399b9, type: 3}
@@ -237,6 +241,7 @@ MonoBehaviour:
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}
 --- !u!114 &4711230994554731978
 MonoBehaviour:
   m_ObjectHideFlags: 0

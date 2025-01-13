@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dreadnought Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: dec989f69a977904190b28c5301c2055, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: dec989f69a977904190b28c5301c2055, type: 3}
     - {fileID: 3028706453810577491, guid: dec989f69a977904190b28c5301c2055, type: 3}
@@ -94,6 +98,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: dec989f69a977904190b28c5301c2055, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7088183660896167092}
+    - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: dec989f69a977904190b28c5301c2055, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3911945151819599717}
   m_SourcePrefab: {fileID: 100100000, guid: dec989f69a977904190b28c5301c2055, type: 3}
 --- !u!1 &8720162582216451764 stripped
 GameObject:
@@ -242,10 +249,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b73872f3f11d14cb031f30843e664e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 200
+  maxHp: 50
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}
 --- !u!114 &7088183660896167092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +266,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e131ca64447a67d458a8c15cadd71a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3911945151819599717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8720162582216451764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece80574258866e4094399fcab55e8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  chargeSpeed: 10
+  chargeDistance: 5
+  cooldownTime: 7
 --- !u!4 &8720162582216451765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 117150395161187362, guid: dec989f69a977904190b28c5301c2055, type: 3}

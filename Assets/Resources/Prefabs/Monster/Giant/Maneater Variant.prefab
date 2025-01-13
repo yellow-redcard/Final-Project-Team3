@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Maneater Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: a62b250ac02770349b6765791549fbcf, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: a62b250ac02770349b6765791549fbcf, type: 3}
     - {fileID: 3028706453810577491, guid: a62b250ac02770349b6765791549fbcf, type: 3}
@@ -93,6 +97,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: a62b250ac02770349b6765791549fbcf, type: 3}
       insertIndex: -1
       addedObject: {fileID: -5659531936480429784}
+    - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: a62b250ac02770349b6765791549fbcf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3949650081909309253}
   m_SourcePrefab: {fileID: 100100000, guid: a62b250ac02770349b6765791549fbcf, type: 3}
 --- !u!1 &2735150266107409568 stripped
 GameObject:
@@ -241,10 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b73872f3f11d14cb031f30843e664e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 200
+  maxHp: 70
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}
 --- !u!114 &-5659531936480429784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +265,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e131ca64447a67d458a8c15cadd71a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3949650081909309253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2735150266107409568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece80574258866e4094399fcab55e8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  chargeSpeed: 10
+  chargeDistance: 5
+  cooldownTime: 7
 --- !u!4 &2735150266107409569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 117150395161187362, guid: a62b250ac02770349b6765791549fbcf, type: 3}

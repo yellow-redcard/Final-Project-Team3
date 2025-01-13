@@ -23,6 +23,7 @@ public class GameManager : MonoSingleton<GameManager>
     public float currentExp { get; set; }
     public Transform player { get; set; }
     [SerializeField] private string playerTag = "Player";
+    public Slime slime;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class GameManager : MonoSingleton<GameManager>
         uiManager.Show<LevelUI>();
         StartCoroutine(skillManager.AutoFireSkills());
         UpdatePlayer(player);
+        
     }
 
 
@@ -57,6 +59,14 @@ public class GameManager : MonoSingleton<GameManager>
             Time.timeScale = 0f;
             GameManager.Instance.uiManager.Show<TagSlimeUI>();
         }
+        if (slimeManager.currentSlime != null)
+        {
+            SetPlayerPosition();
+        }
+    }
+    void SetPlayerPosition()
+    {
+        player.position = slimeManager.currentSlime.transform.position;
     }
     public void UpdatePlayer(Transform newPlayer)
     {

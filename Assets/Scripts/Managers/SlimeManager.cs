@@ -27,6 +27,7 @@ public class SlimeManager : MonoBehaviour, IManager
     public void init()
     {
         currentSlime = Instantiate(slime, new Vector3(), Quaternion.identity);
+        currentSlime.name = slime.name;
         Transform slimeBodiesTransform = currentSlime.transform.Find("SlimeBodies");
         if (slimeBodiesTransform != null)
         {

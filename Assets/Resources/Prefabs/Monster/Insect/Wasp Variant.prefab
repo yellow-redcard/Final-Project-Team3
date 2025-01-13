@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wasp Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5923401707093281111, guid: a19d67483ac7cc342a3f73356bf26a0c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7901925505112223870, guid: a19d67483ac7cc342a3f73356bf26a0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -237,6 +241,7 @@ MonoBehaviour:
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}
 --- !u!114 &-5970651655375921754
 MonoBehaviour:
   m_ObjectHideFlags: 0

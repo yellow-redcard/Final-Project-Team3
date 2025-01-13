@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pony Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 117150395161187363, guid: b4673b278c49c434dbdaf5783405a4c9, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250127699055009285, guid: b4673b278c49c434dbdaf5783405a4c9, type: 3}
     - {fileID: 3028706453810577491, guid: b4673b278c49c434dbdaf5783405a4c9, type: 3}
@@ -237,6 +241,7 @@ MonoBehaviour:
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}
 --- !u!114 &7954129874351391921
 MonoBehaviour:
   m_ObjectHideFlags: 0
