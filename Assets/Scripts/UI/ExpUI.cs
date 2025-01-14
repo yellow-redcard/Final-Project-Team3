@@ -37,7 +37,7 @@ public class ExpUI : UIBase
     public void SetExp()
     {
         curExp = 0f;
-        maxExp = 100f;
+        maxExp = 200f;
     }
 
     public void SetLevelUpExp()

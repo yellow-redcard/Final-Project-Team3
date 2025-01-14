@@ -15,6 +15,7 @@ MonoBehaviour:
   skillName: "\uBB3C \uAD11\uC5ED\uAE30(\uC6D0\uBFD4)"
   skillType: 1
   element: 4
+  index: 0
   baseDamage: 5
   baseRange: 5
   cooldown: 8
@@ -23,24 +24,25 @@ MonoBehaviour:
   maxLevel: 5
   projectileCount: 1
   upgradeDescription: "\uC6D0 \uAD11\uC5ED\uAE30 \uAC15\uD654"
+  skillSound: {fileID: 0}
   levelUpStats:
   - damage: 10
-    cooldown: 7.5
+    cooldown: 10
     range: 3
     projectileCount: 1
   - damage: 15
-    cooldown: 6.7
+    cooldown: 8.5
     range: 4
     projectileCount: 1
   - damage: 20
-    cooldown: 6.1
+    cooldown: 7
     range: 5
     projectileCount: 1
   - damage: 25
-    cooldown: 5.4
+    cooldown: 5.5
     range: 6
     projectileCount: 1
   - damage: 30
-    cooldown: 4.5
+    cooldown: 4
     range: 7
     projectileCount: 1
