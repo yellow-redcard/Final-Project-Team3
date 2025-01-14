@@ -39,10 +39,10 @@ MonoBehaviour:
     range: 3
     projectileCount: 1
   - damage: 25
-    cooldown: 8
+    cooldown: 9
     range: 3
     projectileCount: 1
   - damage: 30
-    cooldown: 9
+    cooldown: 7
     range: 4
     projectileCount: 1

@@ -27,14 +27,14 @@ public class Spawner : MonoBehaviour
         levelTimer += Time.deltaTime;
 
         // 30초마다 레벨 증가
-        if (levelTimer >= 30f)
+        if (levelTimer >= 25f)
         {
             level++; // 레벨 증가
             levelTimer = 0f; // 타이머 초기화
             Debug.Log($"Level Up! Current Level: {level}");
         }
 
-        // 일반 몬스터 소환 30초 주기 소환
+        // 일반 몬스터 소환 25초 주기 소환
         if (timer > 1f)
         {
             SpawnMonsters(level);
