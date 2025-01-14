@@ -20,6 +20,8 @@ public class GameOverUI : UIBase
     }
     private void Retry()
     {
+        GameManager.Instance.skillManager.ResetSkillLevels();
+
         GameManager.Instance.uiManager.Hide<GameOverUI>();
 
         Time.timeScale = 1.0f;

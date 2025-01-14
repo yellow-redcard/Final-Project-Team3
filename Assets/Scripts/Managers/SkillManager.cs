@@ -334,18 +334,8 @@ public class SkillManager : MonoBehaviour, IManager
         // 현재 해금된 스킬 목록을 반환
         return new HashSet<SkillType>(unlockedSkills);
     }
-    public void ResetSkills()
-    {
-        foreach (var skill in skills)
-        {
-            if (skill != null && skill.skillData != null)
-            {
-                skill.skillData.level = 0; // 레벨 초기화
-                skill.skillData.upgradeDescription = ""; // 업그레이드 설명 초기화 (선택 사항)
-            }
-        }
-    }
-    private void ResetSkillLevels()
+
+    public void ResetSkillLevels()
     {
         // 게임 시작 시 스킬 레벨을 1로 초기화 (SkillData의 level 값 초기화)
         foreach (var skill in allSkills)
@@ -353,10 +343,11 @@ public class SkillManager : MonoBehaviour, IManager
             skill.level = 1; // 모든 스킬의 level을 1로 설정
         }
 
-        // PlayerPrefs에 스킬 레벨 초기화
-        foreach (var skillType in skillLevels.Keys)
+        foreach (var skill in allSkills)
         {
-            PlayerPrefs.SetInt(SKILL_LEVEL_PREFIX + skillType.ToString(), 1); // PlayerPrefs에서 레벨 초기화
+            skill.level = 1;
+            string key = SKILL_LEVEL_PREFIX + skill.skillType.ToString();
+            PlayerPrefs.SetInt(key, skill.level);
         }
     }
 
