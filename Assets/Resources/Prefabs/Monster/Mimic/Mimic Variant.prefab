@@ -17,6 +17,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6572022029344746394, guid: 2b05bf5a785c389449bbfc9dca2bbcd5, type: 3}
+      propertyPath: maxHp
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572022029344746394, guid: 2b05bf5a785c389449bbfc9dca2bbcd5, type: 3}
       propertyPath: dropGold
       value: 
       objectReference: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
