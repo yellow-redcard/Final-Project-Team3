@@ -76,7 +76,6 @@ public class GameManager : MonoSingleton<GameManager>
     public void UpdatePlayer(Transform newPlayer)
     {
         player = newPlayer;
-        Debug.Log($"[GameManager] 플레이어가 업데이트되었습니다: {newPlayer.name}");
         playerMovement = player.GetComponent<TopDownMovement>();
     }
     public void ShowLevelUpUI()

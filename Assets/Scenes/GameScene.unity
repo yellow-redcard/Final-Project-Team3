@@ -96635,7 +96635,6 @@ MonoBehaviour:
   - {fileID: 2615349128420628561, guid: 014d91561c5492742ad65e9eda23eb9f, type: 3}
   - {fileID: 7740762970564742327, guid: 236982b950049b54793c78632d7d9e68, type: 3}
   - {fileID: 3371171209663124616, guid: a54055a4dafbfb847bc6922bd90d3272, type: 3}
-  - {fileID: 7142727188697703424, guid: 8cb708da88b718049adc0a792ca05d57, type: 3}
   - {fileID: 3554704753098412387, guid: 90f1936ad3fe8a249ae8ce252752fabb, type: 3}
   - {fileID: 5092609141283999380, guid: 887c43a26599c344daa3060f62a6ae1e, type: 3}
   - {fileID: 1182652815742487536, guid: 82bbdea0dc72eaa43993f207c216ab7c, type: 3}
@@ -96696,7 +96695,8 @@ MonoBehaviour:
   - {fileID: 2991237692459010262, guid: 83ce41c01da607c448d13a83a9b29786, type: 3}
   mimicPrefabs:
   - {fileID: 3421344826863216810, guid: f83febc6bdb3d2747bc8b36ef4df39ea, type: 3}
-  finalBossPrefabs: []
+  finalBossPrefabs:
+  - {fileID: 7142727188697703424, guid: 8cb708da88b718049adc0a792ca05d57, type: 3}
 --- !u!4 &4121076861655093785
 Transform:
   m_ObjectHideFlags: 0

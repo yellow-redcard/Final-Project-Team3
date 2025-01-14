@@ -27,22 +27,22 @@ MonoBehaviour:
   skillSound: {fileID: 8300000, guid: fc11f505b615c7a45898e2300f92d6e6, type: 3}
   levelUpStats:
   - damage: 10
-    cooldown: 7.5
-    range: 6
+    cooldown: 10
+    range: 3
     projectileCount: 1
   - damage: 15
-    cooldown: 6.7
-    range: 7
+    cooldown: 8.5
+    range: 4
     projectileCount: 1
   - damage: 20
-    cooldown: 6.1
-    range: 8
+    cooldown: 7
+    range: 5
     projectileCount: 1
   - damage: 25
-    cooldown: 5.4
-    range: 9
+    cooldown: 5.5
+    range: 6
     projectileCount: 1
   - damage: 30
-    cooldown: 4.5
-    range: 10
+    cooldown: 4
+    range: 7
     projectileCount: 1

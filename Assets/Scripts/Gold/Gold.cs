@@ -19,7 +19,6 @@ public class Gold : MonoBehaviour
             Destroy(gameObject);
 
             // 디버그 메시지 출력 (테스트용)
-            Debug.Log("골드를 획득했습니다! 현재 골드: " + goldCount);
         }
     }
 }
