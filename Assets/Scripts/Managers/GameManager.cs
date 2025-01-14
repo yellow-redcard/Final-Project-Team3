@@ -59,6 +59,11 @@ public class GameManager : MonoSingleton<GameManager>
             Time.timeScale = 0f;
             GameManager.Instance.uiManager.Show<TagSlimeUI>();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0f;
+            GameManager.Instance.uiManager.Show<PauseUI>();
+        }
         if (slimeManager.currentSlime != null)
         {
             SetPlayerPosition();
