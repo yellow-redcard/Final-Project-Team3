@@ -14,12 +14,15 @@ public class Gold : MonoBehaviour
 
     // 골드가 빨려 들어가는 중인지 확인
     private bool isAttracting = false;
+    private float distanceToPlayer;
 
     void Update()
     {
-        // 플레이어와 골드 사이의 거리 계산
-        float distanceToPlayer = Vector3.Distance(transform.position, GameManager.Instance.player.position);
-
+        if (GameManager.Instance.slimeManager.currentSlime != null)
+        {
+            // 플레이어와 골드 사이의 거리 계산
+            distanceToPlayer = Vector3.Distance(transform.position, GameManager.Instance.player.position);
+        }
         // 플레이어가 일정 거리 내에 있으면 빨려 들어가도록 설정
         if (distanceToPlayer <= attractDistance)
         {
@@ -46,9 +49,6 @@ public class Gold : MonoBehaviour
     {
         // 골드 데이터 증가
         goldCount += 1;
-
-        // 디버그 메시지 출력
-        Debug.Log("골드를 획득했습니다! 현재 골드: " + goldCount);
 
         // 골드 오브젝트 제거
         Destroy(gameObject);

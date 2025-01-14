@@ -26,23 +26,23 @@ MonoBehaviour:
   upgradeDescription: "\uC7A5\uD310 \uAC15\uD654"
   skillSound: {fileID: 0}
   levelUpStats:
-  - damage: 10
+  - damage: 15
     cooldown: 15
     range: 2
     projectileCount: 1
-  - damage: 15
+  - damage: 20
     cooldown: 13
     range: 2
     projectileCount: 1
-  - damage: 20
+  - damage: 25
     cooldown: 11
     range: 3
     projectileCount: 1
-  - damage: 25
-    cooldown: 9
+  - damage: 30
+    cooldown: 8
     range: 3
     projectileCount: 1
-  - damage: 30
-    cooldown: 7
+  - damage: 35
+    cooldown: 5
     range: 4
     projectileCount: 1

@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: baseStat.speed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7212622397151506016, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
+      propertyPath: baseStat.maxHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7516070502677669983, guid: cf2c7328a3a9f7d40aa3ace693c80b3f, type: 3}
       propertyPath: m_BodyType
       value: 1
@@ -141,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b73872f3f11d14cb031f30843e664e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
+  elementSystem: {fileID: 0}

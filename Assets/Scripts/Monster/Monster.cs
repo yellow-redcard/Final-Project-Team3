@@ -16,11 +16,12 @@ public class Monster : MonoBehaviour
         monsterElementType = (ElementType)UnityEngine.Random.Range(1, System.Enum.GetValues(typeof(ElementType)).Length);
         elementSystem = gameObject.AddComponent<ElementSystem>();
         characterStatsHandler = GetComponent<CharacterStatsHandler>();
+        currentHp = characterStatsHandler.CurrentStat.maxHealth; // 활성화 시 체력 초기화
     }
 
     private void OnEnable()
     {
-        currentHp = characterStatsHandler.CurrentStat.maxHealth; // 활성화 시 체력 초기화
+        
     }
 
     public void Initialize()
@@ -47,12 +48,10 @@ public class Monster : MonoBehaviour
             if (collision.gameObject.layer == bossLayer)
             {
                 slime.BossDamage();
-                Debug.Log("슬라임 보스데미지");
             }
             else
             {
                 slime.Damage();
-                Debug.Log("슬라임 일반데미지");
             }
         }
     }

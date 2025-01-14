@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStat:
     statsChangeType: 2
-    maxHealth: 3
+    maxHealth: 350
     speed: 200
     attackSO: {fileID: 11400000, guid: b20a032c61b7f4c40a0db7eaa0607107, type: 2}
   statModifiers: []
@@ -248,7 +248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b73872f3f11d14cb031f30843e664e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 350
   monsterElementType: 0
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}

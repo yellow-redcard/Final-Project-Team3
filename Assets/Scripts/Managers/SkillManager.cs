@@ -89,11 +89,14 @@ public class SkillManager : MonoBehaviour, IManager
 
             foreach (SkillType skillType in unlockedSkills)
             {
-                if (skillCooldownTimers[skillType] <= 0)
+                if (GameManager.Instance.slimeManager.currentSlime != null)
                 {
-                    FireSkill(skillType, GameManager.Instance.player.position, enemies);
-                    ResetSkillCooldown(skillType);
-                }
+                    if (skillCooldownTimers[skillType] <= 0)
+                    {
+                        FireSkill(skillType, GameManager.Instance.player.position, enemies);
+                        ResetSkillCooldown(skillType);
+                    }
+                }    
             }
 
             UpdateCooldownTimers(); // 쿨다운 업데이트
