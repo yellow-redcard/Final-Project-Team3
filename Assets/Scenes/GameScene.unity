@@ -96762,6 +96762,7 @@ MonoBehaviour:
   monsterKill: 0
   currentHealthSystem: {fileID: 0}
   playerTag: Player
+  slime: {fileID: 0}
 --- !u!4 &5785195512905444050
 Transform:
   m_ObjectHideFlags: 0
@@ -96900,6 +96901,7 @@ MonoBehaviour:
   - {fileID: 3781213176879194232, guid: 57d013fe6e1176448a6bb4f18d907dab, type: 3}
   - {fileID: 5818661725725257430, guid: 66c612204cb52cd4c908aae29b6176f0, type: 3}
   - {fileID: 1829025158753739492, guid: 9aae5c9d9f1e0fc4baab9a7d7f10221d, type: 3}
+  allSkills: []
   skillDatabase: {fileID: 9092831098628084440}
 --- !u!1 &8573729211862048747
 GameObject:
