@@ -384,6 +384,10 @@ PrefabInstance:
       propertyPath: isGameScene
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7416378702630722659, guid: 1e12951d54650a342ac7d59801f680de, type: 3}
+      propertyPath: titleMonster
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -134,6 +134,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5923401707093281111, guid: 4b16dd11cac072d4a920f58a91f97e75, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6760304132464200882}
+    - targetCorrespondingSourceObject: {fileID: 5923401707093281111, guid: 4b16dd11cac072d4a920f58a91f97e75, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6551725747688639983}
   m_SourcePrefab: {fileID: 100100000, guid: 4b16dd11cac072d4a920f58a91f97e75, type: 3}
 --- !u!4 &887558418428968568 stripped
 Transform:
@@ -312,3 +315,15 @@ MonoBehaviour:
   dropItems: []
   dropGold: {fileID: 3040793808622594107, guid: 74d146bda67f13c43ac38c85030e0298, type: 3}
   elementSystem: {fileID: 0}
+--- !u!210 &-6551725747688639983
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3732460122420627281}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0

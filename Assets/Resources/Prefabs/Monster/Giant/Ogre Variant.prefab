@@ -100,6 +100,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: dce772e443df16443a5103f9fa7d1567, type: 3}
       insertIndex: -1
       addedObject: {fileID: -7756402208710833155}
+    - targetCorrespondingSourceObject: {fileID: 117150395161187363, guid: dce772e443df16443a5103f9fa7d1567, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3823285566960689794}
   m_SourcePrefab: {fileID: 100100000, guid: dce772e443df16443a5103f9fa7d1567, type: 3}
 --- !u!1 &6622743416272259216 stripped
 GameObject:
@@ -280,6 +283,18 @@ MonoBehaviour:
   chargeSpeed: 10
   chargeDistance: 5
   cooldownTime: 7
+--- !u!210 &3823285566960689794
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6622743416272259216}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!4 &6622743416272259217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 117150395161187362, guid: dce772e443df16443a5103f9fa7d1567, type: 3}
