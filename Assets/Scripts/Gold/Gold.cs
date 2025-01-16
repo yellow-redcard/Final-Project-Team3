@@ -33,9 +33,11 @@ public class Gold : MonoBehaviour
         if (isAttracting)
         {
             // 플레이어 방향으로 이동
-            Vector3 direction = (GameManager.Instance.player.position - transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
-
+            if (GameManager.Instance.slimeManager.currentSlime != null)
+            {
+                Vector3 direction = (GameManager.Instance.player.position - transform.position).normalized;
+                transform.position += direction * moveSpeed * Time.deltaTime;
+            }
             // 플레이어에 도달하면 골드 획득 처리
             if (distanceToPlayer <= 0.5f) // 0.5f는 도달했다고 간주하는 거리
             {

@@ -10,7 +10,7 @@ public class Monster : MonoBehaviour
     [SerializeField] private GameObject dropGold;
     public ElementSystem elementSystem;
     private CharacterStatsHandler characterStatsHandler;
-
+    public int spawnedLevel;
     private void Start()
     {
         monsterElementType = (ElementType)UnityEngine.Random.Range(1, System.Enum.GetValues(typeof(ElementType)).Length);
@@ -18,18 +18,14 @@ public class Monster : MonoBehaviour
         characterStatsHandler = GetComponent<CharacterStatsHandler>();
         currentHp = characterStatsHandler.CurrentStat.maxHealth; // 활성화 시 체력 초기화
     }
-
     private void OnEnable()
     {
-        
     }
-
     public void Initialize()
     {
         currentHp = characterStatsHandler.CurrentStat.maxHealth;
         // 필요하면 추가적인 초기화 코드 작성
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 스킬과 충돌 처리
@@ -38,7 +34,6 @@ public class Monster : MonoBehaviour
             Skill skill = collision.GetComponent<Skill>();
             if (skill != null)
             {
-
             }
         }
         //데미지 처리
@@ -55,7 +50,6 @@ public class Monster : MonoBehaviour
             }
         }
     }
-
     public void TakeDamage(float damage)
     {
         currentHp -= Mathf.FloorToInt(damage);
@@ -64,7 +58,6 @@ public class Monster : MonoBehaviour
             Die();
         }
     }
-
     public void Die()
     {
         OnMonsterDie?.Invoke(this, EventArgs.Empty);
@@ -73,9 +66,7 @@ public class Monster : MonoBehaviour
         DropGold();
         DropItem();
         GameManager.Instance.monsterPool.ReturnToPool(gameObject, GetMonsterIndex());
-
     }
-
     private void DropItem()
     {
         if (CompareTag("Mimic"))
@@ -84,13 +75,11 @@ public class Monster : MonoBehaviour
             {
                 // 랜덤 아이템 선택
                 GameObject drop = dropItems[UnityEngine.Random.Range(0, dropItems.Length)];
-
                 // 드롭 아이템 인스턴스 생성
                 Instantiate(drop, transform.position, Quaternion.identity); // 현재 위치에 드롭
             }
         }
     }
-
     private int GetMonsterIndex()
     {
         for (int i = 0; i < GameManager.Instance.monsterPool.prefabs.Length; i++)
@@ -102,7 +91,6 @@ public class Monster : MonoBehaviour
         }
         return 0; // 기본값 반환
     }
-
     private void DropGold()
     {
         Instantiate(dropGold, transform.position, Quaternion.identity);

@@ -1193,6 +1193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: []
+  maxNormalAndMimicCount: 100
 --- !u!1 &6932537185560696956
 GameObject:
   m_ObjectHideFlags: 0
